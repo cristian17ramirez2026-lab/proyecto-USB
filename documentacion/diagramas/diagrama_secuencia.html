@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Diagramas de Secuencia - InventPro</title>
+<style>
+body{font-family:'Segoe UI',sans-serif;background:#fff;padding:40px;margin:0}
+h1{text-align:center;font-size:18pt;color:#1a3c5e;margin-bottom:10px}
+h2{text-align:center;font-size:13pt;color:#2a5f8f;margin:30px 0 15px}
+svg{display:block;margin:0 auto}
+.actor-box{fill:#e8f4fd;stroke:#2a5f8f;stroke-width:2;rx:4}
+.actor-label{font-size:11px;fill:#1a3c5e;text-anchor:middle;font-weight:bold}
+.lifeline{stroke:#bbb;stroke-width:1;stroke-dasharray:4,3}
+.msg{stroke:#2a5f8f;stroke-width:1.5;marker-end:url(#arr)}
+.msg-ret{stroke:#999;stroke-width:1;stroke-dasharray:4,3;marker-end:url(#arr2)}
+.msg-text{font-size:9px;fill:#333}
+.activation{fill:#d4e8f7;stroke:#2a5f8f;stroke-width:1}
+.note{fill:#fffde7;stroke:#e0c040;stroke-width:1;rx:3}
+.note-text{font-size:8px;fill:#666}
+</style>
+</head>
+<body>
+<h1>Diagramas de Secuencia — InventPro</h1>
+
+<h2>Secuencia 1: Inicio de Sesion</h2>
+<svg width="750" height="420" viewBox="0 0 750 420">
+<defs>
+<marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#2a5f8f"/></marker>
+<marker id="arr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#999"/></marker>
+</defs>
+<!-- Actores -->
+<rect x="50" y="10" width="100" height="30" class="actor-box"/><text x="100" y="30" class="actor-label">Usuario</text>
+<rect x="220" y="10" width="100" height="30" class="actor-box"/><text x="270" y="30" class="actor-label">Landing Page</text>
+<rect x="390" y="10" width="100" height="30" class="actor-box"/><text x="440" y="30" class="actor-label">Login Page</text>
+<rect x="560" y="10" width="100" height="30" class="actor-box"/><text x="610" y="30" class="actor-label">DB (localStorage)</text>
+
+<!-- Lifelines -->
+<line x1="100" y1="40" x2="100" y2="400" class="lifeline"/>
+<line x1="270" y1="40" x2="270" y2="400" class="lifeline"/>
+<line x1="440" y1="40" x2="440" y2="400" class="lifeline"/>
+<line x1="610" y1="40" x2="610" y2="400" class="lifeline"/>
+
+<!-- Mensajes -->
+<line x1="100" y1="70" x2="270" y2="70" class="msg"/><text x="150" y="65" class="msg-text">1. Clic "Iniciar Sesion"</text>
+<line x1="270" y1="100" x2="440" y2="100" class="msg"/><text x="320" y="95" class="msg-text">2. Muestra formulario</text>
+<line x1="100" y1="130" x2="440" y2="130" class="msg"/><text x="220" y="125" class="msg-text">3. Ingresa usuario y contrasena</text>
+<line x1="440" y1="160" x2="610" y2="160" class="msg"/><text x="490" y="155" class="msg-text">4. Busca usuario por username</text>
+<line x1="610" y1="190" x2="440" y2="190" class="msg-ret"/><text x="490" y="185" class="msg-text">5. Retorna datos del usuario</text>
+
+<rect x="434" y="200" width="12" height="40" class="activation"/>
+<text x="460" y="225" class="msg-text" style="font-style:italic">6. Valida contrasena</text>
+
+<line x1="440" y1="250" x2="610" y2="250" class="msg"/><text x="480" y="245" class="msg-text">7. Guarda sesion en localStorage</text>
+<line x1="610" y1="270" x2="440" y2="270" class="msg-ret"/><text x="500" y="265" class="msg-text">8. OK</text>
+
+<line x1="440" y1="300" x2="100" y2="300" class="msg"/><text x="220" y="295" class="msg-text">9. Redirige al Dashboard</text>
+
+<line x1="100" y1="330" x2="610" y2="330" class="msg"/><text x="300" y="325" class="msg-text">10. Consulta estadisticas</text>
+<line x1="610" y1="350" x2="100" y2="350" class="msg-ret"/><text x="300" y="345" class="msg-text">11. Retorna datos del dashboard</text>
+
+<!-- Nota -->
+<rect x="560" y="370" width="160" height="30" class="note"/>
+<text x="570" y="385" class="note-text">Si credenciales invalidas:</text>
+<text x="570" y="395" class="note-text">Muestra error, no redirige</text>
+</svg>
+
+<h2>Secuencia 2: Asignacion de Activo</h2>
+<svg width="800" height="520" viewBox="0 0 800 520">
+<defs>
+<marker id="arr3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#2a5f8f"/></marker>
+<marker id="arr4" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#999"/></marker>
+</defs>
+<!-- Actores -->
+<rect x="30" y="10" width="100" height="30" class="actor-box"/><text x="80" y="30" class="actor-label">Admin</text>
+<rect x="200" y="10" width="110" height="30" class="actor-box"/><text x="255" y="30" class="actor-label">Asignaciones UI</text>
+<rect x="390" y="10" width="100" height="30" class="actor-box"/><text x="440" y="30" class="actor-label">DB</text>
+<rect x="560" y="10" width="100" height="30" class="actor-box"/><text x="610" y="30" class="actor-label">Log</text>
+<rect x="700" y="10" width="80" height="30" class="actor-box"/><text x="740" y="30" class="actor-label">Notify</text>
+
+<!-- Lifelines -->
+<line x1="80" y1="40" x2="80" y2="500" class="lifeline"/>
+<line x1="255" y1="40" x2="255" y2="500" class="lifeline"/>
+<line x1="440" y1="40" x2="440" y2="500" class="lifeline"/>
+<line x1="610" y1="40" x2="610" y2="500" class="lifeline"/>
+<line x1="740" y1="40" x2="740" y2="500" class="lifeline"/>
+
+<!-- Mensajes -->
+<line x1="80" y1="70" x2="255" y2="70" class="msg" marker-end="url(#arr3)"/><text x="130" y="65" class="msg-text">1. Navega a Asignaciones</text>
+<line x1="255" y1="95" x2="440" y2="95" class="msg" marker-end="url(#arr3)"/><text x="310" y="90" class="msg-text">2. GET activos DISPONIBLE</text>
+<line x1="440" y1="115" x2="255" y2="115" class="msg-ret" marker-end="url(#arr4)"/><text x="310" y="110" class="msg-text">3. Lista de activos</text>
+<line x1="255" y1="135" x2="440" y2="135" class="msg" marker-end="url(#arr3)"/><text x="310" y="130" class="msg-text">4. GET empleados</text>
+<line x1="440" y1="155" x2="255" y2="155" class="msg-ret" marker-end="url(#arr4)"/><text x="310" y="150" class="msg-text">5. Lista de empleados</text>
+<line x1="255" y1="175" x2="80" y2="175" class="msg-ret" marker-end="url(#arr4)"/><text x="130" y="170" class="msg-text">6. Renderiza formulario y tabla</text>
+
+<line x1="80" y1="210" x2="255" y2="210" class="msg" marker-end="url(#arr3)"/><text x="120" y="205" class="msg-text">7. Selecciona activo y empleado</text>
+<line x1="80" y1="240" x2="255" y2="240" class="msg" marker-end="url(#arr3)"/><text x="130" y="235" class="msg-text">8. Clic "Registrar"</text>
+
+<rect x="249" y="255" width="12" height="30" class="activation"/>
+<text x="275" y="275" class="msg-text" style="font-style:italic">9. Valida seleccion</text>
+
+<line x1="255" y1="295" x2="440" y2="295" class="msg" marker-end="url(#arr3)"/><text x="310" y="290" class="msg-text">10. Verifica estado activo</text>
+<line x1="440" y1="315" x2="255" y2="315" class="msg-ret" marker-end="url(#arr4)"/><text x="310" y="310" class="msg-text">11. Estado = DISPONIBLE</text>
+
+<line x1="255" y1="340" x2="440" y2="340" class="msg" marker-end="url(#arr3)"/><text x="300" y="335" class="msg-text">12. Crear asignacion</text>
+<line x1="255" y1="365" x2="440" y2="365" class="msg" marker-end="url(#arr3)"/><text x="290" y="360" class="msg-text">13. Actualizar estado → ASIGNADO</text>
+
+<line x1="255" y1="395" x2="610" y2="395" class="msg" marker-end="url(#arr3)"/><text x="380" y="390" class="msg-text">14. Registrar actividad en log</text>
+
+<line x1="255" y1="425" x2="740" y2="425" class="msg" marker-end="url(#arr3)"/><text x="440" y="420" class="msg-text">15. Mostrar notificacion verde</text>
+
+<line x1="255" y1="455" x2="80" y2="455" class="msg-ret" marker-end="url(#arr4)"/><text x="120" y="450" class="msg-text">16. Recarga pagina actualizada</text>
+
+<!-- Nota -->
+<rect x="550" y="460" width="200" height="30" class="note"/>
+<text x="560" y="475" class="note-text">Si activo NO disponible: muestra error</text>
+<text x="560" y="485" class="note-text">y no crea la asignacion</text>
+</svg>
+
+<h2>Secuencia 3: Devolucion de Activo</h2>
+<svg width="700" height="380" viewBox="0 0 700 380">
+<!-- Actores -->
+<rect x="30" y="10" width="100" height="30" class="actor-box"/><text x="80" y="30" class="actor-label">Admin</text>
+<rect x="200" y="10" width="110" height="30" class="actor-box"/><text x="255" y="30" class="actor-label">Asignaciones UI</text>
+<rect x="390" y="10" width="100" height="30" class="actor-box"/><text x="440" y="30" class="actor-label">DB</text>
+<rect x="560" y="10" width="80" height="30" class="actor-box"/><text x="600" y="30" class="actor-label">Log</text>
+
+<line x1="80" y1="40" x2="80" y2="360" class="lifeline"/>
+<line x1="255" y1="40" x2="255" y2="360" class="lifeline"/>
+<line x1="440" y1="40" x2="440" y2="360" class="lifeline"/>
+<line x1="600" y1="40" x2="600" y2="360" class="lifeline"/>
+
+<line x1="80" y1="70" x2="255" y2="70" class="msg" marker-end="url(#arr)"/><text x="120" y="65" class="msg-text">1. Clic "Devolver"</text>
+<line x1="255" y1="100" x2="80" y2="100" class="msg-ret" marker-end="url(#arr2)"/><text x="120" y="95" class="msg-text">2. Dialogo confirmacion</text>
+<line x1="80" y1="130" x2="255" y2="130" class="msg" marker-end="url(#arr)"/><text x="140" y="125" class="msg-text">3. Confirma</text>
+
+<line x1="255" y1="160" x2="440" y2="160" class="msg" marker-end="url(#arr)"/><text x="300" y="155" class="msg-text">4. Obtener asignacion</text>
+<line x1="255" y1="190" x2="440" y2="190" class="msg" marker-end="url(#arr)"/><text x="280" y="185" class="msg-text">5. Registrar fecha_devolucion</text>
+<line x1="255" y1="220" x2="440" y2="220" class="msg" marker-end="url(#arr)"/><text x="280" y="215" class="msg-text">6. Cambiar estado → DISPONIBLE</text>
+
+<line x1="255" y1="255" x2="600" y2="255" class="msg" marker-end="url(#arr)"/><text x="380" y="250" class="msg-text">7. Registrar en log</text>
+
+<line x1="255" y1="290" x2="80" y2="290" class="msg-ret" marker-end="url(#arr2)"/><text x="120" y="285" class="msg-text">8. Notificacion + recarga</text>
+</svg>
+
+<p style="text-align:center;color:#888;font-size:10px;margin-top:30px">Diagramas de Secuencia — InventPro v3.0 | Notacion UML</p>
+</body>
+</html>

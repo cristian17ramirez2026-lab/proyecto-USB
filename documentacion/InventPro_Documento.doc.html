@@ -1,0 +1,434 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View></w:WordDocument></xml><![endif]-->
+<style>
+body{font-family:'Calibri',sans-serif;font-size:11pt;line-height:1.5;margin:2.5cm 2cm;color:#1a1a1a}
+h1{font-size:16pt;font-weight:bold;color:#1a3c5e;border-bottom:2px solid #1a3c5e;padding-bottom:6pt;margin-top:24pt;margin-bottom:12pt;page-break-before:always}
+h1:first-of-type{page-break-before:avoid}
+h2{font-size:13pt;font-weight:bold;color:#2a5f8f;margin-top:18pt;margin-bottom:8pt}
+h3{font-size:11pt;font-weight:bold;color:#333;margin-top:14pt;margin-bottom:6pt}
+p{margin-bottom:8pt;text-align:justify}
+table{border-collapse:collapse;width:100%;margin:10pt 0;font-size:9pt}
+th{background-color:#1a3c5e;color:white;padding:6pt 8pt;text-align:left;font-weight:bold;border:1px solid #1a3c5e}
+td{padding:5pt 8pt;border:1px solid #ccc;vertical-align:top}
+tr:nth-child(even) td{background-color:#f5f7fa}
+.cover{text-align:center;padding-top:120pt;page-break-after:always}
+.cover h1{border:none;font-size:22pt;color:#1a3c5e;page-break-before:avoid}
+.cover h2{font-size:14pt;color:#555;font-weight:normal}
+.cover p{text-align:center;color:#777;font-size:10pt}
+ol,ul{margin-bottom:8pt;padding-left:20pt}
+li{margin-bottom:4pt}
+.note{background:#f0f4f8;border-left:3px solid #1a3c5e;padding:8pt 12pt;margin:10pt 0;font-size:10pt;color:#333}
+</style>
+</head>
+<body>
+
+<div class="cover">
+<p style="font-size:10pt;color:#999">Facultad de Ingenierias — Programa de Ingenieria de Sistemas</p>
+<br><br><br>
+<h1>PROYECTO DE DESARROLLO DE PRODUCTO DE SOFTWARE</h1>
+<h2>InventPro: Sistema de Gestion de Inventario y Control de Activos Empresariales</h2>
+<br><br>
+<p style="font-size:11pt;color:#555">Evidencia del curso de Practica Profesional</p>
+<p>Barranquilla, Colombia — Abril 2026</p>
+</div>
+
+<h1>1. INTRODUCCION</h1>
+
+<h2>1.1 Contexto del Problema</h2>
+<p>La gestion de activos fisicos representa uno de los desafios operativos mas criticos para las organizaciones con presencia en multiples ubicaciones geograficas. Segun la Encuesta de Micronegocios del DANE (2024), mas del 68% de las micro, pequenas y medianas empresas colombianas carecen de sistemas formales para el control de sus bienes fisicos, lo que genera perdidas estimadas en un 12% del valor total de sus inventarios por deterioro, extravio o asignaciones no documentadas.</p>
+<p>Esta problematica se agrava en empresas con estructuras organizacionales complejas que operan en varias ciudades del pais. Los administradores enfrentan la imposibilidad de conocer en tiempo real el estado, ubicacion y responsable de cada activo. Las hojas de calculo y registros manuales resultan insuficientes cuando el volumen de activos supera las decenas, generando duplicidad de compras, perdida de trazabilidad en las asignaciones y ausencia de reportes consolidados para la toma de decisiones.</p>
+<p>La ausencia de control diferenciado por roles agrava la situacion: cualquier persona con acceso al archivo compartido puede modificar registros sin dejar rastro, comprometiendo la integridad de la informacion y la accountability organizacional.</p>
+
+<h2>1.2 Justificacion</h2>
+<p>El presente proyecto responde a la necesidad de digitalizar y centralizar la gestion de activos empresariales mediante una plataforma web accesible que no requiera infraestructura compleja de servidores ni bases de datos externas.</p>
+<p>El proyecto se alinea con el Objetivo de Desarrollo Sostenible (ODS) 9 de las Naciones Unidas, "Industria, Innovacion e Infraestructura", especificamente con la meta 9.3 que busca aumentar el acceso de las pequenas industrias a los servicios tecnologicos y su integracion en las cadenas de valor. Asimismo, contribuye al pilar de transformacion productiva del Plan Nacional de Desarrollo 2022-2026 "Colombia Potencia Mundial de la Vida", que prioriza la digitalizacion de procesos empresariales como estrategia de competitividad.</p>
+<p>A nivel local, el Plan de Desarrollo de Barranquilla contempla la modernizacion tecnologica del sector empresarial como eje estrategico para el crecimiento economico de la region Caribe.</p>
+
+<h2>1.3 Objetivos</h2>
+<h3>1.3.1 Objetivo General</h3>
+<p>Disenar, desarrollar e implementar un sistema web de gestion de inventario y control de activos empresariales denominado InventPro, que permita administrar de forma centralizada activos fisicos, empleados, sedes y departamentos con trazabilidad completa, seguridad basada en roles jerarquicos y generacion de reportes en tiempo real.</p>
+
+<h3>1.3.2 Objetivos Especificos</h3>
+<ol>
+<li>Implementar un sistema de autenticacion con cuatro niveles de roles jerarquicos (SuperAdmin, Admin de Sede, Admin de Departamento y Usuario) que garantice el control de acceso diferenciado a las funcionalidades del sistema.</li>
+<li>Desarrollar modulos CRUD completos para la gestion de activos, empleados, sedes y departamentos, incorporando validaciones de integridad de datos como unicidad de serial y cedula.</li>
+<li>Crear un modulo de asignaciones que permita vincular activos a empleados con validaciones automaticas de estado, registro de devoluciones y mantenimiento de historial completo para trazabilidad.</li>
+<li>Implementar un modulo de reportes con visualizacion por estado, sede, departamento y empleado, incluyendo capacidad de exportacion a formato CSV para auditoria externa.</li>
+<li>Disenar una interfaz de usuario profesional, responsiva e intuitiva con sistema de notificaciones en tiempo real, busqueda integrada con filtros y navegacion mediante sidebar lateral.</li>
+<li>Desarrollar un sistema de registro de actividad que permita rastrear todas las operaciones realizadas en el sistema, garantizando transparencia y accountability organizacional.</li>
+</ol>
+
+<h1>2. ALCANCE DEL PROYECTO</h1>
+
+<h2>2.1 Que Incluye</h2>
+<ul>
+<li>Modulo de autenticacion con cuatro niveles de roles y control de sesion</li>
+<li>Gestion completa (CRUD) de activos fisicos con 10 campos por registro</li>
+<li>Gestion completa de empleados con vinculacion a sede y departamento</li>
+<li>Gestion de 20 sedes a nivel nacional con datos de contacto</li>
+<li>Gestion de 10 departamentos organizacionales vinculados a sedes</li>
+<li>Modulo de asignaciones con validaciones de estado y registro de devoluciones</li>
+<li>Dashboard ejecutivo con ocho indicadores clave de rendimiento</li>
+<li>Modulo de reportes con cinco vistas y exportacion CSV</li>
+<li>Busqueda y filtrado en tiempo real para activos y empleados</li>
+<li>Gestion de usuarios del sistema (creacion y eliminacion de cuentas)</li>
+<li>Registro de actividad con log de auditoria</li>
+<li>Sistema de notificaciones visuales</li>
+<li>Landing page corporativa</li>
+<li>Datos de prueba precargados: 200 activos, 100 empleados, 20 sedes, 10 departamentos, 32 usuarios</li>
+</ul>
+
+<h2>2.2 Que No Incluye</h2>
+<ul>
+<li>Integracion con sistemas ERP, contables o de nomina externos</li>
+<li>Sincronizacion en la nube ni acceso remoto entre dispositivos</li>
+<li>Generacion de codigos de barras, codigos QR o etiquetas fisicas</li>
+<li>Aplicacion movil nativa para iOS o Android</li>
+<li>Modulo de depreciacion contable de activos</li>
+<li>Sistema de alertas por correo electronico</li>
+<li>Soporte multiidioma</li>
+</ul>
+
+<h2>2.3 Entregables</h2>
+<table>
+<tr><th>No.</th><th>Entregable</th><th>Formato</th><th>Descripcion</th></tr>
+<tr><td>1</td><td>Documento de requerimientos</td><td>Markdown</td><td>Especificacion de 20 requerimientos funcionales con criterios de aceptacion</td></tr>
+<tr><td>2</td><td>Documento de diseno tecnico</td><td>Markdown</td><td>Arquitectura, modelos de datos, componentes y propiedades de correctitud</td></tr>
+<tr><td>3</td><td>Plan de implementacion</td><td>Markdown</td><td>Lista de 16 tareas con subtareas, dependencias y checkpoints</td></tr>
+<tr><td>4</td><td>Codigo fuente del sistema</td><td>HTML</td><td>Archivo index.html autocontenido con CSS y JavaScript embebido</td></tr>
+<tr><td>5</td><td>Datos de prueba</td><td>Integrado</td><td>200 activos, 100 empleados, 20 sedes, 10 departamentos precargados</td></tr>
+<tr><td>6</td><td>Informe del proyecto</td><td>DOC/PDF</td><td>Documento tecnico completo</td></tr>
+<tr><td>7</td><td>Manual de credenciales</td><td>Integrado</td><td>Tabla de usuarios con roles y contrasenas para pruebas</td></tr>
+</table>
+
+<h1>3. GESTION DEL PROYECTO</h1>
+
+<h2>3.1 Suposiciones</h2>
+<ol>
+<li>Los usuarios finales disponen de un navegador web moderno actualizado (Chrome 90+, Edge 90+ o Firefox 88+).</li>
+<li>Los usuarios poseen conocimientos basicos de navegacion web y manejo de formularios.</li>
+<li>La organizacion cuenta con una estructura definida de sedes, departamentos y cargos.</li>
+<li>Cada activo fisico de la empresa puede ser identificado mediante un codigo serial unico.</li>
+<li>El volumen de datos operativos no excedera la capacidad de localStorage del navegador (5-10 MB).</li>
+<li>El sistema sera utilizado en un entorno local o de red interna.</li>
+</ol>
+
+<h2>3.2 Restricciones</h2>
+<table>
+<tr><th>Tipo</th><th>Restriccion</th><th>Detalle</th></tr>
+<tr><td>Tiempo</td><td>16 semanas maximo</td><td>El proyecto debe completarse dentro del periodo academico</td></tr>
+<tr><td>Alcance</td><td>Sin integracion externa</td><td>No se conecta con sistemas ERP ni servicios en la nube</td></tr>
+<tr><td>Tecnologia</td><td>Solo tecnologias web estandar</td><td>HTML5, CSS3 y JavaScript vanilla sin frameworks</td></tr>
+<tr><td>Almacenamiento</td><td>localStorage</td><td>Capacidad limitada a 5-10 MB, datos locales al equipo</td></tr>
+<tr><td>Costo</td><td>Presupuesto cero en herramientas</td><td>Solo herramientas gratuitas y de codigo abierto</td></tr>
+<tr><td>Infraestructura</td><td>Sin servidor dedicado</td><td>Archivo HTML autocontenido</td></tr>
+</table>
+
+<h2>3.3 Analisis de Riesgos</h2>
+<table>
+<tr><th>ID</th><th>Riesgo</th><th>Prob.</th><th>Impacto</th><th>Nivel</th><th>Estrategia de Mitigacion</th></tr>
+<tr><td>R1</td><td>Incompatibilidad con navegadores</td><td>2</td><td>3</td><td>6</td><td>JavaScript ES5+ compatible. Pruebas en Chrome, Edge y Firefox</td></tr>
+<tr><td>R2</td><td>Perdida de datos en localStorage</td><td>3</td><td>4</td><td>12</td><td>Versionado interno con auto-migracion. Exportacion CSV como respaldo</td></tr>
+<tr><td>R3</td><td>Acceso no autorizado</td><td>2</td><td>5</td><td>10</td><td>Cuatro niveles de roles con validacion en cada operacion</td></tr>
+<tr><td>R4</td><td>Exceso de alcance</td><td>3</td><td>3</td><td>9</td><td>Requerimientos claros desde analisis. Desarrollo incremental</td></tr>
+<tr><td>R5</td><td>Interfaz compleja</td><td>2</td><td>3</td><td>6</td><td>Diseno intuitivo con sidebar, notificaciones y busqueda</td></tr>
+<tr><td>R6</td><td>Colision de datos entre versiones</td><td>2</td><td>4</td><td>8</td><td>Prefijo unico en claves y limpieza automatica al detectar nueva version</td></tr>
+</table>
+
+<h2>3.4 Cronograma</h2>
+<table>
+<tr><th>Sprint</th><th>Semanas</th><th>Fase</th><th>Actividades</th><th>Entregable</th></tr>
+<tr><td>0</td><td>1-2</td><td>Analisis</td><td>Requerimientos, actores, reglas de negocio</td><td>Documento de requerimientos</td></tr>
+<tr><td>1</td><td>3-4</td><td>Diseno</td><td>Arquitectura, modelos de datos, interfaz</td><td>Documento de diseno</td></tr>
+<tr><td>2</td><td>5-6</td><td>Desarrollo</td><td>Autenticacion, roles jerarquicos</td><td>Modulo de login</td></tr>
+<tr><td>3</td><td>7-8</td><td>Desarrollo</td><td>CRUD activos y empleados</td><td>Modulos CRUD</td></tr>
+<tr><td>4</td><td>9-10</td><td>Desarrollo</td><td>Sedes, departamentos, asignaciones</td><td>Modulos organizacionales</td></tr>
+<tr><td>5</td><td>11-12</td><td>Desarrollo</td><td>Reportes, CSV, dashboard</td><td>Modulo de reportes</td></tr>
+<tr><td>6</td><td>13-14</td><td>Desarrollo</td><td>Usuarios, log, busqueda, notificaciones</td><td>Funcionalidades avanzadas</td></tr>
+<tr><td>7</td><td>15</td><td>Pruebas</td><td>Landing, pruebas funcionales y usabilidad</td><td>Sistema verificado</td></tr>
+<tr><td>8</td><td>16</td><td>Entrega</td><td>Documentacion y presentacion</td><td>Informe final</td></tr>
+</table>
+
+<h2>3.5 Presupuesto Estimado</h2>
+<table>
+<tr><th>Concepto</th><th>Cantidad</th><th>Valor Unitario (COP)</th><th>Total (COP)</th></tr>
+<tr><td>Desarrollador full stack</td><td>320 horas</td><td>$25.000</td><td>$8.000.000</td></tr>
+<tr><td>Equipo de computo</td><td>1 unidad</td><td>Disponible</td><td>$0</td></tr>
+<tr><td>Licencias de software</td><td>Ninguna</td><td>$0</td><td>$0</td></tr>
+<tr><td>Servidor o hosting</td><td>No requerido</td><td>$0</td><td>$0</td></tr>
+<tr><td>Papeleria y materiales</td><td>Global</td><td>$50.000</td><td>$50.000</td></tr>
+<tr><td>Transporte</td><td>Global</td><td>$100.000</td><td>$100.000</td></tr>
+<tr><td><b>TOTAL</b></td><td></td><td></td><td><b>$8.150.000</b></td></tr>
+</table>
+
+<h1>4. METODOLOGIA DE DESARROLLO</h1>
+
+<h2>4.1 Metodologia Seleccionada</h2>
+<p>Se adopto una adaptacion de la metodologia agil Scrum para un equipo de desarrollo individual. Esta seleccion se fundamenta en la necesidad de flexibilidad para incorporar cambios durante el desarrollo, la naturaleza iterativa del proyecto y la entrega incremental de funcionalidades verificables al final de cada sprint.</p>
+
+<h2>4.2 Roles del Proyecto</h2>
+<table>
+<tr><th>Rol Scrum</th><th>Responsable</th><th>Funciones</th></tr>
+<tr><td>Product Owner</td><td>Tutor academico</td><td>Define prioridades del backlog, valida entregables, aprueba criterios de aceptacion</td></tr>
+<tr><td>Scrum Master</td><td>Tutor en sitio</td><td>Facilita el proceso, elimina impedimentos, supervisa cumplimiento de la metodologia</td></tr>
+<tr><td>Development Team</td><td>Estudiante desarrollador</td><td>Analisis, diseno, codificacion, pruebas y documentacion del sistema completo</td></tr>
+</table>
+
+<h2>4.3 Artefactos</h2>
+<p><b>Product Backlog:</b> Lista priorizada de 20 requerimientos funcionales y 10 requerimientos no funcionales, organizados por modulo y nivel de dependencia.</p>
+<p><b>Sprint Backlog:</b> Subconjunto del Product Backlog seleccionado para cada sprint de dos semanas con tareas especificas.</p>
+<p><b>Incremento:</b> Al final de cada sprint se entrega un incremento funcional verificable del sistema.</p>
+
+<h2>4.4 Ceremonias</h2>
+<table>
+<tr><th>Ceremonia</th><th>Frecuencia</th><th>Duracion</th><th>Descripcion</th></tr>
+<tr><td>Sprint Planning</td><td>Inicio de sprint</td><td>1 hora</td><td>Seleccion de items del backlog y definicion de tareas</td></tr>
+<tr><td>Daily Standup</td><td>Diaria</td><td>10 min</td><td>Registro de avance e impedimentos en bitacora personal</td></tr>
+<tr><td>Sprint Review</td><td>Final de sprint</td><td>30 min</td><td>Demostracion del incremento funcional al tutor</td></tr>
+<tr><td>Sprint Retrospective</td><td>Final de sprint</td><td>20 min</td><td>Reflexion sobre el proceso e identificacion de mejoras</td></tr>
+</table>
+
+<h1>5. ARQUITECTURA DEL SISTEMA</h1>
+
+<h2>5.1 Descripcion General</h2>
+<p>InventPro es una aplicacion web de pagina unica (SPA) que opera completamente en el navegador del usuario sin requerir servidor backend, base de datos externa ni conexion a internet una vez cargado el archivo.</p>
+
+<h2>5.2 Arquitectura</h2>
+<p>El sistema implementa una arquitectura MVC (Modelo-Vista-Controlador) simplificada:</p>
+<ul>
+<li><b>Modelo:</b> Objeto DB con 40+ metodos CRUD sobre localStorage</li>
+<li><b>Vista:</b> Funciones generadoras de HTML (pg_*) para cada pagina</li>
+<li><b>Controlador:</b> Objeto App que gestiona autenticacion, routing y permisos</li>
+</ul>
+
+<h2>5.3 Tecnologias Utilizadas</h2>
+<table>
+<tr><th>Capa</th><th>Tecnologia</th><th>Version</th><th>Justificacion</th></tr>
+<tr><td>Estructura</td><td>HTML5</td><td>5</td><td>Estandar universal, soporte nativo en todos los navegadores</td></tr>
+<tr><td>Presentacion</td><td>CSS3</td><td>3</td><td>Variables CSS, Grid y Flexbox para layout responsivo</td></tr>
+<tr><td>Logica</td><td>JavaScript</td><td>ES5+</td><td>Compatibilidad maxima sin transpilacion</td></tr>
+<tr><td>Persistencia</td><td>Web Storage API</td><td>localStorage</td><td>Almacenamiento persistente sin servidor</td></tr>
+<tr><td>Iconografia</td><td>SVG inline</td><td>1.1</td><td>Iconos vectoriales sin dependencias externas</td></tr>
+</table>
+
+<h2>5.4 Justificacion Tecnica</h2>
+<p>La decision de utilizar tecnologias web estandar sin frameworks responde a tres criterios: <b>Accesibilidad</b> (funciona abriendo un solo archivo), <b>Portabilidad</b> (distribuible por cualquier medio) y <b>Mantenibilidad</b> (sin dependencias que queden obsoletas).</p>
+
+<h1>6. REQUERIMIENTOS DEL SISTEMA</h1>
+
+<h2>6.1 Actores del Sistema</h2>
+<table>
+<tr><th>Actor</th><th>Descripcion</th><th>Nivel de Acceso</th></tr>
+<tr><td>SuperAdmin</td><td>Director general con acceso irrestricto. Puede gestionar usuarios, sedes, departamentos, activos, empleados y asignaciones.</td><td>Total</td></tr>
+<tr><td>Admin de Sede</td><td>Responsable operativo de una sede. Gestiona activos, empleados y asignaciones de su sede.</td><td>Sede asignada</td></tr>
+<tr><td>Admin de Departamento</td><td>Jefe funcional de un departamento. Gestiona activos y empleados de su area.</td><td>Departamento asignado</td></tr>
+<tr><td>Usuario</td><td>Empleado con acceso de consulta. Puede visualizar inventario y reportes sin modificar datos.</td><td>Solo lectura</td></tr>
+</table>
+
+<h2>6.2 Historias de Usuario</h2>
+<table>
+<tr><th>ID</th><th>Historia de Usuario</th><th>Prioridad</th></tr>
+<tr><td>HU01</td><td>Yo como SuperAdmin quiero iniciar sesion con mis credenciales para acceder al panel de administracion completo</td><td>Alta</td></tr>
+<tr><td>HU02</td><td>Yo como Admin de Sede quiero registrar nuevos activos con serial unico para mantener actualizado el inventario</td><td>Alta</td></tr>
+<tr><td>HU03</td><td>Yo como Admin de Departamento quiero asignar un activo disponible a un empleado para controlar quien tiene cada bien</td><td>Alta</td></tr>
+<tr><td>HU04</td><td>Yo como Admin de Sede quiero registrar la devolucion de un activo para liberar el bien para futuras asignaciones</td><td>Alta</td></tr>
+<tr><td>HU05</td><td>Yo como Usuario quiero consultar activos con busqueda por nombre o serial para localizar rapidamente un bien</td><td>Media</td></tr>
+<tr><td>HU06</td><td>Yo como SuperAdmin quiero generar reportes por estado, sede y empleado para tomar decisiones sobre el inventario</td><td>Media</td></tr>
+<tr><td>HU07</td><td>Yo como SuperAdmin quiero exportar reportes en CSV para compartirlos con auditoria</td><td>Media</td></tr>
+<tr><td>HU08</td><td>Yo como SuperAdmin quiero crear cuentas de usuario con roles diferenciados para controlar accesos</td><td>Alta</td></tr>
+<tr><td>HU09</td><td>Yo como Admin de Sede quiero gestionar empleados con cedula, cargo y departamento para mantener el directorio</td><td>Media</td></tr>
+<tr><td>HU10</td><td>Yo como SuperAdmin quiero consultar el log de actividad para auditar operaciones de cada usuario</td><td>Baja</td></tr>
+</table>
+
+<h2>6.3 Criterios de Aceptacion</h2>
+<p><b>HU01 - Inicio de Sesion:</b> Dado un usuario con credenciales validas, cuando ingresa usuario y contrasena, entonces el sistema lo redirige al dashboard con su rol. Dado credenciales invalidas, muestra error sin revelar cual campo fallo.</p>
+<p><b>HU03 - Asignacion:</b> Dado un activo DISPONIBLE, cuando se asigna a un empleado, entonces el estado cambia a ASIGNADO y se crea registro con fecha automatica. Dado un activo ASIGNADO o DANADO, el sistema rechaza la operacion con mensaje descriptivo.</p>
+<p><b>HU04 - Devolucion:</b> Dada una asignacion activa, cuando se registra devolucion, entonces se registra la fecha y el activo vuelve a DISPONIBLE.</p>
+
+<h2>6.4 Requerimientos Funcionales</h2>
+<table>
+<tr><th>Ref</th><th>Modulo</th><th>Requerimiento</th></tr>
+<tr><td>RF01</td><td>Auth</td><td>Inicio de sesion con validacion de credenciales</td></tr>
+<tr><td>RF02</td><td>Auth</td><td>Cuatro niveles de roles con permisos diferenciados</td></tr>
+<tr><td>RF03</td><td>Activos</td><td>CRUD completo con 10 campos por registro</td></tr>
+<tr><td>RF04</td><td>Activos</td><td>Validacion de serial unico en toda la base de datos</td></tr>
+<tr><td>RF05</td><td>Activos</td><td>Busqueda por nombre, serial, tipo y filtro por estado</td></tr>
+<tr><td>RF06</td><td>Empleados</td><td>CRUD con campos: nombre, apellido, cedula, email, sede, departamento, cargo</td></tr>
+<tr><td>RF07</td><td>Empleados</td><td>Validacion de cedula unica y busqueda por nombre, cedula o cargo</td></tr>
+<tr><td>RF08</td><td>Asignaciones</td><td>Asignar activo DISPONIBLE a empleado, cambiar estado a ASIGNADO</td></tr>
+<tr><td>RF09</td><td>Asignaciones</td><td>Impedir asignacion de activos DANADO o ASIGNADO</td></tr>
+<tr><td>RF10</td><td>Asignaciones</td><td>Registrar devolucion cambiando estado a DISPONIBLE</td></tr>
+<tr><td>RF11</td><td>Asignaciones</td><td>Mantener historial permanente de asignaciones y devoluciones</td></tr>
+<tr><td>RF12</td><td>Reportes</td><td>Reportes filtrados por estado: disponibles, asignados, reparacion</td></tr>
+<tr><td>RF13</td><td>Reportes</td><td>Reportes agrupados por sede con valor total</td></tr>
+<tr><td>RF14</td><td>Reportes</td><td>Reportes por empleado con historial expandible</td></tr>
+<tr><td>RF15</td><td>Reportes</td><td>Exportacion de datos a formato CSV</td></tr>
+<tr><td>RF16</td><td>Sedes</td><td>CRUD de sedes con nombre, ciudad, direccion, telefono</td></tr>
+<tr><td>RF17</td><td>Deptos</td><td>CRUD de departamentos vinculados a sede</td></tr>
+<tr><td>RF18</td><td>Usuarios</td><td>SuperAdmin puede crear y eliminar cuentas con rol, sede y departamento</td></tr>
+<tr><td>RF19</td><td>Dashboard</td><td>Panel con 8 indicadores: activos, disponibles, asignados, reparacion, empleados, sedes, deptos, valor total</td></tr>
+<tr><td>RF20</td><td>Sistema</td><td>Log de actividad con fecha, usuario, accion y detalle</td></tr>
+</table>
+
+<h2>6.5 Requerimientos No Funcionales</h2>
+<table>
+<tr><th>Ref</th><th>Tipo</th><th>Descripcion</th></tr>
+<tr><td>RNF01</td><td>Rendimiento</td><td>Renderizar cualquier pagina en menos de 1 segundo</td></tr>
+<tr><td>RNF02</td><td>Rendimiento</td><td>Busqueda en tiempo real sin demora perceptible</td></tr>
+<tr><td>RNF03</td><td>Seguridad</td><td>Validar rol en cada operacion de escritura</td></tr>
+<tr><td>RNF04</td><td>Seguridad</td><td>Sanitizar entradas para prevenir XSS</td></tr>
+<tr><td>RNF05</td><td>Seguridad</td><td>Impedir auto-eliminacion de cuenta</td></tr>
+<tr><td>RNF06</td><td>Usabilidad</td><td>Menu lateral con secciones organizadas por categoria</td></tr>
+<tr><td>RNF07</td><td>Usabilidad</td><td>Notificaciones visuales al completar operaciones</td></tr>
+<tr><td>RNF08</td><td>Usabilidad</td><td>Diseno responsivo para escritorio y tableta</td></tr>
+<tr><td>RNF09</td><td>Disponibilidad</td><td>Funcionar sin internet una vez cargado</td></tr>
+<tr><td>RNF10</td><td>Disponibilidad</td><td>Datos persistentes entre sesiones via localStorage</td></tr>
+</table>
+
+<h1>7. MODELOS UML</h1>
+
+<h2>7.1 Diagrama de Casos de Uso</h2>
+<p>El sistema identifica cuatro actores y doce casos de uso agrupados en cuatro paquetes:</p>
+<p><b>Paquete Autenticacion:</b> CU01 Iniciar Sesion (todos los actores validan credenciales y acceden segun su rol) y CU02 Cerrar Sesion (limpia sesion y redirige a landing).</p>
+<p><b>Paquete Gestion de Inventario:</b> CU03 Gestionar Activos (CRUD con validacion de serial unico, extiende a CU04 Buscar Activos), CU05 Gestionar Empleados (CRUD con validacion de cedula, extiende a CU06 Buscar Empleados).</p>
+<p><b>Paquete Asignaciones:</b> CU07 Asignar Activo (valida estado DISPONIBLE, incluye CU09 Registrar Actividad), CU08 Registrar Devolucion (cambia estado a DISPONIBLE, incluye CU09).</p>
+<p><b>Paquete Reportes y Admin:</b> CU10 Generar Reportes (cinco vistas con exportacion CSV), CU11 Gestionar Usuarios (solo SuperAdmin), CU12 Consultar Log de Actividad.</p>
+<p><b>Jerarquia de actores:</b> SuperAdmin hereda permisos de Admin Sede, que hereda de Admin Departamento, que hereda de Usuario.</p>
+
+<h2>7.2 Diagrama de Clases</h2>
+<p>El sistema se compone de siete clases principales:</p>
+<p><b>Usuario</b> (id, username, email, password, rol, nombre, apellido, sede_id, departamento_id) con metodos login(), logout(), validarRol().</p>
+<p><b>Activo</b> (id, nombre, descripcion, tipo, serial, valor, fecha_compra, estado, sede_id, departamento_id) con metodos crear(), editar(), eliminar(), buscar().</p>
+<p><b>Empleado</b> (id, nombre, apellido, cedula, email, cargo, sede_id, departamento_id) con metodos crear(), editar(), eliminar(), buscar().</p>
+<p><b>Asignacion</b> (id, activo_id, empleado_id, fecha_asignacion, fecha_devolucion, observaciones) con metodos crear(), devolver().</p>
+<p><b>Sede</b> (id, nombre, ciudad, direccion, telefono) con metodos crear(), editar(), eliminar().</p>
+<p><b>Departamento</b> (id, nombre, sede_id, area, responsable) con metodos crear(), editar(), eliminar().</p>
+<p><b>Log</b> (id, action, detail, user, fecha) con metodos registrar(), consultar(), limpiar().</p>
+<p><b>Relaciones:</b> Sede 1-* Departamento, Sede 1-* Activo, Sede 1-* Empleado, Departamento 1-* Activo, Departamento 1-* Empleado, Activo 1-* Asignacion, Empleado 1-* Asignacion.</p>
+
+<h2>7.3 Diagrama de Secuencia: Asignacion de Activo</h2>
+<ol>
+<li>El administrador navega a la pagina de Asignaciones.</li>
+<li>El sistema consulta activos con estado DISPONIBLE y lista de empleados.</li>
+<li>El sistema renderiza formulario con selectores poblados y tabla de asignaciones.</li>
+<li>El administrador selecciona activo, empleado y opcionalmente agrega observaciones.</li>
+<li>El administrador hace clic en "Registrar".</li>
+<li>El sistema valida que el activo este DISPONIBLE.</li>
+<li>El sistema crea registro de asignacion con fecha automatica.</li>
+<li>El sistema actualiza estado del activo a ASIGNADO.</li>
+<li>El sistema registra la operacion en el log de actividad.</li>
+<li>El sistema muestra notificacion de exito y recarga la pagina.</li>
+</ol>
+
+<h2>7.4 Diagrama de Actividades: Gestion de Activo</h2>
+<p>El administrador accede al modulo de Activos. El sistema verifica el rol: si es USER, muestra tabla en modo solo lectura. Si es administrativo, muestra botones de accion.</p>
+<p><b>Rama creacion:</b> Clic en Nuevo → Formulario vacio → Completar campos → Validar (nombre, tipo, serial, valor, fecha) → Verificar unicidad de serial → Si unico: crear activo con estado DISPONIBLE, registrar en log, notificar. Si duplicado: mostrar error.</p>
+<p><b>Rama eliminacion:</b> Clic en Eliminar → Verificar asignaciones activas → Si tiene: alertar "No se puede eliminar". Si no tiene: confirmar → eliminar → registrar en log.</p>
+
+<h1>8. DISENO DEL SISTEMA</h1>
+
+<h2>8.1 Descripcion de Modulos</h2>
+<table>
+<tr><th>Modulo</th><th>Funcion</th><th>Paginas</th></tr>
+<tr><td>Landing</td><td>Presentacion publica del sistema</td><td>showLanding()</td></tr>
+<tr><td>Autenticacion</td><td>Login, logout y gestion de sesion</td><td>showLogin()</td></tr>
+<tr><td>Dashboard</td><td>Panel ejecutivo con 8 indicadores</td><td>pg_dashboard()</td></tr>
+<tr><td>Activos</td><td>CRUD con busqueda y filtro por estado</td><td>pg_activos(), pg_activo_form()</td></tr>
+<tr><td>Empleados</td><td>CRUD con busqueda por nombre/cedula/cargo</td><td>pg_empleados(), pg_empleado_form()</td></tr>
+<tr><td>Asignaciones</td><td>Crear asignaciones y registrar devoluciones</td><td>pg_asignaciones()</td></tr>
+<tr><td>Sedes</td><td>CRUD de ubicaciones fisicas</td><td>pg_sedes(), pg_sede_form()</td></tr>
+<tr><td>Departamentos</td><td>CRUD de unidades organizacionales</td><td>pg_departamentos(), pg_dep_form()</td></tr>
+<tr><td>Reportes</td><td>5 vistas de reportes con exportacion CSV</td><td>pg_reportes()</td></tr>
+<tr><td>Usuarios</td><td>Crear y eliminar cuentas (solo admin)</td><td>pg_usuarios()</td></tr>
+<tr><td>Actividad</td><td>Log de auditoria</td><td>pg_actividad()</td></tr>
+</table>
+
+<h2>8.2 Flujo del Sistema</h2>
+<ol>
+<li>Usuario accede a index.html en el navegador.</li>
+<li>Sistema verifica sesion activa en localStorage.</li>
+<li>Sin sesion: muestra landing page con boton de acceso.</li>
+<li>Usuario hace clic en "Iniciar Sesion" y completa formulario.</li>
+<li>Sistema valida credenciales y establece sesion con rol.</li>
+<li>Sistema renderiza layout: sidebar + topbar + area de contenido.</li>
+<li>Sidebar muestra secciones segun rol del usuario.</li>
+<li>Usuario navega entre paginas via menu lateral.</li>
+<li>Cada pagina se renderiza dinamicamente sin recargar.</li>
+<li>Operaciones de escritura verifican rol antes de ejecutarse.</li>
+<li>Cada operacion genera notificacion y registro en log.</li>
+<li>Al cerrar sesion, limpia datos y redirige a landing.</li>
+</ol>
+
+<h2>8.3 Estructura de Base de Datos</h2>
+<table>
+<tr><th>Tabla</th><th>Campos Principales</th><th>Claves</th><th>Registros</th></tr>
+<tr><td>USUARIO</td><td>id, username, email, password, rol, nombre, apellido, sede_id, departamento_id</td><td>PK: id, UK: username, email</td><td>32</td></tr>
+<tr><td>SEDE</td><td>id, nombre, ciudad, direccion, telefono</td><td>PK: id</td><td>20</td></tr>
+<tr><td>DEPARTAMENTO</td><td>id, nombre, sede_id, area, responsable</td><td>PK: id, FK: sede_id</td><td>10</td></tr>
+<tr><td>ACTIVO</td><td>id, nombre, descripcion, tipo, serial, valor, fecha_compra, estado, sede_id, departamento_id</td><td>PK: id, UK: serial</td><td>200</td></tr>
+<tr><td>EMPLEADO</td><td>id, nombre, apellido, cedula, email, cargo, sede_id, departamento_id</td><td>PK: id, UK: cedula</td><td>100</td></tr>
+<tr><td>ASIGNACION</td><td>id, activo_id, empleado_id, fecha_asignacion, fecha_devolucion, observaciones</td><td>PK: id, FK: activo_id, empleado_id</td><td>40</td></tr>
+<tr><td>LOG</td><td>id, action, detail, user, fecha</td><td>PK: id</td><td>Dinamico</td></tr>
+</table>
+
+<h1>9. PRUEBAS DEL SISTEMA</h1>
+
+<h2>9.1 Estrategia de Pruebas</h2>
+<p>La estrategia se basa en tres niveles: pruebas funcionales (cada requerimiento), pruebas de integracion (flujos multi-modulo) y pruebas de aceptacion (permisos por rol).</p>
+
+<h2>9.2 Casos de Prueba</h2>
+<table>
+<tr><th>ID</th><th>Accion</th><th>Datos de Entrada</th><th>Resultado Esperado</th><th>Tipo</th></tr>
+<tr><td>CP01</td><td>Login valido</td><td>superadmin / super123</td><td>Redireccion a dashboard con rol SUPERADMIN</td><td>Funcional</td></tr>
+<tr><td>CP02</td><td>Login invalido</td><td>admin / incorrecta</td><td>Mensaje "Usuario o contrasena incorrectos"</td><td>Funcional</td></tr>
+<tr><td>CP03</td><td>Crear activo valido</td><td>nombre: Test, serial: T-001, valor: 1000000</td><td>Activo creado, notificacion verde</td><td>Funcional</td></tr>
+<tr><td>CP04</td><td>Serial duplicado</td><td>serial: T-001 (existente)</td><td>Error "Serial T-001 ya existe"</td><td>Funcional</td></tr>
+<tr><td>CP05</td><td>Valor negativo</td><td>valor: -500</td><td>Error "Valor debe ser mayor a 0"</td><td>Funcional</td></tr>
+<tr><td>CP06</td><td>Buscar activo</td><td>"Laptop" en busqueda</td><td>Tabla filtrada con activos que contienen "Laptop"</td><td>Funcional</td></tr>
+<tr><td>CP07</td><td>Asignar activo disponible</td><td>Activo DISPONIBLE + empleado</td><td>Asignacion creada, estado cambia a ASIGNADO</td><td>Integracion</td></tr>
+<tr><td>CP08</td><td>Asignar activo ya asignado</td><td>Activo con estado ASIGNADO</td><td>Error "Activo no disponible"</td><td>Funcional</td></tr>
+<tr><td>CP09</td><td>Registrar devolucion</td><td>Clic Devolver + confirmar</td><td>Estado cambia a DISPONIBLE, fecha registrada</td><td>Integracion</td></tr>
+<tr><td>CP10</td><td>Eliminar activo asignado</td><td>Activo con asignacion activa</td><td>Alerta "No se puede eliminar: esta asignado"</td><td>Integracion</td></tr>
+<tr><td>CP11</td><td>Acceso como USER</td><td>Login usuario / user1234</td><td>No se muestran botones de crear/editar/eliminar</td><td>Aceptacion</td></tr>
+<tr><td>CP12</td><td>Exportar CSV</td><td>Clic en "Exportar CSV"</td><td>Descarga archivo activos_reporte.csv</td><td>Funcional</td></tr>
+<tr><td>CP13</td><td>Crear usuario</td><td>Datos completos de nuevo usuario</td><td>Usuario creado, aparece en tabla</td><td>Funcional</td></tr>
+<tr><td>CP14</td><td>Eliminar cuenta propia</td><td>Clic eliminar sobre cuenta actual</td><td>Alerta "No puede eliminar su propia cuenta"</td><td>Funcional</td></tr>
+<tr><td>CP15</td><td>Verificar dashboard</td><td>Acceder al dashboard</td><td>Conteos coinciden con datos reales</td><td>Integracion</td></tr>
+</table>
+
+<h2>9.3 Tipos de Prueba</h2>
+<table>
+<tr><th>Tipo</th><th>Cantidad</th><th>Cobertura</th></tr>
+<tr><td>Funcionales</td><td>10 casos</td><td>Cada modulo CRUD, busqueda, filtros, exportacion</td></tr>
+<tr><td>Integracion</td><td>4 casos</td><td>Flujos multi-modulo (asignacion-devolucion, eliminacion protegida)</td></tr>
+<tr><td>Aceptacion</td><td>1 caso</td><td>Verificacion de permisos por rol</td></tr>
+<tr><td>Compatibilidad</td><td>3 navegadores</td><td>Chrome, Edge y Firefox actuales</td></tr>
+</table>
+
+<h1>10. CONCLUSIONES</h1>
+
+<h2>10.1 Impacto del Sistema</h2>
+<p>El sistema InventPro demuestra que es posible desarrollar una solucion empresarial completa y funcional utilizando exclusivamente tecnologias web estandar, sin dependencias de frameworks, servidores ni bases de datos externas. Esta aproximacion elimina las barreras de entrada tecnologicas que impiden a muchas organizaciones adoptar herramientas de gestion de activos.</p>
+<p>El sistema aborda directamente la problematica identificada en el contexto colombiano, donde la mayoria de las MiPymes carecen de herramientas formales de control de inventario. Al funcionar como un archivo HTML autocontenido, InventPro puede ser distribuido y utilizado inmediatamente por cualquier organizacion con acceso a un navegador web.</p>
+
+<h2>10.2 Beneficios</h2>
+<table>
+<tr><th>Beneficio</th><th>Descripcion</th></tr>
+<tr><td>Cero costo de infraestructura</td><td>No requiere servidores, bases de datos ni licencias</td></tr>
+<tr><td>Despliegue inmediato</td><td>Funciona abriendo un solo archivo HTML</td></tr>
+<tr><td>Operacion sin internet</td><td>Funciona completamente offline una vez cargado</td></tr>
+<tr><td>Control de acceso granular</td><td>Cuatro niveles de roles por sede y departamento</td></tr>
+<tr><td>Trazabilidad completa</td><td>Historial de asignaciones y log de auditoria</td></tr>
+<tr><td>Escalabilidad demostrada</td><td>200 activos, 100 empleados, 20 sedes simultaneamente</td></tr>
+<tr><td>Exportabilidad</td><td>Datos exportables a CSV para analisis externo</td></tr>
+<tr><td>Mantenibilidad</td><td>Codigo en un solo archivo sin dependencias obsoletas</td></tr>
+</table>
+
+<br><br>
+<p style="text-align:center;color:#999;font-size:9pt"><i>Documento generado como parte del proyecto de practica profesional en Ingenieria de Sistemas.<br>InventPro v3.0 — Sistema de Gestion de Activos Empresariales.</i></p>
+
+</body>
+</html>

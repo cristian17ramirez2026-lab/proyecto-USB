@@ -1,0 +1,22 @@
+# Dependencies
+frontend/node_modules/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/**/migrations/__pycache__/
+
+# Build
+frontend/build/
+frontend/dist/
+
+# Environment
+.env
+*.pyc
+db.sqlite3
+
+# IDE
+.vscode/
+.kiro/
+
+# OS
+.DS_Store
+Thumbs.db
