@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframes Completos - SIGAE</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #FFFFFF;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            color: #003087;
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+        h3 {
+            color: #003087;
+            font-size: 20px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #003087;
+        }
+        .wireframe-container {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+        }
+        svg {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<h1>Wireframes del Sistema SIGAE</h1>
+<p class="subtitle">Sistema de Gestión de Inventario y Control de Activos Empresariales — 11 Vistas Completas</p>
+
+<!-- ============================================================ -->
+<!-- WIREFRAME 1: LOGIN -->
+<!-- ============================================================ -->
+<h3>Wireframe 1: Pantalla de Login</h3>
+<div class="wireframe-container">
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo general -->
+  <rect width="800" height="500" fill="#FFFFFF"/>
+  <!-- Lado derecho: degradado rojo -->
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#CC0000;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#8B0000;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect x="480" y="0" width="320" height="500" fill="url(#redGrad)"/>
+  <!-- Círculos decorativos lado derecho -->
+  <circle cx="520" cy="80" r="60" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="750" cy="150" r="90" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="580" cy="400" r="70" fill="rgba(255,255,255,0.07)"/>
+  <circle cx="700" cy="350" r="50" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="550" cy="250" r="40" fill="rgba(255,255,255,0.09)"/>
+  <!-- Logo grande lado derecho -->
+  <circle cx="640" cy="200" r="50" fill="rgba(255,255,255,0.15)"/>
+  <circle cx="640" cy="200" r="30" fill="rgba(255,255,255,0.2)"/>
+  <text x="640" y="208" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="bold" font-family="Segoe UI">S</text>
+  <!-- Texto lado derecho -->
+  <text x="640" y="290" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="bold" font-family="Segoe UI">SIGAE</text>
+  <text x="640" y="320" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="10" font-family="Segoe UI">Sistema de Gestión de Inventario</text>
+  <text x="640" y="338" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="10" font-family="Segoe UI">y Control de Activos Empresariales</text>
+  <!-- Lado izquierdo: formulario login -->
+  <!-- Logo -->
+  <circle cx="240" cy="80" r="35" fill="#CC0000"/>
+  <circle cx="240" cy="80" r="20" fill="#003087"/>
+  <text x="240" y="87" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="bold" font-family="Segoe UI">S</text>
+  <text x="240" y="130" text-anchor="middle" fill="#003087" font-size="20" font-weight="bold" font-family="Segoe UI">SIGAE</text>
+  <text x="240" y="150" text-anchor="middle" fill="#888" font-size="11" font-family="Segoe UI">Inicie sesión para continuar</text>
+  <!-- Campo Usuario -->
+  <text x="80" y="190" fill="#333" font-size="11" font-weight="bold" font-family="Segoe UI" letter-spacing="1">USUARIO</text>
+  <rect x="80" y="198" width="320" height="38" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="95" y="222" fill="#999" font-size="12" font-family="Segoe UI">Ingrese su usuario</text>
+  <!-- Campo Contraseña -->
+  <text x="80" y="260" fill="#333" font-size="11" font-weight="bold" font-family="Segoe UI" letter-spacing="1">CONTRASEÑA</text>
+  <rect x="80" y="268" width="320" height="38" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="95" y="292" fill="#999" font-size="12" font-family="Segoe UI">Ingrese su contraseña</text>
+  <!-- Botón Ingresar -->
+  <rect x="80" y="325" width="320" height="42" rx="6" fill="#8B0000"/>
+  <text x="240" y="351" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="bold" font-family="Segoe UI">Ingresar</text>
+  <!-- Recuadro credenciales demo -->
+  <rect x="100" y="390" width="280" height="70" rx="6" fill="#F9F9F9" stroke="#DDD" stroke-dasharray="4,2"/>
+  <text x="240" y="412" text-anchor="middle" fill="#666" font-size="10" font-weight="bold" font-family="Segoe UI">CREDENCIALES DEMO</text>
+  <text x="240" y="430" text-anchor="middle" fill="#888" font-size="10" font-family="Segoe UI">Admin: admin / admin123</text>
+  <text x="240" y="448" text-anchor="middle" fill="#888" font-size="10" font-family="Segoe UI">Operador: operador_bog / oper123</text>
+</svg>
+</div>
+<!-- Notas Login -->
+<div style="background:#FFF8E1; border:2px dashed #FFD54F; border-radius:8px; padding:12px 18px; margin:10px auto; max-width:800px;">
+  <strong>Notas:</strong> Diseño split-screen que separa la funcionalidad (izquierda) de la identidad visual (derecha). El degradado rojo refuerza la marca institucional. Se incluyen credenciales demo para facilitar pruebas. Los campos usan labels en mayúsculas para jerarquía visual clara. El botón rojo oscuro (#8B0000) genera contraste y destaca la acción principal.
+</div>
+
+<!-- ============================================================ -->
+<!-- WIREFRAME 2: DASHBOARD + LAYOUT -->
+<!-- ============================================================ -->
+<h3>Wireframe 2: Dashboard + Layout Principal</h3>
+<div class="wireframe-container">
+<svg width="900" height="580" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo -->
+  <rect width="900" height="580" fill="#F0F2F5"/>
+  <!-- SIDEBAR -->
+  <rect x="0" y="0" width="200" height="580" fill="#003087"/>
+  <!-- Logo sidebar -->
+  <circle cx="100" cy="35" r="18" fill="#CC0000"/>
+  <circle cx="100" cy="35" r="10" fill="#FFFFFF" opacity="0.3"/>
+  <text x="100" y="40" text-anchor="middle" fill="#FFF" font-size="11" font-weight="bold" font-family="Segoe UI">S</text>
+  <text x="100" y="65" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="bold" font-family="Segoe UI">SIGAE</text>
+  <!-- Separador -->
+  <line x1="15" y1="80" x2="185" y2="80" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <!-- Avatar usuario -->
+  <circle cx="40" cy="105" r="16" fill="#CC0000"/>
+  <text x="40" y="110" text-anchor="middle" fill="#FFF" font-size="11" font-weight="bold" font-family="Segoe UI">A</text>
+  <text x="65" y="102" fill="#FFFFFF" font-size="12" font-weight="bold" font-family="Segoe UI">admin</text>
+  <text x="65" y="116" fill="rgba(255,255,255,0.6)" font-size="9" font-family="Segoe UI">ADMIN</text>
+  <!-- Separador -->
+  <line x1="15" y1="135" x2="185" y2="135" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <!-- Menú PRINCIPAL -->
+  <text x="20" y="160" fill="rgba(255,255,255,0.4)" font-size="9" font-weight="bold" font-family="Segoe UI" letter-spacing="1">PRINCIPAL</text>
+  <!-- Dashboard activo -->
+  <rect x="0" y="168" width="200" height="32" fill="rgba(255,255,255,0.1)"/>
+  <rect x="0" y="168" width="4" height="32" fill="#CC0000"/>
+  <text x="30" y="189" fill="#FFFFFF" font-size="12" font-weight="bold" font-family="Segoe UI">📊 Dashboard</text>
+  <!-- Menú INVENTARIO -->
+  <text x="20" y="220" fill="rgba(255,255,255,0.4)" font-size="9" font-weight="bold" font-family="Segoe UI" letter-spacing="1">INVENTARIO</text>
+  <text x="30" y="242" fill="rgba(255,255,255,0.7)" font-size="11" font-family="Segoe UI">💻 Activos</text>
+  <text x="30" y="262" fill="rgba(255,255,255,0.7)" font-size="11" font-family="Segoe UI">👥 Empleados</text>
+  <text x="30" y="282" fill="rgba(255,255,255,0.7)" font-size="11" font-family="Segoe UI">🔗 Asignaciones</text>
+  <!-- Menú ORGANIZACIÓN -->
+  <text x="20" y="310" fill="rgba(255,255,255,0.4)" font-size="9" font-weight="bold" font-family="Segoe UI" letter-spacing="1">ORGANIZACIÓN</text>
+  <text x="30" y="332" fill="rgba(255,255,255,0.7)" font-size="11" font-family="Segoe UI">🏢 Sedes</text>
+  <text x="30" y="352" fill="rgba(255,255,255,0.7)" font-size="11" font-family="Segoe UI">🏛 Departamentos</text>
+  <!-- Menú ANÁLISIS -->
+  <text x="20" y="380" fill="rgba(255,255,255,0.4)" font-size="9" font-weight="bold" font-family="Segoe UI" letter-spacing="1">ANÁLISIS</text>
+  <text x="30" y="402" fill="rgba(255,255,255,0.7)" font-size="11" font-family="Segoe UI">📈 Reportes</text>
+  <!-- Menú ADMINISTRACIÓN -->
+  <text x="20" y="430" fill="rgba(255,255,255,0.4)" font-size="9" font-weight="bold" font-family="Segoe UI" letter-spacing="1">ADMINISTRACIÓN</text>
+  <text x="30" y="452" fill="rgba(255,255,255,0.7)" font-size="11" font-family="Segoe UI">👤 Usuarios</text>
+  <text x="30" y="472" fill="rgba(255,255,255,0.7)" font-size="11" font-family="Segoe UI">📋 Actividad</text>
+  <!-- Botón Cerrar Sesión -->
+  <rect x="15" y="540" width="170" height="30" rx="4" fill="#CC0000"/>
+  <text x="100" y="560" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="bold" font-family="Segoe UI">Cerrar Sesión</text>
+
+  <!-- ÁREA PRINCIPAL -->
+  <!-- Topbar -->
+  <rect x="200" y="0" width="700" height="45" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="1"/>
+  <circle cx="222" cy="22" r="10" fill="#CC0000"/>
+  <text x="222" y="27" text-anchor="middle" fill="#FFF" font-size="8" font-weight="bold" font-family="Segoe UI">S</text>
+  <text x="240" y="27" fill="#003087" font-size="12" font-weight="bold" font-family="Segoe UI">SIGAE</text>
+  <text x="680" y="27" fill="#888" font-size="10" font-family="Segoe UI">📅 15/01/2025</text>
+  <rect x="830" y="12" width="50" height="20" rx="10" fill="#CC0000"/>
+  <text x="855" y="26" text-anchor="middle" fill="#FFF" font-size="9" font-weight="bold" font-family="Segoe UI">ADMIN</text>
+
+  <!-- Banner bienvenida -->
+  <rect x="215" y="55" width="670" height="50" rx="8" fill="#003087"/>
+  <text x="235" y="78" fill="#FFFFFF" font-size="14" font-weight="bold" font-family="Segoe UI">Bienvenido, admin</text>
+  <text x="235" y="95" fill="rgba(255,255,255,0.7)" font-size="11" font-family="Segoe UI">Vista global del sistema</text>
+  <!-- Tarjetas estadísticas - Fila 1 -->
+  <!-- Total Activos -->
+  <rect x="215" y="115" width="155" height="65" rx="8" fill="#FFFFFF" stroke="#E0E0E0"/>
+  <rect x="215" y="115" width="155" height="4" rx="2" fill="#CC0000"/>
+  <text x="225" y="140" fill="#888" font-size="9" font-family="Segoe UI">Total Activos</text>
+  <text x="225" y="165" fill="#CC0000" font-size="22" font-weight="bold" font-family="Segoe UI">100</text>
+  <!-- Disponibles -->
+  <rect x="380" y="115" width="155" height="65" rx="8" fill="#FFFFFF" stroke="#E0E0E0"/>
+  <rect x="380" y="115" width="155" height="4" rx="2" fill="#00AA00"/>
+  <text x="390" y="140" fill="#888" font-size="9" font-family="Segoe UI">Disponibles</text>
+  <text x="390" y="165" fill="#00AA00" font-size="22" font-weight="bold" font-family="Segoe UI">72</text>
+  <!-- Asignados -->
+  <rect x="545" y="115" width="155" height="65" rx="8" fill="#FFFFFF" stroke="#E0E0E0"/>
+  <rect x="545" y="115" width="155" height="4" rx="2" fill="#FF8800"/>
+  <text x="555" y="140" fill="#888" font-size="9" font-family="Segoe UI">Asignados</text>
+  <text x="555" y="165" fill="#FF8800" font-size="22" font-weight="bold" font-family="Segoe UI">20</text>
+  <!-- Reparación -->
+  <rect x="710" y="115" width="155" height="65" rx="8" fill="#FFFFFF" stroke="#E0E0E0"/>
+  <rect x="710" y="115" width="155" height="4" rx="2" fill="#003087"/>
+  <text x="720" y="140" fill="#888" font-size="9" font-family="Segoe UI">En Reparación</text>
+  <text x="720" y="165" fill="#003087" font-size="22" font-weight="bold" font-family="Segoe UI">8</text>
+  <!-- Tarjetas estadísticas - Fila 2 -->
+  <!-- Empleados -->
+  <rect x="215" y="190" width="155" height="65" rx="8" fill="#FFFFFF" stroke="#E0E0E0"/>
+  <rect x="215" y="190" width="155" height="4" rx="2" fill="#003087"/>
+  <text x="225" y="215" fill="#888" font-size="9" font-family="Segoe UI">Empleados</text>
+  <text x="225" y="240" fill="#003087" font-size="22" font-weight="bold" font-family="Segoe UI">50</text>
+  <!-- Sedes -->
+  <rect x="380" y="190" width="155" height="65" rx="8" fill="#FFFFFF" stroke="#E0E0E0"/>
+  <rect x="380" y="190" width="155" height="4" rx="2" fill="#CC0000"/>
+  <text x="390" y="215" fill="#888" font-size="9" font-family="Segoe UI">Sedes</text>
+  <text x="390" y="240" fill="#CC0000" font-size="22" font-weight="bold" font-family="Segoe UI">20</text>
+  <!-- Departamentos -->
+  <rect x="545" y="190" width="155" height="65" rx="8" fill="#FFFFFF" stroke="#E0E0E0"/>
+  <rect x="545" y="190" width="155" height="4" rx="2" fill="#003087"/>
+  <text x="555" y="215" fill="#888" font-size="9" font-family="Segoe UI">Departamentos</text>
+  <text x="555" y="240" fill="#003087" font-size="22" font-weight="bold" font-family="Segoe UI">10</text>
+  <!-- Valor Total -->
+  <rect x="710" y="190" width="155" height="65" rx="8" fill="#FFFFFF" stroke="#E0E0E0"/>
+  <rect x="710" y="190" width="155" height="4" rx="2" fill="#00AA00"/>
+  <text x="720" y="215" fill="#888" font-size="9" font-family="Segoe UI">Valor Total</text>
+  <text x="720" y="240" fill="#00AA00" font-size="22" font-weight="bold" font-family="Segoe UI">$350M</text>
+  <!-- Tabla Actividad Reciente -->
+  <rect x="215" y="270" width="670" height="25" rx="4" fill="#003087"/>
+  <text x="230" y="287" fill="#FFFFFF" font-size="11" font-weight="bold" font-family="Segoe UI">Actividad Reciente</text>
+  <!-- Headers tabla -->
+  <rect x="215" y="295" width="670" height="25" fill="#F5F5F5"/>
+  <text x="230" y="312" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">FECHA</text>
+  <text x="350" y="312" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">USUARIO</text>
+  <text x="470" y="312" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">ACCIÓN</text>
+  <text x="620" y="312" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">DETALLE</text>
+  <!-- Fila 1 -->
+  <rect x="215" y="320" width="670" height="28" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="230" y="339" fill="#333" font-size="10" font-family="Segoe UI">15/01/2025 10:30</text>
+  <text x="350" y="339" fill="#333" font-size="10" font-family="Segoe UI">admin</text>
+  <rect x="470" y="328" width="70" height="18" rx="9" fill="#E3F2FD"/>
+  <text x="505" y="341" text-anchor="middle" fill="#003087" font-size="9" font-family="Segoe UI">Asignación</text>
+  <text x="620" y="339" fill="#333" font-size="10" font-family="Segoe UI">Laptop Dell → Juan Pérez</text>
+  <!-- Fila 2 -->
+  <rect x="215" y="348" width="670" height="28" fill="#FAFAFA" stroke="#F0F0F0"/>
+  <text x="230" y="367" fill="#333" font-size="10" font-family="Segoe UI">15/01/2025 09:15</text>
+  <text x="350" y="367" fill="#333" font-size="10" font-family="Segoe UI">admin</text>
+  <rect x="470" y="356" width="80" height="18" rx="9" fill="#E8F5E9"/>
+  <text x="510" y="369" text-anchor="middle" fill="#00AA00" font-size="9" font-family="Segoe UI">Activo creado</text>
+  <text x="620" y="367" fill="#333" font-size="10" font-family="Segoe UI">Monitor Samsung 27"</text>
+  <!-- Fila 3 -->
+  <rect x="215" y="376" width="670" height="28" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="230" y="395" fill="#333" font-size="10" font-family="Segoe UI">14/01/2025 16:45</text>
+  <text x="350" y="395" fill="#333" font-size="10" font-family="Segoe UI">operador_bog</text>
+  <rect x="470" y="384" width="70" height="18" rx="9" fill="#FFF3E0"/>
+  <text x="505" y="397" text-anchor="middle" fill="#FF8800" font-size="9" font-family="Segoe UI">Devolución</text>
+  <text x="620" y="395" fill="#333" font-size="10" font-family="Segoe UI">Impresora HP LaserJet</text>
+</svg>
+</div>
+<!-- Notas Dashboard -->
+<div style="background:#FFF8E1; border:2px dashed #FFD54F; border-radius:8px; padding:12px 18px; margin:10px auto; max-width:900px;">
+  <strong>Notas:</strong> Layout con sidebar fijo de 200px que agrupa la navegación por secciones lógicas (Principal, Inventario, Organización, Análisis, Administración). El Dashboard muestra 8 KPIs en grid 4×2 con colores semánticos: rojo para totales, verde para disponibilidad, naranja para asignaciones, azul para información. La tabla de actividad reciente proporciona contexto inmediato de las últimas operaciones del sistema.
+</div>
+
+<!-- ============================================================ -->
+<!-- WIREFRAME 3: LISTA DE ACTIVOS -->
+<!-- ============================================================ -->
+<h3>Wireframe 3: Lista de Activos</h3>
+<div class="wireframe-container">
+<svg width="750" height="350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="750" height="350" fill="#FFFFFF" rx="8"/>
+  <!-- Header -->
+  <text x="20" y="30" fill="#003087" font-size="18" font-weight="bold" font-family="Segoe UI">Activos</text>
+  <text x="100" y="30" fill="#888" font-size="14" font-family="Segoe UI">(100)</text>
+  <!-- Botón Nuevo Activo -->
+  <rect x="530" y="12" width="110" height="28" rx="4" fill="#003087"/>
+  <text x="585" y="31" text-anchor="middle" fill="#FFF" font-size="11" font-weight="bold" font-family="Segoe UI">+ Nuevo Activo</text>
+  <!-- Botón CSV -->
+  <rect x="650" y="12" width="80" height="28" rx="4" fill="#00AA00"/>
+  <text x="690" y="31" text-anchor="middle" fill="#FFF" font-size="11" font-weight="bold" font-family="Segoe UI">📥 CSV</text>
+  <!-- Filtros -->
+  <rect x="20" y="50" width="300" height="30" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="35" y="70" fill="#999" font-size="11" font-family="Segoe UI">🔍 Buscar activo...</text>
+  <rect x="330" y="50" width="150" height="30" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="345" y="70" fill="#999" font-size="11" font-family="Segoe UI">Estado ▼</text>
+  <!-- Tabla Headers -->
+  <rect x="20" y="95" width="710" height="28" fill="#F5F5F5"/>
+  <text x="30" y="114" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">ACTIVO</text>
+  <text x="150" y="114" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">TIPO</text>
+  <text x="230" y="114" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">SERIAL</text>
+  <text x="330" y="114" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">VALOR</text>
+  <text x="410" y="114" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">SEDE</text>
+  <text x="500" y="114" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">DEPTO</text>
+  <text x="590" y="114" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">ESTADO</text>
+  <text x="690" y="114" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">ACC.</text>
+  <!-- Fila 1: Laptop Dell -->
+  <rect x="20" y="123" width="710" height="35" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="30" y="145" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Laptop Dell XPS</text>
+  <text x="150" y="145" fill="#666" font-size="10" font-family="Segoe UI">Laptop</text>
+  <text x="230" y="145" fill="#666" font-size="10" font-family="Segoe UI">SN-001</text>
+  <text x="330" y="145" fill="#333" font-size="10" font-family="Segoe UI">$3.500.000</text>
+  <text x="410" y="145" fill="#666" font-size="10" font-family="Segoe UI">Bogotá</text>
+  <text x="500" y="145" fill="#666" font-size="10" font-family="Segoe UI">Tecnología</text>
+  <rect x="585" y="133" width="80" height="18" rx="9" fill="#E8F5E9"/>
+  <text x="625" y="146" text-anchor="middle" fill="#00AA00" font-size="9" font-weight="bold" font-family="Segoe UI">DISPONIBLE</text>
+  <rect x="685" y="133" width="30" height="18" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="700" y="146" text-anchor="middle" fill="#666" font-size="10" font-family="Segoe UI">✏️</text>
+  <!-- Fila 2: Monitor Samsung -->
+  <rect x="20" y="158" width="710" height="35" fill="#FAFAFA" stroke="#F0F0F0"/>
+  <text x="30" y="180" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Monitor Samsung 27"</text>
+  <text x="150" y="180" fill="#666" font-size="10" font-family="Segoe UI">Monitor</text>
+  <text x="230" y="180" fill="#666" font-size="10" font-family="Segoe UI">SN-002</text>
+  <text x="330" y="180" fill="#333" font-size="10" font-family="Segoe UI">$1.200.000</text>
+  <text x="410" y="180" fill="#666" font-size="10" font-family="Segoe UI">Bogotá</text>
+  <text x="500" y="180" fill="#666" font-size="10" font-family="Segoe UI">Contabilidad</text>
+  <rect x="585" y="168" width="80" height="18" rx="9" fill="#FFF8E1"/>
+  <text x="625" y="181" text-anchor="middle" fill="#FF8800" font-size="9" font-weight="bold" font-family="Segoe UI">ASIGNADO</text>
+  <rect x="685" y="168" width="30" height="18" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="700" y="181" text-anchor="middle" fill="#666" font-size="10" font-family="Segoe UI">✏️</text>
+  <!-- Fila 3: Impresora HP -->
+  <rect x="20" y="193" width="710" height="35" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="30" y="215" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Impresora HP LaserJet</text>
+  <text x="150" y="215" fill="#666" font-size="10" font-family="Segoe UI">Impresora</text>
+  <text x="230" y="215" fill="#666" font-size="10" font-family="Segoe UI">SN-003</text>
+  <text x="330" y="215" fill="#333" font-size="10" font-family="Segoe UI">$800.000</text>
+  <text x="410" y="215" fill="#666" font-size="10" font-family="Segoe UI">Medellín</text>
+  <text x="500" y="215" fill="#666" font-size="10" font-family="Segoe UI">RRHH</text>
+  <rect x="585" y="203" width="80" height="18" rx="9" fill="#FFEBEE"/>
+  <text x="625" y="216" text-anchor="middle" fill="#CC0000" font-size="9" font-weight="bold" font-family="Segoe UI">DAÑADO</text>
+  <rect x="685" y="203" width="30" height="18" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="700" y="216" text-anchor="middle" fill="#666" font-size="10" font-family="Segoe UI">✏️</text>
+</svg>
+</div>
+<!-- Notas Activos -->
+<div style="background:#FFF8E1; border:2px dashed #FFD54F; border-radius:8px; padding:12px 18px; margin:10px auto; max-width:750px;">
+  <strong>Notas:</strong> La tabla de activos incluye búsqueda en tiempo real y filtro por estado. Los badges de estado usan colores semánticos (verde=disponible, amarillo=asignado, rojo=dañado) para identificación rápida. Los botones de acción principales (Nuevo Activo y CSV) están posicionados en la esquina superior derecha siguiendo convenciones de UI.
+</div>
+
+<!-- ============================================================ -->
+<!-- WIREFRAME 4: FORMULARIO DE ACTIVO -->
+<!-- ============================================================ -->
+<h3>Wireframe 4: Formulario de Activo</h3>
+<div class="wireframe-container">
+<svg width="750" height="250" xmlns="http://www.w3.org/2000/svg">
+  <rect width="750" height="250" fill="#FFFFFF" rx="8" stroke="#E0E0E0"/>
+  <!-- Header card -->
+  <rect x="0" y="0" width="750" height="40" rx="8" fill="#003087"/>
+  <rect x="0" y="20" width="750" height="20" fill="#003087"/>
+  <text x="20" y="26" fill="#FFFFFF" font-size="14" font-weight="bold" font-family="Segoe UI">Nuevo Activo</text>
+  <!-- Fila 1: Nombre, Serial, Tipo -->
+  <text x="20" y="65" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Nombre</text>
+  <rect x="20" y="70" width="220" height="30" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="30" y="90" fill="#999" font-size="10" font-family="Segoe UI">Nombre del activo</text>
+  <text x="260" y="65" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Serial</text>
+  <rect x="260" y="70" width="220" height="30" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="270" y="90" fill="#999" font-size="10" font-family="Segoe UI">Número de serie</text>
+  <text x="500" y="65" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Tipo</text>
+  <rect x="500" y="70" width="230" height="30" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="510" y="90" fill="#999" font-size="10" font-family="Segoe UI">Seleccionar tipo ▼</text>
+  <!-- Fila 2: Valor, Fecha, Sede, Departamento -->
+  <text x="20" y="120" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Valor</text>
+  <rect x="20" y="125" width="160" height="30" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="30" y="145" fill="#999" font-size="10" font-family="Segoe UI">$ 0</text>
+  <text x="200" y="120" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Fecha Compra</text>
+  <rect x="200" y="125" width="160" height="30" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="210" y="145" fill="#999" font-size="10" font-family="Segoe UI">dd/mm/aaaa</text>
+  <text x="380" y="120" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Sede</text>
+  <rect x="380" y="125" width="170" height="30" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="390" y="145" fill="#999" font-size="10" font-family="Segoe UI">Seleccionar sede ▼</text>
+  <text x="570" y="120" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Departamento</text>
+  <rect x="570" y="125" width="160" height="30" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="580" y="145" fill="#999" font-size="10" font-family="Segoe UI">Seleccionar depto ▼</text>
+  <!-- Fila 3: Descripción -->
+  <text x="20" y="175" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Descripción</text>
+  <rect x="20" y="180" width="710" height="30" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="30" y="200" fill="#999" font-size="10" font-family="Segoe UI">Descripción del activo (opcional)</text>
+  <!-- Botones -->
+  <rect x="560" y="218" width="80" height="28" rx="4" fill="#E0E0E0"/>
+  <text x="600" y="237" text-anchor="middle" fill="#666" font-size="11" font-weight="bold" font-family="Segoe UI">Cancelar</text>
+  <rect x="650" y="218" width="80" height="28" rx="4" fill="#003087"/>
+  <text x="690" y="237" text-anchor="middle" fill="#FFF" font-size="11" font-weight="bold" font-family="Segoe UI">Guardar</text>
+</svg>
+</div>
+<!-- Notas Formulario -->
+<div style="background:#FFF8E1; border:2px dashed #FFD54F; border-radius:8px; padding:12px 18px; margin:10px auto; max-width:750px;">
+  <strong>Notas:</strong> Formulario organizado en grid de 3 filas con campos agrupados lógicamente. Los dropdowns de Sede y Departamento se cargan dinámicamente. La descripción ocupa el ancho completo para permitir texto extenso. Los botones de acción siguen el patrón Cancelar (gris) + Guardar (azul primario) alineados a la derecha.
+</div>
+
+<!-- ============================================================ -->
+<!-- WIREFRAME 5: ASIGNACIONES -->
+<!-- ============================================================ -->
+<h3>Wireframe 5: Asignaciones</h3>
+<div class="wireframe-container">
+<svg width="750" height="350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="750" height="350" fill="#FFFFFF" rx="8"/>
+  <!-- Card Nueva Asignación -->
+  <rect x="15" y="10" width="720" height="80" rx="8" fill="#FFFFFF" stroke="#E0E0E0"/>
+  <rect x="15" y="10" width="720" height="4" rx="2" fill="#003087"/>
+  <text x="30" y="32" fill="#003087" font-size="12" font-weight="bold" font-family="Segoe UI">Nueva Asignación</text>
+  <!-- Columna 1: Activo -->
+  <text x="30" y="50" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Activo disponible</text>
+  <rect x="30" y="55" width="200" height="26" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="40" y="73" fill="#999" font-size="9" font-family="Segoe UI">Seleccionar activo ▼</text>
+  <!-- Columna 2: Empleado -->
+  <text x="245" y="50" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Empleado</text>
+  <rect x="245" y="55" width="200" height="26" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="255" y="73" fill="#999" font-size="9" font-family="Segoe UI">Seleccionar empleado ▼</text>
+  <!-- Columna 3: Observaciones + Botón -->
+  <text x="460" y="50" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Observaciones</text>
+  <rect x="460" y="55" width="170" height="26" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="470" y="73" fill="#999" font-size="9" font-family="Segoe UI">Notas (opcional)</text>
+  <rect x="640" y="55" width="80" height="26" rx="4" fill="#003087"/>
+  <text x="680" y="73" text-anchor="middle" fill="#FFF" font-size="10" font-weight="bold" font-family="Segoe UI">Registrar</text>
+  <!-- Tabla Historial -->
+  <text x="20" y="115" fill="#003087" font-size="14" font-weight="bold" font-family="Segoe UI">Historial de Asignaciones</text>
+  <!-- Headers -->
+  <rect x="15" y="125" width="720" height="25" fill="#F5F5F5"/>
+  <text x="30" y="142" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">ACTIVO</text>
+  <text x="170" y="142" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">EMPLEADO</text>
+  <text x="320" y="142" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">FECHA</text>
+  <text x="430" y="142" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">ESTADO</text>
+  <text x="530" y="142" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">NOTAS</text>
+  <text x="670" y="142" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">ACC.</text>
+  <!-- Fila 1: Activa -->
+  <rect x="15" y="150" width="720" height="35" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="30" y="172" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Laptop Dell XPS</text>
+  <text x="170" y="172" fill="#333" font-size="10" font-family="Segoe UI">Juan Pérez</text>
+  <text x="320" y="172" fill="#666" font-size="10" font-family="Segoe UI">15/01/2025</text>
+  <rect x="425" y="160" width="60" height="18" rx="9" fill="#FFF8E1"/>
+  <text x="455" y="173" text-anchor="middle" fill="#FF8800" font-size="9" font-weight="bold" font-family="Segoe UI">Activa</text>
+  <text x="530" y="172" fill="#666" font-size="10" font-family="Segoe UI">Uso oficina</text>
+  <rect x="660" y="160" width="60" height="18" rx="4" fill="#00AA00"/>
+  <text x="690" y="173" text-anchor="middle" fill="#FFF" font-size="9" font-weight="bold" font-family="Segoe UI">Devolver</text>
+  <!-- Fila 2: Devuelta -->
+  <rect x="15" y="185" width="720" height="35" fill="#FAFAFA" stroke="#F0F0F0"/>
+  <text x="30" y="207" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Monitor Samsung 27"</text>
+  <text x="170" y="207" fill="#333" font-size="10" font-family="Segoe UI">María López</text>
+  <text x="320" y="207" fill="#666" font-size="10" font-family="Segoe UI">10/01/2025</text>
+  <rect x="425" y="195" width="70" height="18" rx="9" fill="#E8F5E9"/>
+  <text x="460" y="208" text-anchor="middle" fill="#00AA00" font-size="9" font-weight="bold" font-family="Segoe UI">Devuelta</text>
+  <text x="530" y="207" fill="#666" font-size="10" font-family="Segoe UI">Cambio de área</text>
+</svg>
+</div>
+<!-- Notas Asignaciones -->
+<div style="background:#FFF8E1; border:2px dashed #FFD54F; border-radius:8px; padding:12px 18px; margin:10px auto; max-width:750px;">
+  <strong>Notas:</strong> La vista combina formulario de nueva asignación (parte superior) con historial (tabla inferior). Solo se muestran activos con estado "Disponible" en el dropdown. El botón "Devolver" solo aparece en asignaciones activas. Los badges amarillo (Activa) y verde (Devuelta) permiten identificar rápidamente el estado de cada asignación.
+</div>
+
+<!-- ============================================================ -->
+<!-- WIREFRAME 6: EMPLEADOS -->
+<!-- ============================================================ -->
+<h3>Wireframe 6: Empleados</h3>
+<div class="wireframe-container">
+<svg width="750" height="350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="750" height="350" fill="#FFFFFF" rx="8"/>
+  <!-- Header -->
+  <text x="20" y="30" fill="#003087" font-size="18" font-weight="bold" font-family="Segoe UI">Empleados</text>
+  <text x="130" y="30" fill="#888" font-size="14" font-family="Segoe UI">(50)</text>
+  <!-- Botón Nuevo Empleado -->
+  <rect x="600" y="12" width="130" height="28" rx="4" fill="#003087"/>
+  <text x="665" y="31" text-anchor="middle" fill="#FFF" font-size="11" font-weight="bold" font-family="Segoe UI">+ Nuevo Empleado</text>
+  <!-- Búsqueda -->
+  <rect x="20" y="50" width="300" height="30" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="35" y="70" fill="#999" font-size="11" font-family="Segoe UI">🔍 Buscar empleado...</text>
+  <!-- Headers tabla -->
+  <rect x="15" y="95" width="720" height="25" fill="#F5F5F5"/>
+  <text x="25" y="112" fill="#666" font-size="8" font-weight="bold" font-family="Segoe UI">EMPLEADO</text>
+  <text x="150" y="112" fill="#666" font-size="8" font-weight="bold" font-family="Segoe UI">CÉDULA</text>
+  <text x="230" y="112" fill="#666" font-size="8" font-weight="bold" font-family="Segoe UI">SEDE</text>
+  <text x="310" y="112" fill="#666" font-size="8" font-weight="bold" font-family="Segoe UI">DEPTO</text>
+  <text x="400" y="112" fill="#666" font-size="8" font-weight="bold" font-family="Segoe UI">CARGO</text>
+  <text x="490" y="112" fill="#666" font-size="8" font-weight="bold" font-family="Segoe UI">ACTIVOS</text>
+  <text x="545" y="112" fill="#666" font-size="8" font-weight="bold" font-family="Segoe UI">INGRESO</text>
+  <text x="620" y="112" fill="#666" font-size="8" font-weight="bold" font-family="Segoe UI">ESTADO</text>
+  <text x="690" y="112" fill="#666" font-size="8" font-weight="bold" font-family="Segoe UI">ACC.</text>
+  <!-- Fila 1: Empleado Activo -->
+  <rect x="15" y="120" width="720" height="40" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="25" y="140" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Juan Pérez</text>
+  <text x="25" y="152" fill="#888" font-size="8" font-family="Segoe UI">juan@empresa.com</text>
+  <text x="150" y="145" fill="#666" font-size="10" font-family="Segoe UI">1234567890</text>
+  <text x="230" y="145" fill="#666" font-size="10" font-family="Segoe UI">Bogotá</text>
+  <text x="310" y="145" fill="#666" font-size="10" font-family="Segoe UI">Tecnología</text>
+  <text x="400" y="145" fill="#666" font-size="10" font-family="Segoe UI">Ingeniero</text>
+  <rect x="490" y="136" width="28" height="18" rx="9" fill="#E3F2FD"/>
+  <text x="504" y="149" text-anchor="middle" fill="#003087" font-size="9" font-weight="bold" font-family="Segoe UI">3</text>
+  <text x="545" y="145" fill="#666" font-size="10" font-family="Segoe UI">01/03/2023</text>
+  <rect x="615" y="136" width="55" height="18" rx="9" fill="#E8F5E9"/>
+  <text x="642" y="149" text-anchor="middle" fill="#00AA00" font-size="9" font-weight="bold" font-family="Segoe UI">Activo</text>
+  <text x="690" y="145" fill="#003087" font-size="9" font-family="Segoe UI">Ver | Editar | Baja</text>
+  <!-- Fila 2: Empleado dado de Baja (atenuado) -->
+  <rect x="15" y="160" width="720" height="40" fill="#FAFAFA" stroke="#F0F0F0" opacity="0.5"/>
+  <g opacity="0.5">
+    <text x="25" y="180" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Carlos Gómez</text>
+    <text x="25" y="192" fill="#888" font-size="8" font-family="Segoe UI">carlos@empresa.com</text>
+    <text x="150" y="185" fill="#666" font-size="10" font-family="Segoe UI">9876543210</text>
+    <text x="230" y="185" fill="#666" font-size="10" font-family="Segoe UI">Medellín</text>
+    <text x="310" y="185" fill="#666" font-size="10" font-family="Segoe UI">RRHH</text>
+    <text x="400" y="185" fill="#666" font-size="10" font-family="Segoe UI">Analista</text>
+    <rect x="490" y="176" width="28" height="18" rx="9" fill="#E3F2FD"/>
+    <text x="504" y="189" text-anchor="middle" fill="#003087" font-size="9" font-weight="bold" font-family="Segoe UI">0</text>
+    <text x="545" y="185" fill="#666" font-size="10" font-family="Segoe UI">15/06/2022</text>
+    <rect x="615" y="176" width="55" height="18" rx="9" fill="#FFEBEE"/>
+    <text x="642" y="189" text-anchor="middle" fill="#CC0000" font-size="9" font-weight="bold" font-family="Segoe UI">Baja</text>
+    <text x="690" y="185" fill="#003087" font-size="9" font-family="Segoe UI">Ver | Reactivar</text>
+  </g>
+</svg>
+</div>
+<!-- Notas Empleados -->
+<div style="background:#FFF8E1; border:2px dashed #FFD54F; border-radius:8px; padding:12px 18px; margin:10px auto; max-width:750px;">
+  <strong>Notas:</strong> La tabla muestra nombre y email en la misma celda para optimizar espacio. El badge de activos asignados permite ver rápidamente la carga de cada empleado. Los empleados dados de baja se muestran con opacity 50% y badge rojo, con opción de "Reactivar" en lugar de "Baja". Las acciones contextuales cambian según el estado del empleado.
+</div>
+
+<!-- ============================================================ -->
+<!-- WIREFRAME 7: SEDES (Solo Admin) -->
+<!-- ============================================================ -->
+<h3>Wireframe 7: Sedes (Solo Admin)</h3>
+<div class="wireframe-container">
+<svg width="750" height="280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="750" height="280" fill="#FFFFFF" rx="8"/>
+  <!-- Header -->
+  <text x="20" y="28" fill="#003087" font-size="18" font-weight="bold" font-family="Segoe UI">Sedes</text>
+  <text x="75" y="28" fill="#888" font-size="14" font-family="Segoe UI">(20)</text>
+  <rect x="4" y="30" width="60" height="14" rx="7" fill="#FFEBEE"/>
+  <text x="34" y="41" text-anchor="middle" fill="#CC0000" font-size="8" font-weight="bold" font-family="Segoe UI">Solo Admin</text>
+  <!-- Botón Nueva Sede -->
+  <rect x="620" y="10" width="110" height="28" rx="4" fill="#003087"/>
+  <text x="675" y="29" text-anchor="middle" fill="#FFF" font-size="11" font-weight="bold" font-family="Segoe UI">+ Nueva Sede</text>
+  <!-- Headers tabla -->
+  <rect x="15" y="55" width="720" height="25" fill="#F5F5F5"/>
+  <text x="25" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">SEDE</text>
+  <text x="140" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">CIUDAD</text>
+  <text x="240" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">DIRECCIÓN</text>
+  <text x="410" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">TELÉFONO</text>
+  <text x="510" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">DEPTOS</text>
+  <text x="570" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">ACTIVOS</text>
+  <text x="650" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">ACCIONES</text>
+  <!-- Fila 1: Sede Bogotá -->
+  <rect x="15" y="80" width="720" height="32" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="25" y="101" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Sede Bogotá</text>
+  <text x="140" y="101" fill="#666" font-size="10" font-family="Segoe UI">Bogotá</text>
+  <text x="240" y="101" fill="#666" font-size="10" font-family="Segoe UI">Cra 7 #45-12, Centro</text>
+  <text x="410" y="101" fill="#666" font-size="10" font-family="Segoe UI">(601) 555-0100</text>
+  <rect x="515" y="91" width="28" height="18" rx="9" fill="#E3F2FD"/>
+  <text x="529" y="104" text-anchor="middle" fill="#003087" font-size="9" font-weight="bold" font-family="Segoe UI">5</text>
+  <rect x="575" y="91" width="28" height="18" rx="9" fill="#F3E5F5"/>
+  <text x="589" y="104" text-anchor="middle" fill="#7B1FA2" font-size="9" font-weight="bold" font-family="Segoe UI">60</text>
+  <text x="650" y="101" fill="#003087" font-size="9" font-family="Segoe UI">Editar | Eliminar</text>
+  <!-- Fila 2: Sede Medellín -->
+  <rect x="15" y="112" width="720" height="32" fill="#FAFAFA" stroke="#F0F0F0"/>
+  <text x="25" y="133" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Sede Medellín</text>
+  <text x="140" y="133" fill="#666" font-size="10" font-family="Segoe UI">Medellín</text>
+  <text x="240" y="133" fill="#666" font-size="10" font-family="Segoe UI">Calle 50 #30-20, Poblado</text>
+  <text x="410" y="133" fill="#666" font-size="10" font-family="Segoe UI">(604) 555-0200</text>
+  <rect x="515" y="123" width="28" height="18" rx="9" fill="#E3F2FD"/>
+  <text x="529" y="136" text-anchor="middle" fill="#003087" font-size="9" font-weight="bold" font-family="Segoe UI">3</text>
+  <rect x="575" y="123" width="28" height="18" rx="9" fill="#F3E5F5"/>
+  <text x="589" y="136" text-anchor="middle" fill="#7B1FA2" font-size="9" font-weight="bold" font-family="Segoe UI">40</text>
+  <text x="650" y="133" fill="#003087" font-size="9" font-family="Segoe UI">Editar | Eliminar</text>
+  <!-- Formulario inline -->
+  <rect x="15" y="160" width="720" height="4" fill="#003087" rx="2"/>
+  <text x="25" y="180" fill="#003087" font-size="11" font-weight="bold" font-family="Segoe UI">Formulario de Sede</text>
+  <text x="25" y="200" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Nombre</text>
+  <rect x="25" y="205" width="160" height="24" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="205" y="200" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Ciudad</text>
+  <rect x="205" y="205" width="140" height="24" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="365" y="200" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Dirección</text>
+  <rect x="365" y="205" width="200" height="24" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="585" y="200" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Teléfono</text>
+  <rect x="585" y="205" width="150" height="24" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <!-- Botones formulario -->
+  <rect x="610" y="240" width="60" height="24" rx="4" fill="#E0E0E0"/>
+  <text x="640" y="256" text-anchor="middle" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">Cancelar</text>
+  <rect x="675" y="240" width="60" height="24" rx="4" fill="#003087"/>
+  <text x="705" y="256" text-anchor="middle" fill="#FFF" font-size="9" font-weight="bold" font-family="Segoe UI">Guardar</text>
+</svg>
+</div>
+<!-- Notas Sedes -->
+<div style="background:#FFF8E1; border:2px dashed #FFD54F; border-radius:8px; padding:12px 18px; margin:10px auto; max-width:750px;">
+  <strong>Notas:</strong> Vista exclusiva para administradores (badge "Solo Admin"). Los badges azul (departamentos) y morado (activos) muestran conteos asociados a cada sede. El formulario inline aparece al hacer clic en "Nueva Sede" o "Editar", evitando navegación adicional. Se incluyen campos esenciales: nombre, ciudad, dirección y teléfono.
+</div>
+
+<!-- ============================================================ -->
+<!-- WIREFRAME 8: DEPARTAMENTOS (Solo Admin) -->
+<!-- ============================================================ -->
+<h3>Wireframe 8: Departamentos (Solo Admin)</h3>
+<div class="wireframe-container">
+<svg width="750" height="280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="750" height="280" fill="#FFFFFF" rx="8"/>
+  <!-- Header -->
+  <text x="20" y="28" fill="#003087" font-size="18" font-weight="bold" font-family="Segoe UI">Departamentos</text>
+  <text x="175" y="28" fill="#888" font-size="14" font-family="Segoe UI">(10)</text>
+  <rect x="4" y="30" width="60" height="14" rx="7" fill="#FFEBEE"/>
+  <text x="34" y="41" text-anchor="middle" fill="#CC0000" font-size="8" font-weight="bold" font-family="Segoe UI">Solo Admin</text>
+  <!-- Botón Nuevo Depto -->
+  <rect x="610" y="10" width="120" height="28" rx="4" fill="#003087"/>
+  <text x="670" y="29" text-anchor="middle" fill="#FFF" font-size="11" font-weight="bold" font-family="Segoe UI">+ Nuevo Depto</text>
+  <!-- Headers tabla -->
+  <rect x="15" y="55" width="720" height="25" fill="#F5F5F5"/>
+  <text x="25" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">DEPARTAMENTO</text>
+  <text x="150" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">SEDE</text>
+  <text x="260" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">ÁREA</text>
+  <text x="370" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">RESPONSABLE</text>
+  <text x="510" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">EMPLEADOS</text>
+  <text x="610" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">ACCIONES</text>
+  <!-- Fila 1: Tecnología -->
+  <rect x="15" y="80" width="720" height="30" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="25" y="100" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Tecnología</text>
+  <text x="150" y="100" fill="#666" font-size="10" font-family="Segoe UI">Sede Bogotá</text>
+  <rect x="260" y="90" width="65" height="18" rx="9" fill="#E3F2FD"/>
+  <text x="292" y="103" text-anchor="middle" fill="#003087" font-size="9" font-family="Segoe UI">TI</text>
+  <text x="370" y="100" fill="#666" font-size="10" font-family="Segoe UI">Juan Pérez</text>
+  <rect x="515" y="90" width="28" height="18" rx="9" fill="#F3E5F5"/>
+  <text x="529" y="103" text-anchor="middle" fill="#7B1FA2" font-size="9" font-weight="bold" font-family="Segoe UI">15</text>
+  <text x="610" y="100" fill="#003087" font-size="9" font-family="Segoe UI">Editar | Eliminar</text>
+  <!-- Fila 2: Contabilidad -->
+  <rect x="15" y="110" width="720" height="30" fill="#FAFAFA" stroke="#F0F0F0"/>
+  <text x="25" y="130" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Contabilidad</text>
+  <text x="150" y="130" fill="#666" font-size="10" font-family="Segoe UI">Sede Bogotá</text>
+  <rect x="260" y="120" width="65" height="18" rx="9" fill="#E3F2FD"/>
+  <text x="292" y="133" text-anchor="middle" fill="#003087" font-size="9" font-family="Segoe UI">Finanzas</text>
+  <text x="370" y="130" fill="#666" font-size="10" font-family="Segoe UI">María López</text>
+  <rect x="515" y="120" width="28" height="18" rx="9" fill="#F3E5F5"/>
+  <text x="529" y="133" text-anchor="middle" fill="#7B1FA2" font-size="9" font-weight="bold" font-family="Segoe UI">10</text>
+  <text x="610" y="130" fill="#003087" font-size="9" font-family="Segoe UI">Editar | Eliminar</text>
+  <!-- Fila 3: RRHH -->
+  <rect x="15" y="140" width="720" height="30" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="25" y="160" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">RRHH</text>
+  <text x="150" y="160" fill="#666" font-size="10" font-family="Segoe UI">Sede Medellín</text>
+  <rect x="260" y="150" width="65" height="18" rx="9" fill="#E3F2FD"/>
+  <text x="292" y="163" text-anchor="middle" fill="#003087" font-size="9" font-family="Segoe UI">Personas</text>
+  <text x="370" y="160" fill="#666" font-size="10" font-family="Segoe UI">Carlos Gómez</text>
+  <rect x="515" y="150" width="28" height="18" rx="9" fill="#F3E5F5"/>
+  <text x="529" y="163" text-anchor="middle" fill="#7B1FA2" font-size="9" font-weight="bold" font-family="Segoe UI">8</text>
+  <text x="610" y="160" fill="#003087" font-size="9" font-family="Segoe UI">Editar | Eliminar</text>
+  <!-- Formulario inline -->
+  <rect x="15" y="185" width="720" height="4" fill="#003087" rx="2"/>
+  <text x="25" y="205" fill="#003087" font-size="11" font-weight="bold" font-family="Segoe UI">Formulario de Departamento</text>
+  <text x="25" y="225" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Nombre</text>
+  <rect x="25" y="230" width="160" height="24" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="205" y="225" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Sede</text>
+  <rect x="205" y="230" width="160" height="24" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="215" y="247" fill="#999" font-size="9" font-family="Segoe UI">Seleccionar sede ▼</text>
+  <text x="385" y="225" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Área</text>
+  <rect x="385" y="230" width="140" height="24" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="545" y="225" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Responsable</text>
+  <rect x="545" y="230" width="150" height="24" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <!-- Botones -->
+  <rect x="610" y="260" width="60" height="18" rx="4" fill="#E0E0E0"/>
+  <text x="640" y="273" text-anchor="middle" fill="#666" font-size="8" font-weight="bold" font-family="Segoe UI">Cancelar</text>
+  <rect x="675" y="260" width="60" height="18" rx="4" fill="#003087"/>
+  <text x="705" y="273" text-anchor="middle" fill="#FFF" font-size="8" font-weight="bold" font-family="Segoe UI">Guardar</text>
+</svg>
+</div>
+<!-- Notas Departamentos -->
+<div style="background:#FFF8E1; border:2px dashed #FFD54F; border-radius:8px; padding:12px 18px; margin:10px auto; max-width:750px;">
+  <strong>Notas:</strong> Vista exclusiva para administradores. El dropdown de Sede permite asociar departamentos a sedes existentes. Los badges azul (área) y morado (empleados) proporcionan contexto visual rápido. El formulario inline sigue el mismo patrón de Sedes para consistencia. Se muestran 3 departamentos de ejemplo con diferentes sedes para ilustrar la relación.
+</div>
+
+<!-- ============================================================ -->
+<!-- WIREFRAME 9: REPORTES -->
+<!-- ============================================================ -->
+<h3>Wireframe 9: Reportes</h3>
+<div class="wireframe-container">
+<svg width="750" height="320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="750" height="320" fill="#FFFFFF" rx="8"/>
+  <!-- Header -->
+  <text x="20" y="28" fill="#003087" font-size="18" font-weight="bold" font-family="Segoe UI">Reportes</text>
+  <!-- Botón Exportar CSV -->
+  <rect x="620" y="10" width="110" height="28" rx="4" fill="#00AA00"/>
+  <text x="675" y="29" text-anchor="middle" fill="#FFF" font-size="11" font-weight="bold" font-family="Segoe UI">📥 Exportar CSV</text>
+  <!-- 4 Tarjetas resumen -->
+  <!-- Valor Total -->
+  <rect x="20" y="48" width="168" height="55" rx="8" fill="#FFFFFF" stroke="#E0E0E0"/>
+  <rect x="20" y="48" width="168" height="4" rx="2" fill="#00AA00"/>
+  <text x="30" y="68" fill="#888" font-size="9" font-family="Segoe UI">Valor Total</text>
+  <text x="30" y="90" fill="#00AA00" font-size="20" font-weight="bold" font-family="Segoe UI">$350M</text>
+  <!-- Total Activos -->
+  <rect x="200" y="48" width="168" height="55" rx="8" fill="#FFFFFF" stroke="#E0E0E0"/>
+  <rect x="200" y="48" width="168" height="4" rx="2" fill="#003087"/>
+  <text x="210" y="68" fill="#888" font-size="9" font-family="Segoe UI">Total Activos</text>
+  <text x="210" y="90" fill="#003087" font-size="20" font-weight="bold" font-family="Segoe UI">100</text>
+  <!-- Asignados -->
+  <rect x="380" y="48" width="168" height="55" rx="8" fill="#FFFFFF" stroke="#E0E0E0"/>
+  <rect x="380" y="48" width="168" height="4" rx="2" fill="#FF8800"/>
+  <text x="390" y="68" fill="#888" font-size="9" font-family="Segoe UI">Asignados</text>
+  <text x="390" y="90" fill="#FF8800" font-size="20" font-weight="bold" font-family="Segoe UI">20</text>
+  <!-- Reparación -->
+  <rect x="560" y="48" width="168" height="55" rx="8" fill="#FFFFFF" stroke="#E0E0E0"/>
+  <rect x="560" y="48" width="168" height="4" rx="2" fill="#CC0000"/>
+  <text x="570" y="68" fill="#888" font-size="9" font-family="Segoe UI">En Reparación</text>
+  <text x="570" y="90" fill="#CC0000" font-size="20" font-weight="bold" font-family="Segoe UI">8</text>
+  <!-- Tabs -->
+  <rect x="20" y="118" width="140" height="30" rx="4" fill="#CC0000"/>
+  <text x="90" y="138" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="bold" font-family="Segoe UI">Disponibles (72)</text>
+  <rect x="165" y="118" width="130" height="30" rx="4" fill="#FFFFFF" stroke="#DDD"/>
+  <text x="230" y="138" text-anchor="middle" fill="#666" font-size="11" font-family="Segoe UI">Asignados (20)</text>
+  <rect x="300" y="118" width="130" height="30" rx="4" fill="#FFFFFF" stroke="#DDD"/>
+  <text x="365" y="138" text-anchor="middle" fill="#666" font-size="11" font-family="Segoe UI">Reparación (8)</text>
+  <!-- Tabla del tab activo -->
+  <rect x="20" y="158" width="710" height="25" fill="#F5F5F5"/>
+  <text x="30" y="175" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">NOMBRE</text>
+  <text x="200" y="175" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">TIPO</text>
+  <text x="320" y="175" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">SERIAL</text>
+  <text x="450" y="175" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">VALOR</text>
+  <text x="590" y="175" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">SEDE</text>
+  <!-- Fila 1 -->
+  <rect x="20" y="183" width="710" height="30" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="30" y="203" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Laptop Dell XPS</text>
+  <text x="200" y="203" fill="#666" font-size="10" font-family="Segoe UI">Laptop</text>
+  <text x="320" y="203" fill="#666" font-size="10" font-family="Segoe UI">SN-001</text>
+  <text x="450" y="203" fill="#333" font-size="10" font-family="Segoe UI">$3.500.000</text>
+  <text x="590" y="203" fill="#666" font-size="10" font-family="Segoe UI">Bogotá</text>
+  <!-- Fila 2 -->
+  <rect x="20" y="213" width="710" height="30" fill="#FAFAFA" stroke="#F0F0F0"/>
+  <text x="30" y="233" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">Teclado Logitech</text>
+  <text x="200" y="233" fill="#666" font-size="10" font-family="Segoe UI">Periférico</text>
+  <text x="320" y="233" fill="#666" font-size="10" font-family="Segoe UI">SN-015</text>
+  <text x="450" y="233" fill="#333" font-size="10" font-family="Segoe UI">$250.000</text>
+  <text x="590" y="233" fill="#666" font-size="10" font-family="Segoe UI">Medellín</text>
+</svg>
+</div>
+<!-- Notas Reportes -->
+<div style="background:#FFF8E1; border:2px dashed #FFD54F; border-radius:8px; padding:12px 18px; margin:10px auto; max-width:750px;">
+  <strong>Notas:</strong> La vista de reportes combina tarjetas resumen (KPIs) con tabs filtrables por estado. El tab activo (rojo) muestra los activos disponibles por defecto. La exportación CSV permite descargar los datos filtrados. Los colores de las tarjetas son semánticos: verde para valor, azul para totales, naranja para asignados, rojo para reparación.
+</div>
+
+<!-- ============================================================ -->
+<!-- WIREFRAME 10: USUARIOS (Solo Admin) -->
+<!-- ============================================================ -->
+<h3>Wireframe 10: Usuarios (Solo Admin)</h3>
+<div class="wireframe-container">
+<svg width="750" height="320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="750" height="320" fill="#FFFFFF" rx="8"/>
+  <!-- Header -->
+  <text x="20" y="28" fill="#003087" font-size="18" font-weight="bold" font-family="Segoe UI">Usuarios del Sistema</text>
+  <text x="230" y="28" fill="#888" font-size="14" font-family="Segoe UI">(3)</text>
+  <rect x="4" y="30" width="60" height="14" rx="7" fill="#FFEBEE"/>
+  <text x="34" y="41" text-anchor="middle" fill="#CC0000" font-size="8" font-weight="bold" font-family="Segoe UI">Solo Admin</text>
+  <!-- Card Formulario -->
+  <rect x="15" y="50" width="720" height="110" rx="8" fill="#FFFFFF" stroke="#E0E0E0"/>
+  <rect x="15" y="50" width="720" height="4" rx="2" fill="#003087"/>
+  <text x="30" y="72" fill="#003087" font-size="12" font-weight="bold" font-family="Segoe UI">Crear Nuevo Usuario</text>
+  <!-- Fila 1 campos -->
+  <text x="30" y="92" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Usuario</text>
+  <rect x="30" y="96" width="130" height="22" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="175" y="92" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Email</text>
+  <rect x="175" y="96" width="160" height="22" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="350" y="92" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Contraseña</text>
+  <rect x="350" y="96" width="130" height="22" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <!-- Fila 2 campos -->
+  <text x="30" y="132" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Nombre</text>
+  <rect x="30" y="136" width="130" height="22" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="175" y="132" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Rol</text>
+  <rect x="175" y="136" width="130" height="22" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="185" y="152" fill="#999" font-size="9" font-family="Segoe UI">Operador / Admin ▼</text>
+  <text x="320" y="132" fill="#333" font-size="9" font-weight="bold" font-family="Segoe UI">Sede</text>
+  <rect x="320" y="136" width="130" height="22" rx="4" fill="#F5F5F5" stroke="#DDD"/>
+  <text x="330" y="152" fill="#999" font-size="9" font-family="Segoe UI">Seleccionar sede ▼</text>
+  <!-- Botón Crear -->
+  <rect x="620" y="136" width="100" height="22" rx="4" fill="#003087"/>
+  <text x="670" y="152" text-anchor="middle" fill="#FFF" font-size="10" font-weight="bold" font-family="Segoe UI">Crear Usuario</text>
+  <!-- Tabla Usuarios -->
+  <rect x="15" y="175" width="720" height="25" fill="#F5F5F5"/>
+  <text x="25" y="192" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">USUARIO</text>
+  <text x="130" y="192" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">NOMBRE</text>
+  <text x="260" y="192" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">EMAIL</text>
+  <text x="420" y="192" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">ROL</text>
+  <text x="530" y="192" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">SEDE</text>
+  <text x="650" y="192" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">ACCIONES</text>
+  <!-- Fila 1: admin -->
+  <rect x="15" y="200" width="720" height="32" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="25" y="221" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">admin</text>
+  <text x="130" y="221" fill="#666" font-size="10" font-family="Segoe UI">Administrador</text>
+  <text x="260" y="221" fill="#666" font-size="10" font-family="Segoe UI">admin@sigae.com</text>
+  <rect x="420" y="210" width="55" height="18" rx="9" fill="#FFEBEE"/>
+  <text x="447" y="223" text-anchor="middle" fill="#CC0000" font-size="9" font-weight="bold" font-family="Segoe UI">ADMIN</text>
+  <text x="530" y="221" fill="#666" font-size="10" font-family="Segoe UI">Todas</text>
+  <text x="650" y="221" fill="#003087" font-size="9" font-family="Segoe UI">Editar | Eliminar</text>
+  <!-- Fila 2: operador_bog -->
+  <rect x="15" y="232" width="720" height="32" fill="#FAFAFA" stroke="#F0F0F0"/>
+  <text x="25" y="253" fill="#333" font-size="10" font-weight="bold" font-family="Segoe UI">operador_bog</text>
+  <text x="130" y="253" fill="#666" font-size="10" font-family="Segoe UI">Operador Bogotá</text>
+  <text x="260" y="253" fill="#666" font-size="10" font-family="Segoe UI">operador@sigae.com</text>
+  <rect x="420" y="242" width="75" height="18" rx="9" fill="#E3F2FD"/>
+  <text x="457" y="255" text-anchor="middle" fill="#003087" font-size="9" font-weight="bold" font-family="Segoe UI">OPERADOR</text>
+  <text x="530" y="253" fill="#666" font-size="10" font-family="Segoe UI">Sede Bogotá</text>
+  <text x="650" y="253" fill="#003087" font-size="9" font-family="Segoe UI">Editar | Eliminar</text>
+</svg>
+</div>
+<!-- Notas Usuarios -->
+<div style="background:#FFF8E1; border:2px dashed #FFD54F; border-radius:8px; padding:12px 18px; margin:10px auto; max-width:750px;">
+  <strong>Notas:</strong> Vista exclusiva para administradores. El formulario de creación está integrado en la parte superior. Los roles se distinguen con badges de color: rojo para ADMIN y azul para OPERADOR. La sede "Todas" indica acceso global para administradores, mientras que los operadores están limitados a su sede asignada. Se incluyen acciones de editar y eliminar por usuario.
+</div>
+
+<!-- ============================================================ -->
+<!-- WIREFRAME 11: ACTIVIDAD (Solo Admin) -->
+<!-- ============================================================ -->
+<h3>Wireframe 11: Registro de Actividad (Solo Admin)</h3>
+<div class="wireframe-container">
+<svg width="750" height="280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="750" height="280" fill="#FFFFFF" rx="8"/>
+  <!-- Header -->
+  <text x="20" y="28" fill="#003087" font-size="18" font-weight="bold" font-family="Segoe UI">Registro de Actividad</text>
+  <text x="240" y="28" fill="#888" font-size="14" font-family="Segoe UI">(85)</text>
+  <rect x="4" y="30" width="60" height="14" rx="7" fill="#FFEBEE"/>
+  <text x="34" y="41" text-anchor="middle" fill="#CC0000" font-size="8" font-weight="bold" font-family="Segoe UI">Solo Admin</text>
+  <!-- Botón Limpiar log -->
+  <rect x="620" y="10" width="110" height="28" rx="4" fill="#FFFFFF" stroke="#999"/>
+  <text x="675" y="29" text-anchor="middle" fill="#666" font-size="11" font-family="Segoe UI">🗑 Limpiar log</text>
+  <!-- Headers tabla -->
+  <rect x="15" y="55" width="720" height="25" fill="#F5F5F5"/>
+  <text x="25" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">FECHA</text>
+  <text x="170" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">USUARIO</text>
+  <text x="300" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">ACCIÓN</text>
+  <text x="450" y="72" fill="#666" font-size="9" font-weight="bold" font-family="Segoe UI">DETALLE</text>
+  <!-- Fila 1: Asignación -->
+  <rect x="15" y="80" width="720" height="30" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="25" y="100" fill="#333" font-size="10" font-family="Segoe UI">15/01/2025 10:30</text>
+  <text x="170" y="100" fill="#333" font-size="10" font-family="Segoe UI">admin</text>
+  <rect x="300" y="88" width="75" height="18" rx="9" fill="#E3F2FD"/>
+  <text x="337" y="101" text-anchor="middle" fill="#003087" font-size="9" font-family="Segoe UI">Asignación</text>
+  <text x="450" y="100" fill="#666" font-size="10" font-family="Segoe UI">Laptop Dell XPS → Juan Pérez</text>
+  <!-- Fila 2: Activo creado -->
+  <rect x="15" y="110" width="720" height="30" fill="#FAFAFA" stroke="#F0F0F0"/>
+  <text x="25" y="130" fill="#333" font-size="10" font-family="Segoe UI">15/01/2025 09:15</text>
+  <text x="170" y="130" fill="#333" font-size="10" font-family="Segoe UI">admin</text>
+  <rect x="300" y="118" width="85" height="18" rx="9" fill="#E3F2FD"/>
+  <text x="342" y="131" text-anchor="middle" fill="#003087" font-size="9" font-family="Segoe UI">Activo creado</text>
+  <text x="450" y="130" fill="#666" font-size="10" font-family="Segoe UI">Monitor Samsung 27" - SN-002</text>
+  <!-- Fila 3: Usuario creado -->
+  <rect x="15" y="140" width="720" height="30" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="25" y="160" fill="#333" font-size="10" font-family="Segoe UI">14/01/2025 16:45</text>
+  <text x="170" y="160" fill="#333" font-size="10" font-family="Segoe UI">admin</text>
+  <rect x="300" y="148" width="95" height="18" rx="9" fill="#E3F2FD"/>
+  <text x="347" y="161" text-anchor="middle" fill="#003087" font-size="9" font-family="Segoe UI">Usuario creado</text>
+  <text x="450" y="160" fill="#666" font-size="10" font-family="Segoe UI">operador_bog (Operador)</text>
+  <!-- Fila 4: Devolución -->
+  <rect x="15" y="170" width="720" height="30" fill="#FAFAFA" stroke="#F0F0F0"/>
+  <text x="25" y="190" fill="#333" font-size="10" font-family="Segoe UI">14/01/2025 14:20</text>
+  <text x="170" y="190" fill="#333" font-size="10" font-family="Segoe UI">operador_bog</text>
+  <rect x="300" y="178" width="75" height="18" rx="9" fill="#E3F2FD"/>
+  <text x="337" y="191" text-anchor="middle" fill="#003087" font-size="9" font-family="Segoe UI">Devolución</text>
+  <text x="450" y="190" fill="#666" font-size="10" font-family="Segoe UI">Impresora HP LaserJet ← María López</text>
+  <!-- Fila 5: Login -->
+  <rect x="15" y="200" width="720" height="30" fill="#FFFFFF" stroke="#F0F0F0"/>
+  <text x="25" y="220" fill="#333" font-size="10" font-family="Segoe UI">14/01/2025 08:00</text>
+  <text x="170" y="220" fill="#333" font-size="10" font-family="Segoe UI">operador_bog</text>
+  <rect x="300" y="208" width="50" height="18" rx="9" fill="#E3F2FD"/>
+  <text x="325" y="221" text-anchor="middle" fill="#003087" font-size="9" font-family="Segoe UI">Login</text>
+  <text x="450" y="220" fill="#666" font-size="10" font-family="Segoe UI">Inicio de sesión exitoso</text>
+</svg>
+</div>
+<!-- Notas Actividad -->
+<div style="background:#FFF8E1; border:2px dashed #FFD54F; border-radius:8px; padding:12px 18px; margin:10px auto; max-width:750px;">
+  <strong>Notas:</strong> Vista exclusiva para administradores que registra todas las acciones del sistema. Los badges azules en la columna ACCIÓN categorizan visualmente cada tipo de evento (Asignación, Activo creado, Usuario creado, Devolución, Login). El botón "Limpiar log" tiene estilo outline (borde gris) para indicar que es una acción destructiva que requiere confirmación. El registro se ordena cronológicamente de más reciente a más antiguo.
+</div>
+
+<!-- Pie de página -->
+<div style="text-align:center; margin-top:40px; padding:20px; border-top:2px solid #003087; color:#666; font-size:12px;">
+  <strong style="color:#003087;">SIGAE</strong> — Sistema de Gestión de Inventario y Control de Activos Empresariales<br>
+  <span style="font-size:11px;">11 Wireframes completos • Colores institucionales: Rojo #CC0000/#8B0000 | Azul #003087 | Verde #00AA00 | Naranja #FF8800 | Blanco #FFFFFF</span>
+</div>
+
+</body>
+</html>

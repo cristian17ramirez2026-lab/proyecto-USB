@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Modelo Relacional - SIGAE</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;padding:20px}
+h1{text-align:center;font-size:15pt;color:#003087;margin-bottom:4px}
+h2{text-align:center;font-size:10pt;color:#666;margin-bottom:20px;font-weight:400}
+</style>
+</head>
+<body>
+<h1>Modelo Relacional &mdash; SIGAE</h1>
+<h2>Diagrama Entidad-Relaci&oacute;n con notaci&oacute;n Crow's Foot (Pata de Gallo)</h2>
+
+<svg viewBox="0 0 1150 750" width="1150" height="750" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;background:#FAFCFF;border:1px solid #dde;border-radius:8px">
+<style>
+  .tbl{fill:#fff;stroke:#2c3e50;stroke-width:1.8;rx:4}
+  .hdr{fill:#2c3e50;rx:4 4 0 0}
+  .hdr-red{fill:#c0392b;rx:4 4 0 0}
+  .ht{fill:#fff;font-size:11px;font-weight:700;text-anchor:middle;font-family:'Segoe UI',sans-serif}
+  .row{fill:#333;font-size:9px;font-family:'Consolas',monospace}
+  .pk{fill:#c0392b;font-weight:700;font-size:8px}
+  .fk{fill:#2980b9;font-weight:700;font-size:8px}
+  .uk{fill:#d35400;font-weight:700;font-size:8px}
+  .nn{fill:#888;font-size:8px}
+  .sep{stroke:#ecf0f1;stroke-width:1}
+  /* Relaciones */
+  .rel{stroke:#2c3e50;stroke-width:1.5;fill:none}
+  .rel-r{stroke:#c0392b;stroke-width:2;fill:none}
+  /* Cardinalidad: 1 = linea con barra, N = pata de gallo */
+  .one-bar{stroke:#2c3e50;stroke-width:2}
+  .crow{stroke:#2c3e50;stroke-width:1.5;fill:none}
+  .crow-r{stroke:#c0392b;stroke-width:1.8;fill:none}
+  .card-t{font-size:10px;fill:#2c3e50;font-weight:600;font-family:'Segoe UI',sans-serif}
+  .card-r{font-size:10px;fill:#c0392b;font-weight:600;font-family:'Segoe UI',sans-serif}
+  .lbl{font-size:8px;fill:#7f8c8d;font-style:italic;font-family:'Segoe UI',sans-serif}
+</style>
+
+<!-- ============================================================ -->
+<!-- LAYOUT:                                                      -->
+<!--   SEDE(60,40)              USUARIO(850,40)                   -->
+<!--   DEPARTAMENTO(60,250)     EMPLEADO(500,220)                 -->
+<!--   ACTIVO(60,480)           ASIGNACION(530,530)               -->
+<!--                            LOG_ACTIVIDAD(850,300)            -->
+<!-- ============================================================ -->
+
+<!-- ==================== TABLA: SEDE ==================== -->
+<rect x="60" y="40" width="250" height="150" class="tbl"/>
+<rect x="60" y="40" width="250" height="26" class="hdr"/>
+<text x="185" y="57" class="ht">SEDE</text>
+<text x="72" y="78" class="row"><tspan class="pk">PK</tspan>  id          INTEGER  NOT NULL</text>
+<text x="72" y="93" class="row">    nombre      VARCHAR(200)  NOT NULL</text>
+<text x="72" y="108" class="row">    ciudad      VARCHAR(100)  NOT NULL</text>
+<text x="72" y="123" class="row">    direccion   VARCHAR(200)  NOT NULL</text>
+<text x="72" y="138" class="row">    telefono    VARCHAR(20)   NULL</text>
+<line x1="60" y1="66" x2="310" y2="66" class="sep"/>
+
+<!-- ==================== TABLA: USUARIO ==================== -->
+<rect x="850" y="40" width="260" height="175" class="tbl"/>
+<rect x="850" y="40" width="260" height="26" class="hdr"/>
+<text x="980" y="57" class="ht">USUARIO</text>
+<text x="862" y="78" class="row"><tspan class="pk">PK</tspan>  id            INTEGER  NOT NULL</text>
+<text x="862" y="93" class="row"><tspan class="uk">UK</tspan>  username      VARCHAR(150)  NOT NULL</text>
+<text x="862" y="108" class="row">    email         VARCHAR(254)  NOT NULL</text>
+<text x="862" y="123" class="row">    password      VARCHAR(128)  NOT NULL</text>
+<text x="862" y="138" class="row">    rol           ENUM(ADMIN,USER)  NOT NULL</text>
+<text x="862" y="153" class="row">    is_active     BOOLEAN  DEFAULT TRUE</text>
+<text x="862" y="168" class="row">    date_joined   DATETIME  NOT NULL</text>
+<line x1="850" y1="66" x2="1110" y2="66" class="sep"/>
+
+<!-- ==================== TABLA: DEPARTAMENTO ==================== -->
+<rect x="60" y="250" width="270" height="145" class="tbl"/>
+<rect x="60" y="250" width="270" height="26" class="hdr"/>
+<text x="195" y="267" class="ht">DEPARTAMENTO</text>
+<text x="72" y="288" class="row"><tspan class="pk">PK</tspan>  id            INTEGER  NOT NULL</text>
+<text x="72" y="303" class="row">    nombre        VARCHAR(100)  NOT NULL</text>
+<text x="72" y="318" class="row"><tspan class="fk">FK</tspan>  sede_id       INTEGER  NOT NULL  &rarr; SEDE</text>
+<text x="72" y="333" class="row">    area          VARCHAR(100)  NOT NULL</text>
+<text x="72" y="348" class="row">    responsable   VARCHAR(100)  NULL</text>
+<line x1="60" y1="276" x2="330" y2="276" class="sep"/>
+
+<!-- ==================== TABLA: EMPLEADO ==================== -->
+<rect x="500" y="220" width="290" height="200" class="tbl"/>
+<rect x="500" y="220" width="290" height="26" class="hdr"/>
+<text x="645" y="237" class="ht">EMPLEADO</text>
+<text x="512" y="258" class="row"><tspan class="pk">PK</tspan>  id              INTEGER  NOT NULL</text>
+<text x="512" y="273" class="row">    nombre          VARCHAR(100)  NOT NULL</text>
+<text x="512" y="288" class="row">    apellido        VARCHAR(100)  NOT NULL</text>
+<text x="512" y="303" class="row"><tspan class="uk">UK</tspan>  cedula          VARCHAR(20)  NOT NULL</text>
+<text x="512" y="318" class="row"><tspan class="fk">FK</tspan>  departamento_id INTEGER  &rarr; DEPTO</text>
+<text x="512" y="333" class="row"><tspan class="fk">FK</tspan>  sede_id         INTEGER  &rarr; SEDE</text>
+<text x="512" y="348" class="row">    cargo           VARCHAR(100)  NOT NULL</text>
+<text x="512" y="363" class="row">    email           VARCHAR(200)  NULL</text>
+<text x="512" y="378" class="row">    fecha_ingreso   DATE  NOT NULL</text>
+<text x="512" y="393" class="row">    activo          BOOLEAN  DEFAULT TRUE</text>
+<line x1="500" y1="246" x2="790" y2="246" class="sep"/>
+
+<!-- ==================== TABLA: ACTIVO ==================== -->
+<rect x="60" y="460" width="310" height="225" class="tbl"/>
+<rect x="60" y="460" width="310" height="26" class="hdr"/>
+<text x="215" y="477" class="ht">ACTIVO</text>
+<text x="72" y="498" class="row"><tspan class="pk">PK</tspan>  id              INTEGER  NOT NULL</text>
+<text x="72" y="513" class="row">    nombre          VARCHAR(200)  NOT NULL</text>
+<text x="72" y="528" class="row">    descripcion     TEXT  NULL</text>
+<text x="72" y="543" class="row">    tipo            VARCHAR(100)  NOT NULL</text>
+<text x="72" y="558" class="row"><tspan class="uk">UK</tspan>  serial          VARCHAR(100)  NOT NULL</text>
+<text x="72" y="573" class="row">    valor           DECIMAL(12,2)  NOT NULL</text>
+<text x="72" y="588" class="row">    fecha_compra    DATE  NOT NULL</text>
+<text x="72" y="603" class="row">    estado          ENUM(DISP,ASIG,DAN)  NOT NULL</text>
+<text x="72" y="618" class="row"><tspan class="fk">FK</tspan>  sede_id         INTEGER  &rarr; SEDE</text>
+<text x="72" y="633" class="row"><tspan class="fk">FK</tspan>  departamento_id INTEGER  &rarr; DEPTO</text>
+<line x1="60" y1="486" x2="370" y2="486" class="sep"/>
+
+<!-- ==================== TABLA: ASIGNACION ==================== -->
+<rect x="530" y="530" width="320" height="165" fill="#fff" stroke="#c0392b" stroke-width="2.2" rx="4"/>
+<rect x="530" y="530" width="320" height="26" class="hdr-red"/>
+<text x="690" y="547" class="ht">ASIGNACI&Oacute;N</text>
+<text x="542" y="568" class="row"><tspan class="pk">PK</tspan>  id                INTEGER  NOT NULL</text>
+<text x="542" y="583" class="row"><tspan class="fk">FK</tspan>  activo_id         INTEGER  NOT NULL  &rarr; ACTIVO</text>
+<text x="542" y="598" class="row"><tspan class="fk">FK</tspan>  empleado_id       INTEGER  NOT NULL  &rarr; EMPLEADO</text>
+<text x="542" y="613" class="row">    fecha_asignacion  DATETIME  NOT NULL  <tspan class="nn">[auto]</tspan></text>
+<text x="542" y="628" class="row">    fecha_devolucion  DATETIME  NULL</text>
+<text x="542" y="643" class="row">    observaciones     TEXT  NULL</text>
+<line x1="530" y1="556" x2="850" y2="556" class="sep"/>
+<!-- Etiqueta PROTECT -->
+<text x="690" y="680" text-anchor="middle" style="font-size:9px;fill:#c0392b;font-weight:700;font-family:'Segoe UI'">on_delete = PROTECT (ambas FK)</text>
+
+<!-- ==================== TABLA: LOG_ACTIVIDAD ==================== -->
+<rect x="850" y="300" width="260" height="130" class="tbl"/>
+<rect x="850" y="300" width="260" height="26" class="hdr"/>
+<text x="980" y="317" class="ht">LOG_ACTIVIDAD</text>
+<text x="862" y="338" class="row"><tspan class="pk">PK</tspan>  id       INTEGER  NOT NULL</text>
+<text x="862" y="353" class="row">    action   VARCHAR(50)  NOT NULL</text>
+<text x="862" y="368" class="row">    detail   VARCHAR(200)  NOT NULL</text>
+<text x="862" y="383" class="row">    user     VARCHAR(150)  NOT NULL</text>
+<text x="862" y="398" class="row">    fecha    DATETIME  NOT NULL</text>
+<line x1="850" y1="326" x2="1110" y2="326" class="sep"/>
+
+<!-- ============================================================ -->
+<!-- RELACIONES CON CROW'S FOOT (PATA DE GALLO)                   -->
+<!-- ============================================================ -->
+
+<!-- R1: SEDE 1──────<N DEPARTAMENTO -->
+<!-- Linea vertical: Sede bottom(190) → Depto top(250) -->
+<line x1="185" y1="190" x2="185" y2="250" class="rel"/>
+<!-- Barra "1" en lado Sede -->
+<line x1="178" y1="195" x2="192" y2="195" class="one-bar"/>
+<!-- Pata de gallo "N" en lado Departamento -->
+<line x1="185" y1="245" x2="178" y2="250" class="crow"/>
+<line x1="185" y1="245" x2="192" y2="250" class="crow"/>
+<line x1="185" y1="245" x2="185" y2="250" class="crow"/>
+<text x="195" y="205" class="card-t">1</text>
+<text x="195" y="245" class="card-t">N</text>
+
+<!-- R2: SEDE 1──────<N ACTIVO -->
+<!-- Linea vertical: Sede bottom(190, x=100) → Activo top(460, x=100) -->
+<line x1="100" y1="190" x2="100" y2="460" class="rel"/>
+<line x1="93" y1="195" x2="107" y2="195" class="one-bar"/>
+<line x1="100" y1="455" x2="93" y2="460" class="crow"/>
+<line x1="100" y1="455" x2="107" y2="460" class="crow"/>
+<line x1="100" y1="455" x2="100" y2="460" class="crow"/>
+<text x="108" y="205" class="card-t">1</text>
+<text x="108" y="450" class="card-t">N</text>
+<text x="55" y="330" class="lbl">alberga</text>
+
+<!-- R3: SEDE 1──────<N EMPLEADO -->
+<!-- Polyline: Sede right(310,120) → esquina(400,120) → abajo(400,333) → Empleado left(500,333) -->
+<polyline points="310,120 400,120 400,333 500,333" class="rel" fill="none"/>
+<line x1="310" y1="115" x2="310" y2="125" class="one-bar"/>
+<line x1="495" y1="333" x2="500" y2="326" class="crow"/>
+<line x1="495" y1="333" x2="500" y2="340" class="crow"/>
+<line x1="495" y1="333" x2="500" y2="333" class="crow"/>
+<text x="320" y="115" class="card-t">1</text>
+<text x="480" y="328" class="card-t">N</text>
+<text x="405" y="115" class="lbl">emplea</text>
+
+<!-- R4: DEPARTAMENTO 1──────<N EMPLEADO -->
+<!-- Linea horizontal: Depto right(330, 318) → Empleado left(500, 318) -->
+<line x1="330" y1="318" x2="500" y2="318" class="rel"/>
+<line x1="335" y1="312" x2="335" y2="324" class="one-bar"/>
+<line x1="495" y1="318" x2="500" y2="311" class="crow"/>
+<line x1="495" y1="318" x2="500" y2="325" class="crow"/>
+<line x1="495" y1="318" x2="500" y2="318" class="crow"/>
+<text x="340" y="312" class="card-t">1</text>
+<text x="480" y="312" class="card-t">N</text>
+<text x="405" y="335" class="lbl">agrupa</text>
+
+<!-- R5: DEPARTAMENTO 1─ ─ ─<N ACTIVO (opcional) -->
+<line x1="195" y1="395" x2="195" y2="460" stroke="#2c3e50" stroke-width="1.3" stroke-dasharray="5,3" fill="none"/>
+<text x="203" y="410" class="card-t">1</text>
+<text x="203" y="455" class="card-t">N</text>
+
+<!-- R6: ACTIVO 1══════<N ASIGNACION (PROTECT) -->
+<!-- Linea: Activo right(370, 583) → Asignacion left(530, 583) -->
+<line x1="370" y1="583" x2="530" y2="583" class="rel-r"/>
+<line x1="375" y1="577" x2="375" y2="589" stroke="#c0392b" stroke-width="2"/>
+<line x1="525" y1="583" x2="530" y2="576" class="crow-r"/>
+<line x1="525" y1="583" x2="530" y2="590" class="crow-r"/>
+<line x1="525" y1="583" x2="530" y2="583" class="crow-r"/>
+<text x="382" y="577" class="card-r">1</text>
+<text x="510" y="577" class="card-r">N</text>
+<text x="440" y="600" class="lbl" style="fill:#c0392b;font-weight:600">PROTECT</text>
+
+<!-- R7: EMPLEADO 1══════<N ASIGNACION (PROTECT) -->
+<!-- Linea: Empleado bottom(645, 420) → Asignacion top(690, 530) -->
+<line x1="645" y1="420" x2="690" y2="530" class="rel-r"/>
+<line x1="638" y1="422" x2="652" y2="422" stroke="#c0392b" stroke-width="2"/>
+<line x1="688" y1="525" x2="683" y2="530" class="crow-r"/>
+<line x1="688" y1="525" x2="693" y2="530" class="crow-r"/>
+<line x1="688" y1="525" x2="688" y2="530" class="crow-r"/>
+<text x="635" y="438" class="card-r">1</text>
+<text x="695" y="525" class="card-r">N</text>
+<text x="680" y="475" class="lbl" style="fill:#c0392b;font-weight:600">PROTECT</text>
+
+<!-- ============================================================ -->
+<!-- LEYENDA                                                      -->
+<!-- ============================================================ -->
+<rect x="850" y="480" width="260" height="200" rx="6" fill="#fff" stroke="#bdc3c7" stroke-width="1"/>
+<text x="870" y="500" style="font-size:11px;fill:#2c3e50;font-weight:700;font-family:'Segoe UI'">Leyenda (Notaci&oacute;n Crow's Foot)</text>
+
+<text x="870" y="520" style="font-size:9px;fill:#333;font-family:'Segoe UI'"><tspan class="pk">PK</tspan> = Primary Key (llave primaria, autoincremental)</text>
+<text x="870" y="536" style="font-size:9px;fill:#333;font-family:'Segoe UI'"><tspan class="fk">FK</tspan> = Foreign Key (llave for&aacute;nea, referencia)</text>
+<text x="870" y="552" style="font-size:9px;fill:#333;font-family:'Segoe UI'"><tspan class="uk">UK</tspan> = Unique Key (campo con valor &uacute;nico)</text>
+
+<!-- Uno -->
+<line x1="870" y1="570" x2="900" y2="570" class="rel"/>
+<line x1="870" y1="565" x2="870" y2="575" class="one-bar"/>
+<text x="905" y="574" style="font-size:9px;fill:#333;font-family:'Segoe UI'">Uno (1) &mdash; barra vertical</text>
+
+<!-- Muchos (pata de gallo) -->
+<line x1="870" y1="592" x2="900" y2="592" class="rel"/>
+<line x1="895" y1="592" x2="900" y2="586" class="crow"/>
+<line x1="895" y1="592" x2="900" y2="598" class="crow"/>
+<line x1="895" y1="592" x2="900" y2="592" class="crow"/>
+<text x="905" y="596" style="font-size:9px;fill:#333;font-family:'Segoe UI'">Muchos (N) &mdash; pata de gallo</text>
+
+<!-- Relacion normal -->
+<line x1="870" y1="614" x2="900" y2="614" class="rel"/>
+<text x="905" y="618" style="font-size:9px;fill:#333;font-family:'Segoe UI'">Relaci&oacute;n obligatoria</text>
+
+<!-- Relacion opcional -->
+<line x1="870" y1="634" x2="900" y2="634" stroke="#2c3e50" stroke-width="1.3" stroke-dasharray="5,3"/>
+<text x="905" y="638" style="font-size:9px;fill:#333;font-family:'Segoe UI'">Relaci&oacute;n opcional</text>
+
+<!-- PROTECT -->
+<line x1="870" y1="654" x2="900" y2="654" class="rel-r"/>
+<text x="905" y="658" style="font-size:9px;fill:#333;font-family:'Segoe UI'">PROTECT (impide eliminar con hijos)</text>
+
+<!-- NOT NULL -->
+<text x="870" y="676" style="font-size:9px;fill:#333;font-family:'Segoe UI'">NOT NULL = campo obligatorio &nbsp; NULL = campo opcional</text>
+
+</svg>
+</body>
+</html>

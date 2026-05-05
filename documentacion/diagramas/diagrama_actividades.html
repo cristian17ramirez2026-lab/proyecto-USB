@@ -2,202 +2,570 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Diagrama de Actividades - InventPro</title>
+<title>Diagramas de Actividad - SIGAE</title>
 <style>
-body{font-family:'Segoe UI',sans-serif;background:#fff;padding:40px;margin:0}
-h1{text-align:center;font-size:18pt;color:#1a3c5e;margin-bottom:10px}
-h2{text-align:center;font-size:13pt;color:#2a5f8f;margin:30px 0 15px}
-svg{display:block;margin:0 auto}
-.start{fill:#1a3c5e}.end{fill:#1a3c5e;stroke:#1a3c5e;stroke-width:3}
-.action{fill:#e8f4fd;stroke:#2a5f8f;stroke-width:2;rx:8}
-.decision{fill:#fff3cd;stroke:#d4a017;stroke-width:2}
-.action-text{font-size:10px;fill:#1a3c5e;text-anchor:middle;font-weight:500}
-.dec-text{font-size:9px;fill:#8b6914;text-anchor:middle;font-weight:bold}
-.flow{stroke:#666;stroke-width:1.5;fill:none;marker-end:url(#fa)}
-.label{font-size:8px;fill:#666}
-.error{fill:#fee2e2;stroke:#dc2626;stroke-width:2;rx:8}
-.error-text{font-size:9px;fill:#991b1b;text-anchor:middle}
-.ok{fill:#d1fae5;stroke:#059669;stroke-width:2;rx:8}
-.ok-text{font-size:9px;fill:#065f46;text-anchor:middle}
-.swim{fill:#f8fafc;stroke:#e2e8f0;stroke-width:1}
-.swim-label{font-size:10px;fill:#64748b;font-weight:bold;writing-mode:vertical-rl;text-orientation:mixed}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;padding:25px}
+h1{text-align:center;font-size:15pt;color:#003087;margin-bottom:4px}
+h2{text-align:center;font-size:10pt;color:#666;margin-bottom:25px;font-weight:400}
+h3{font-size:12pt;color:#003087;margin:40px 0 8px;padding-bottom:6px;border-bottom:2px solid #003087}
+.wrap{max-width:700px;margin:0 auto}
+svg{display:block;margin:8px auto 30px}
 </style>
 </head>
 <body>
-<h1>Diagramas de Actividades — InventPro</h1>
+<h1>Diagramas de Actividad &mdash; SIGAE</h1>
+<h2>Notaci&oacute;n UML &mdash; Procesos principales del sistema</h2>
+<div class="wrap">
 
-<h2>Actividad 1: Flujo de Asignacion de Activo</h2>
-<svg width="700" height="600" viewBox="0 0 700 600">
-<defs><marker id="fa" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#666"/></marker></defs>
-
-<!-- Swimlanes -->
-<rect x="10" y="10" width="230" height="580" class="swim"/>
-<text x="20" y="30" style="font-size:10px;fill:#2a5f8f;font-weight:bold">Administrador</text>
-<rect x="250" y="10" width="230" height="580" class="swim"/>
-<text x="260" y="30" style="font-size:10px;fill:#2a5f8f;font-weight:bold">Sistema</text>
-<rect x="490" y="10" width="200" height="580" class="swim"/>
-<text x="500" y="30" style="font-size:10px;fill:#2a5f8f;font-weight:bold">Base de Datos</text>
+<!-- ============================================================ -->
+<!-- DA-01: AUTENTICACION                                         -->
+<!-- ============================================================ -->
+<h3>DA-01: Proceso de Autenticaci&oacute;n (CU-01)</h3>
+<svg viewBox="0 0 500 680" width="500" height="680">
+<defs>
+  <marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#333"/></marker>
+  <style>
+    .nd{fill:#222;stroke:none}
+    .nf{fill:#fff;stroke:#222;stroke-width:3}
+    .nfi{fill:#222}
+    .act{fill:#E3EFFF;stroke:#003087;stroke-width:1.5;rx:10}
+    .dec{fill:#FFF8E1;stroke:#E6A800;stroke-width:1.5}
+    .atm{fill:#E8F5E9;stroke:#2E7D32;stroke-width:1.8;rx:10}
+    .err{fill:#FFEBEE;stroke:#C62828;stroke-width:1.5;rx:10}
+    .ok{fill:#E8F5E9;stroke:#2E7D32;stroke-width:1.5;rx:10}
+    .fl{stroke:#333;stroke-width:1.3;fill:none;marker-end:url(#a)}
+    .ft{font-size:10px;fill:#1a1a1a;text-anchor:middle}
+    .ft-sm{font-size:8.5px;fill:#555;text-anchor:middle}
+    .lb{font-size:9px;fill:#003087;font-weight:600}
+  </style>
+</defs>
 
 <!-- Inicio -->
-<circle cx="120" cy="60" r="12" class="start"/>
-<line x1="120" y1="72" x2="120" y2="95" class="flow"/>
+<circle cx="250" cy="20" r="10" class="nd"/>
+<line x1="250" y1="30" x2="250" y2="55" class="fl"/>
 
 <!-- Accion 1 -->
-<rect x="40" y="95" width="160" height="35" class="action"/>
-<text x="120" y="117" class="action-text">Navegar a Asignaciones</text>
-<line x1="120" y1="130" x2="365" y2="130" class="flow"/>
+<rect x="100" y="55" width="300" height="35" class="act"/>
+<text x="250" y="77" class="ft">Usuario accede a la pantalla de Login</text>
+<line x1="250" y1="90" x2="250" y2="115" class="fl"/>
 
 <!-- Accion 2 -->
-<rect x="285" y="140" width="160" height="35" class="action"/>
-<text x="365" y="157" class="action-text">Cargar activos disponibles</text>
-<text x="365" y="168" class="action-text">y lista de empleados</text>
-<line x1="365" y1="175" x2="365" y2="195" class="flow"/>
+<rect x="100" y="115" width="300" height="35" class="act"/>
+<text x="250" y="137" class="ft">Ingresa usuario y contrase&ntilde;a, clic "Ingresar"</text>
+<line x1="250" y1="150" x2="250" y2="175" class="fl"/>
 
 <!-- Accion 3 -->
-<rect x="285" y="195" width="160" height="35" class="action"/>
-<text x="365" y="217" class="action-text">Renderizar formulario</text>
-<line x1="285" y1="212" x2="200" y2="212" class="flow"/>
+<rect x="80" y="175" width="340" height="35" class="act"/>
+<text x="250" y="197" class="ft">Sistema env&iacute;a credenciales al backend (POST /api/token/)</text>
+<line x1="250" y1="210" x2="250" y2="245" class="fl"/>
 
-<!-- Accion 4 -->
-<rect x="40" y="240" width="160" height="35" class="action"/>
-<text x="120" y="257" class="action-text">Seleccionar activo,</text>
-<text x="120" y="268" class="action-text">empleado y observaciones</text>
-<line x1="120" y1="275" x2="120" y2="300" class="flow"/>
+<!-- Decision: credenciales validas? -->
+<polygon points="250,245 340,280 250,315 160,280" class="dec"/>
+<text x="250" y="284" class="ft">&iquest;Credenciales</text>
+<text x="250" y="296" class="ft">v&aacute;lidas?</text>
 
-<!-- Accion 5 -->
-<rect x="40" y="300" width="160" height="30" class="action"/>
-<text x="120" y="320" class="action-text">Clic "Registrar"</text>
-<line x1="200" y1="315" x2="330" y2="315" class="flow"/>
+<!-- No -->
+<line x1="160" y1="280" x2="50" y2="280" class="fl"/>
+<text x="110" y="273" class="lb">No</text>
+<rect x="5" y="265" width="50" height="30" class="err"/>
+<text x="30" y="278" style="font-size:7px;fill:#C62828;text-anchor:middle">Error</text>
+<text x="30" y="310" class="ft-sm">"Usuario o</text>
+<text x="30" y="322" class="ft-sm">contrase&ntilde;a</text>
+<text x="30" y="334" class="ft-sm">incorrectos"</text>
 
-<!-- Decision -->
-<polygon points="365,340 405,365 365,390 325,365" class="decision"/>
-<text x="365" y="368" class="dec-text">Estado?</text>
+<!-- Si -->
+<line x1="250" y1="315" x2="250" y2="345" class="fl"/>
+<text x="265" y="333" class="lb">S&iacute;</text>
 
-<!-- Si DISPONIBLE -->
-<line x1="405" y1="365" x2="590" y2="365" class="flow"/>
-<text x="470" y="358" class="label">[DISPONIBLE]</text>
+<!-- Accion: generar JWT -->
+<rect x="100" y="345" width="300" height="35" class="act"/>
+<text x="250" y="367" class="ft">Generar tokens JWT (access + refresh)</text>
+<line x1="250" y1="380" x2="250" y2="405" class="fl"/>
 
-<rect x="510" y="380" width="160" height="30" class="action"/>
-<text x="590" y="400" class="action-text">Crear registro asignacion</text>
-<line x1="590" y1="410" x2="590" y2="430" class="flow"/>
+<!-- Accion: guardar sesion -->
+<rect x="80" y="405" width="340" height="35" class="act"/>
+<text x="250" y="427" class="ft">Guardar tokens en localStorage + AuthContext.setUser()</text>
+<line x1="250" y1="440" x2="250" y2="475" class="fl"/>
 
-<rect x="510" y="430" width="160" height="30" class="action"/>
-<text x="590" y="450" class="action-text">Estado → ASIGNADO</text>
-<line x1="590" y1="460" x2="590" y2="480" class="flow"/>
-
-<rect x="510" y="480" width="160" height="30" class="action"/>
-<text x="590" y="500" class="action-text">Registrar en log</text>
-<line x1="510" y1="495" x2="365" y2="495" class="flow"/>
-
-<rect x="285" y="510" width="160" height="30" class="ok"/>
-<text x="365" y="530" class="ok-text">Notificacion de exito</text>
-<line x1="365" y1="540" x2="365" y2="565" class="flow"/>
-
-<!-- Fin OK -->
-<circle cx="365" cy="575" r="10" fill="none" stroke="#1a3c5e" stroke-width="3"/>
-<circle cx="365" cy="575" r="6" class="start"/>
-
-<!-- Si NO DISPONIBLE -->
-<line x1="365" y1="390" x2="365" y2="430" class="flow"/>
-<text x="310" y="415" class="label">[ASIGNADO o DAÑADO]</text>
-
-<rect x="285" y="430" width="160" height="30" class="error"/>
-<text x="365" y="450" class="error-text">Mostrar error</text>
-<line x1="285" y1="445" x2="120" y2="445" class="flow"/>
-
-<!-- Volver -->
-<rect x="40" y="430" width="160" height="30" class="action"/>
-<text x="120" y="450" class="action-text">Corregir seleccion</text>
-<line x1="120" y1="430" x2="120" y2="275" class="flow" style="stroke-dasharray:4,3"/>
-</svg>
-
-<h2>Actividad 2: Flujo de Gestion de Activo (CRUD)</h2>
-<svg width="650" height="500" viewBox="0 0 650 500">
-<!-- Inicio -->
-<circle cx="325" cy="30" r="12" class="start"/>
-<line x1="325" y1="42" x2="325" y2="60" class="flow"/>
-
-<!-- Verificar rol -->
-<polygon points="325,60 375,85 325,110 275,85" class="decision"/>
-<text x="325" y="88" class="dec-text">Rol?</text>
-
-<!-- USER -->
-<line x1="275" y1="85" x2="100" y2="85" class="flow"/>
-<text x="180" y="78" class="label">[USER]</text>
-<rect x="30" y="95" width="140" height="30" class="action"/>
-<text x="100" y="115" class="action-text">Mostrar tabla solo lectura</text>
-<line x1="100" y1="125" x2="100" y2="150" class="flow"/>
-<circle cx="100" cy="160" r="10" fill="none" stroke="#1a3c5e" stroke-width="3"/>
-<circle cx="100" cy="160" r="6" class="start"/>
+<!-- Decision: rol? -->
+<polygon points="250,475 330,505 250,535 170,505" class="dec"/>
+<text x="250" y="509" class="ft">&iquest;Rol?</text>
 
 <!-- ADMIN -->
-<line x1="325" y1="110" x2="325" y2="140" class="flow"/>
-<text x="340" y="130" class="label">[ADMIN]</text>
+<line x1="170" y1="505" x2="70" y2="505" class="fl"/>
+<text x="125" y="498" class="lb">ADMIN</text>
+<rect x="10" y="490" width="65" height="30" class="ok"/>
+<text x="42" y="504" style="font-size:7px;fill:#2E7D32;text-anchor:middle">Men&uacute;</text>
+<text x="42" y="514" style="font-size:7px;fill:#2E7D32;text-anchor:middle">completo</text>
 
-<rect x="245" y="140" width="160" height="30" class="action"/>
-<text x="325" y="160" class="action-text">Mostrar tabla con acciones</text>
-<line x1="325" y1="170" x2="325" y2="195" class="flow"/>
+<!-- OPERADOR -->
+<line x1="330" y1="505" x2="420" y2="505" class="fl"/>
+<text x="370" y="498" class="lb">OPERADOR</text>
+<rect x="420" y="490" width="70" height="30" class="ok"/>
+<text x="455" y="504" style="font-size:7px;fill:#2E7D32;text-anchor:middle">Men&uacute; sin</text>
+<text x="455" y="514" style="font-size:7px;fill:#2E7D32;text-anchor:middle">Admin</text>
 
-<!-- Decision accion -->
-<polygon points="325,195 385,225 325,255 265,225" class="decision"/>
-<text x="325" y="228" class="dec-text">Accion?</text>
+<!-- Merge -->
+<line x1="42" y1="520" x2="42" y2="560" stroke="#333" stroke-width="1"/>
+<line x1="455" y1="520" x2="455" y2="560" stroke="#333" stroke-width="1"/>
+<line x1="42" y1="560" x2="455" y2="560" stroke="#333" stroke-width="1"/>
+<line x1="250" y1="560" x2="250" y2="585" class="fl"/>
 
-<!-- Crear -->
-<line x1="265" y1="225" x2="100" y2="225" class="flow"/>
-<text x="170" y="218" class="label">[Crear]</text>
-<rect x="30" y="240" width="140" height="25" class="action"/>
-<text x="100" y="257" class="action-text">Formulario vacio</text>
-<line x1="100" y1="265" x2="100" y2="285" class="flow"/>
-<rect x="30" y="285" width="140" height="25" class="action"/>
-<text x="100" y="302" class="action-text">Validar campos</text>
-<line x1="100" y1="310" x2="100" y2="330" class="flow"/>
-<polygon points="100,330 130,350 100,370 70,350" class="decision"/>
-<text x="100" y="353" class="dec-text" style="font-size:8px">Serial?</text>
-<line x1="70" y1="350" x2="20" y2="350" class="flow"/>
-<text x="35" y="343" class="label">[duplicado]</text>
-<rect x="-30" y="360" width="100" height="25" class="error"/>
-<text x="20" y="377" class="error-text">Error serial</text>
-<line x1="130" y1="350" x2="200" y2="350" class="flow"/>
-<text x="155" y="343" class="label">[unico]</text>
-<rect x="200" y="340" width="120" height="25" class="ok"/>
-<text x="260" y="357" class="ok-text">Crear activo</text>
-<line x1="260" y1="365" x2="260" y2="390" class="flow"/>
-
-<!-- Editar -->
-<line x1="325" y1="255" x2="325" y2="290" class="flow"/>
-<text x="340" y="278" class="label">[Editar]</text>
-<rect x="265" y="290" width="120" height="25" class="action"/>
-<text x="325" y="307" class="action-text">Cargar datos</text>
-<line x1="325" y1="315" x2="325" y2="340" class="flow"/>
-<rect x="265" y="340" width="120" height="25" class="action"/>
-<text x="325" y="357" class="action-text">Validar y guardar</text>
-<line x1="325" y1="365" x2="325" y2="390" class="flow"/>
-
-<!-- Eliminar -->
-<line x1="385" y1="225" x2="530" y2="225" class="flow"/>
-<text x="460" y="218" class="label">[Eliminar]</text>
-<polygon points="530,240 570,260 530,280 490,260" class="decision"/>
-<text x="530" y="263" class="dec-text" style="font-size:7px">Asignado?</text>
-<line x1="570" y1="260" x2="620" y2="260" class="flow"/>
-<text x="590" y="253" class="label">[Si]</text>
-<rect x="580" y="270" width="60" height="25" class="error"/>
-<text x="610" y="287" class="error-text" style="font-size:8px">Error</text>
-<line x1="530" y1="280" x2="530" y2="310" class="flow"/>
-<text x="545" y="298" class="label">[No]</text>
-<rect x="470" y="310" width="120" height="25" class="action"/>
-<text x="530" y="327" class="action-text">Confirmar y eliminar</text>
-<line x1="530" y1="335" x2="530" y2="390" class="flow"/>
-
-<!-- Convergencia -->
-<rect x="200" y="390" width="380" height="30" class="ok"/>
-<text x="390" y="410" class="ok-text">Registrar en log + Notificacion + Recargar lista</text>
-<line x1="390" y1="420" x2="390" y2="450" class="flow"/>
+<!-- Accion final -->
+<rect x="100" y="585" width="300" height="35" class="ok"/>
+<text x="250" y="607" class="ft">Redirigir a /dashboard</text>
+<line x1="250" y1="620" x2="250" y2="645" class="fl"/>
 
 <!-- Fin -->
-<circle cx="390" cy="460" r="10" fill="none" stroke="#1a3c5e" stroke-width="3"/>
-<circle cx="390" cy="460" r="6" class="start"/>
+<circle cx="250" cy="655" r="12" class="nf"/>
+<circle cx="250" cy="655" r="6" class="nfi"/>
 </svg>
 
-<p style="text-align:center;color:#888;font-size:10px;margin-top:30px">Diagramas de Actividades — InventPro v3.0 | Notacion UML</p>
+<!-- ============================================================ -->
+<!-- DA-02: ASIGNACION DE ACTIVO                                  -->
+<!-- ============================================================ -->
+<h3>DA-02: Asignaci&oacute;n de Activo a Empleado (CU-04)</h3>
+<svg viewBox="0 0 520 750" width="520" height="750">
+
+<!-- Inicio -->
+<circle cx="260" cy="20" r="10" class="nd"/>
+<line x1="260" y1="30" x2="260" y2="55" class="fl"/>
+
+<!-- Accion 1 -->
+<rect x="80" y="55" width="360" height="35" class="act"/>
+<text x="260" y="77" class="ft">Cargar activos DISPONIBLES y empleados de la sede</text>
+<line x1="260" y1="90" x2="260" y2="120" class="fl"/>
+
+<!-- Decision: hay disponibles? -->
+<polygon points="260,120 350,155 260,190 170,155" class="dec"/>
+<text x="260" y="155" class="ft">&iquest;Hay activos</text>
+<text x="260" y="167" class="ft">disponibles?</text>
+
+<!-- No -->
+<line x1="170" y1="155" x2="50" y2="155" class="fl"/>
+<text x="115" y="148" class="lb">No</text>
+<rect x="5" y="140" width="50" height="30" class="err"/>
+<text x="30" y="157" style="font-size:7px;fill:#C62828;text-anchor:middle">Form.</text>
+<text x="30" y="167" style="font-size:7px;fill:#C62828;text-anchor:middle">deshabilitado</text>
+
+<!-- Si -->
+<line x1="260" y1="190" x2="260" y2="215" class="fl"/>
+<text x="275" y="205" class="lb">S&iacute;</text>
+
+<!-- Accion 2 -->
+<rect x="80" y="215" width="360" height="35" class="act"/>
+<text x="260" y="237" class="ft">Usuario selecciona activo + empleado + observaciones</text>
+<line x1="260" y1="250" x2="260" y2="275" class="fl"/>
+
+<!-- Accion 3 -->
+<rect x="130" y="275" width="260" height="30" class="act"/>
+<text x="260" y="294" class="ft">Clic en "Registrar"</text>
+<line x1="260" y1="305" x2="260" y2="335" class="fl"/>
+
+<!-- Decision: sigue disponible? -->
+<polygon points="260,335 350,368 260,401 170,368" class="dec"/>
+<text x="260" y="368" class="ft">&iquest;Activo sigue</text>
+<text x="260" y="380" class="ft">DISPONIBLE?</text>
+
+<!-- No -->
+<line x1="350" y1="368" x2="450" y2="368" class="fl"/>
+<text x="395" y="361" class="lb">No</text>
+<rect x="450" y="353" width="60" height="30" class="err"/>
+<text x="480" y="367" style="font-size:7px;fill:#C62828;text-anchor:middle">"Activo no</text>
+<text x="480" y="377" style="font-size:7px;fill:#C62828;text-anchor:middle">disponible"</text>
+
+<!-- Si -->
+<line x1="260" y1="401" x2="260" y2="430" class="fl"/>
+<text x="275" y="418" class="lb">S&iacute;</text>
+
+<!-- TRANSACCION ATOMICA -->
+<rect x="60" y="430" width="400" height="80" class="atm"/>
+<text x="80" y="448" style="font-size:9px;fill:#2E7D32;font-weight:700">&#128274; @transaction.atomic</text>
+<text x="260" y="470" class="ft">1. INSERT asignaci&oacute;n (fecha_asignacion = NOW)</text>
+<text x="260" y="488" class="ft">2. UPDATE activo SET estado = 'ASIGNADO'</text>
+<line x1="260" y1="510" x2="260" y2="535" class="fl"/>
+
+<!-- Accion: log -->
+<rect x="100" y="535" width="320" height="30" class="act"/>
+<text x="260" y="554" class="ft">Registrar operaci&oacute;n en log de actividad</text>
+<line x1="260" y1="565" x2="260" y2="590" class="fl"/>
+
+<!-- Exito -->
+<rect x="100" y="590" width="320" height="35" class="ok"/>
+<text x="260" y="612" class="ft">&#10004; "Asignaci&oacute;n registrada"</text>
+<line x1="260" y1="625" x2="260" y2="660" class="fl"/>
+
+<!-- Separador devolucion -->
+<line x1="60" y1="660" x2="460" y2="660" stroke="#003087" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="260" y="678" style="font-size:9px;fill:#003087;text-anchor:middle;font-weight:700">DEVOLUCI&Oacute;N (flujo alternativo)</text>
+<text x="260" y="695" class="ft-sm">El usuario localiza asignaci&oacute;n activa &rarr; clic "Devolver" &rarr; confirmar</text>
+<text x="260" y="710" class="ft-sm">@atomic: fecha_devolucion=NOW + estado=DISPONIBLE &rarr; log &rarr; notificaci&oacute;n</text>
+
+<!-- Fin -->
+<circle cx="260" cy="738" r="12" class="nf"/>
+<circle cx="260" cy="738" r="6" class="nfi"/>
+</svg>
+
+<!-- ============================================================ -->
+<!-- DA-03: GESTION DE ACTIVOS                                    -->
+<!-- ============================================================ -->
+<h3>DA-03: Gesti&oacute;n de Activos (CU-02)</h3>
+<svg viewBox="0 0 550 700" width="550" height="700">
+
+<circle cx="275" cy="20" r="10" class="nd"/>
+<line x1="275" y1="30" x2="275" y2="55" class="fl"/>
+
+<rect x="100" y="55" width="350" height="30" class="act"/>
+<text x="275" y="74" class="ft">Usuario accede al m&oacute;dulo "Activos"</text>
+<line x1="275" y1="85" x2="275" y2="115" class="fl"/>
+
+<!-- Decision: operador? -->
+<polygon points="275,115 355,145 275,175 195,145" class="dec"/>
+<text x="275" y="149" class="ft">&iquest;Es Operador?</text>
+
+<line x1="195" y1="145" x2="80" y2="145" class="fl"/>
+<text x="140" y="138" class="lb">S&iacute;</text>
+<rect x="10" y="130" width="75" height="30" class="act" style="font-size:8px"/>
+<text x="47" y="147" style="font-size:7.5px;fill:#003087;text-anchor:middle">Filtrar por sede</text>
+
+<line x1="355" y1="145" x2="460" y2="145" class="fl"/>
+<text x="400" y="138" class="lb">No</text>
+<rect x="460" y="130" width="80" height="30" class="act"/>
+<text x="500" y="147" style="font-size:7.5px;fill:#003087;text-anchor:middle">Mostrar todos</text>
+
+<!-- Merge -->
+<line x1="47" y1="160" x2="47" y2="195" stroke="#333" stroke-width="1"/>
+<line x1="500" y1="160" x2="500" y2="195" stroke="#333" stroke-width="1"/>
+<line x1="47" y1="195" x2="500" y2="195" stroke="#333" stroke-width="1"/>
+<line x1="275" y1="195" x2="275" y2="220" class="fl"/>
+
+<rect x="80" y="220" width="390" height="30" class="act"/>
+<text x="275" y="239" class="ft">Mostrar lista con b&uacute;squeda y filtro por estado</text>
+<line x1="275" y1="250" x2="275" y2="280" class="fl"/>
+
+<!-- Decision: accion? -->
+<polygon points="275,280 365,315 275,350 185,315" class="dec"/>
+<text x="275" y="315" class="ft">&iquest;Acci&oacute;n?</text>
+
+<!-- Crear/Editar -->
+<line x1="185" y1="315" x2="80" y2="315" class="fl"/>
+<text x="135" y="308" class="lb">Crear</text>
+
+<rect x="10" y="340" width="140" height="30" class="act"/>
+<text x="80" y="359" style="font-size:8px;fill:#003087;text-anchor:middle">Mostrar formulario</text>
+<line x1="80" y1="370" x2="80" y2="395" class="fl"/>
+
+<rect x="10" y="395" width="140" height="30" class="act"/>
+<text x="80" y="414" style="font-size:8px;fill:#003087;text-anchor:middle">Completar campos + Guardar</text>
+<line x1="80" y1="425" x2="80" y2="455" class="fl"/>
+
+<polygon points="80,455 130,475 80,495 30,475" class="dec"/>
+<text x="80" y="478" style="font-size:8px;fill:#1a1a1a;text-anchor:middle">&iquest;V&aacute;lido?</text>
+
+<line x1="130" y1="475" x2="170" y2="475" class="fl"/>
+<text x="148" y="468" class="lb">No</text>
+<rect x="170" y="462" width="55" height="26" class="err"/>
+<text x="197" y="478" style="font-size:7px;fill:#C62828;text-anchor:middle">Error</text>
+
+<line x1="80" y1="495" x2="80" y2="520" class="fl"/>
+<text x="90" y="510" class="lb">S&iacute;</text>
+<rect x="10" y="520" width="140" height="30" class="ok"/>
+<text x="80" y="539" style="font-size:8px;fill:#2E7D32;text-anchor:middle">Guardar + Log + Notificar</text>
+
+<!-- Eliminar -->
+<line x1="365" y1="315" x2="460" y2="315" class="fl"/>
+<text x="405" y="308" class="lb">Eliminar</text>
+
+<polygon points="460,340 510,360 460,380 410,360" class="dec"/>
+<text x="460" y="358" style="font-size:7.5px;fill:#1a1a1a;text-anchor:middle">&iquest;Asignado?</text>
+
+<line x1="410" y1="360" x2="360" y2="360" class="fl"/>
+<text x="388" y="353" class="lb">S&iacute;</text>
+<rect x="290" y="347" width="75" height="26" class="err"/>
+<text x="327" y="363" style="font-size:6.5px;fill:#C62828;text-anchor:middle">"No se puede</text>
+<text x="327" y="372" style="font-size:6.5px;fill:#C62828;text-anchor:middle">eliminar"</text>
+
+<line x1="460" y1="380" x2="460" y2="410" class="fl"/>
+<text x="470" y="398" class="lb">No</text>
+<rect x="400" y="410" width="120" height="26" class="act"/>
+<text x="460" y="427" style="font-size:8px;fill:#003087;text-anchor:middle">Confirmar + Eliminar</text>
+<line x1="460" y1="436" x2="460" y2="460" class="fl"/>
+<rect x="400" y="460" width="120" height="26" class="ok"/>
+<text x="460" y="477" style="font-size:8px;fill:#2E7D32;text-anchor:middle">Log + Notificar</text>
+
+<!-- Merge final -->
+<line x1="80" y1="550" x2="80" y2="600" stroke="#333" stroke-width="1"/>
+<line x1="460" y1="486" x2="460" y2="600" stroke="#333" stroke-width="1"/>
+<line x1="80" y1="600" x2="460" y2="600" stroke="#333" stroke-width="1"/>
+<line x1="275" y1="600" x2="275" y2="630" class="fl"/>
+
+<!-- Fin -->
+<circle cx="275" cy="642" r="12" class="nf"/>
+<circle cx="275" cy="642" r="6" class="nfi"/>
+</svg>
+
+<!-- ============================================================ -->
+<!-- DA-04: GESTION DE EMPLEADOS                                  -->
+<!-- ============================================================ -->
+<h3>DA-04: Gesti&oacute;n de Empleados (CU-03)</h3>
+<svg viewBox="0 0 520 620" width="520" height="620">
+<circle cx="260" cy="20" r="10" class="nd"/>
+<line x1="260" y1="30" x2="260" y2="55" class="fl"/>
+
+<rect x="90" y="55" width="340" height="30" class="act"/>
+<text x="260" y="74" class="ft">Usuario accede al m&oacute;dulo "Empleados"</text>
+<line x1="260" y1="85" x2="260" y2="110" class="fl"/>
+
+<rect x="70" y="110" width="380" height="30" class="act"/>
+<text x="260" y="129" class="ft">Sistema muestra lista (filtrada por sede si es OPERADOR)</text>
+<line x1="260" y1="140" x2="260" y2="165" class="fl"/>
+
+<rect x="120" y="165" width="280" height="30" class="act"/>
+<text x="260" y="184" class="ft">Clic en "+ Nuevo Empleado"</text>
+<line x1="260" y1="195" x2="260" y2="220" class="fl"/>
+
+<rect x="60" y="220" width="400" height="30" class="act"/>
+<text x="260" y="239" class="ft">Completar: nombre, apellido, c&eacute;dula, email, sede, depto, cargo</text>
+<line x1="260" y1="250" x2="260" y2="280" class="fl"/>
+
+<polygon points="260,280 340,310 260,340 180,310" class="dec"/>
+<text x="260" y="310" class="ft">&iquest;C&eacute;dula &uacute;nica?</text>
+
+<line x1="180" y1="310" x2="70" y2="310" class="fl"/>
+<text x="130" y="303" class="lb">No</text>
+<rect x="10" y="297" width="65" height="26" class="err"/>
+<text x="42" y="313" style="font-size:7px;fill:#C62828;text-anchor:middle">"C&eacute;dula ya</text>
+<text x="42" y="322" style="font-size:7px;fill:#C62828;text-anchor:middle">existe"</text>
+
+<line x1="260" y1="340" x2="260" y2="365" class="fl"/>
+<text x="275" y="355" class="lb">S&iacute;</text>
+
+<rect x="90" y="365" width="340" height="30" class="ok"/>
+<text x="260" y="384" class="ft">Crear empleado (activo=true, fecha_ingreso=hoy) + Log</text>
+<line x1="260" y1="395" x2="260" y2="420" class="fl"/>
+
+<rect x="90" y="420" width="340" height="30" class="ok"/>
+<text x="260" y="439" class="ft">&#10004; "Empleado creado exitosamente"</text>
+<line x1="260" y1="450" x2="260" y2="475" class="fl"/>
+
+<line x1="60" y1="475" x2="460" y2="475" stroke="#003087" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="260" y="493" style="font-size:9px;fill:#003087;text-anchor:middle;font-weight:700">Flujos adicionales</text>
+<text x="260" y="510" class="ft-sm">Dar de baja: fecha_salida=hoy, activo=false &rarr; empleado atenuado</text>
+<text x="260" y="525" class="ft-sm">Reactivar: limpiar fecha_salida, activo=true</text>
+<text x="260" y="540" class="ft-sm">Eliminar: si tiene activos asignados &rarr; "No se puede eliminar"</text>
+<text x="260" y="555" class="ft-sm">Eliminar: si no tiene dependencias &rarr; confirmar &rarr; eliminar + log</text>
+
+<line x1="260" y1="565" x2="260" y2="590" class="fl"/>
+<circle cx="260" cy="602" r="12" class="nf"/>
+<circle cx="260" cy="602" r="6" class="nfi"/>
+</svg>
+
+<!-- ============================================================ -->
+<!-- DA-05: GESTION DE SEDES                                      -->
+<!-- ============================================================ -->
+<h3>DA-05: Gesti&oacute;n de Sedes (CU-05) &mdash; Solo Admin</h3>
+<svg viewBox="0 0 520 600" width="520" height="600">
+<circle cx="260" cy="20" r="10" class="nd"/>
+<line x1="260" y1="30" x2="260" y2="55" class="fl"/>
+
+<polygon points="260,55 340,85 260,115 180,85" class="dec"/>
+<text x="260" y="89" class="ft">&iquest;Rol = ADMIN?</text>
+
+<line x1="180" y1="85" x2="70" y2="85" class="fl"/>
+<text x="130" y="78" class="lb">No</text>
+<rect x="10" y="72" width="65" height="26" class="err"/>
+<text x="42" y="88" style="font-size:7px;fill:#C62828;text-anchor:middle">Acceso</text>
+<text x="42" y="97" style="font-size:7px;fill:#C62828;text-anchor:middle">denegado</text>
+
+<line x1="260" y1="115" x2="260" y2="140" class="fl"/>
+<text x="275" y="130" class="lb">S&iacute;</text>
+
+<rect x="70" y="140" width="380" height="30" class="act"/>
+<text x="260" y="159" class="ft">Mostrar tabla de sedes (nombre, ciudad, deptos, activos)</text>
+<line x1="260" y1="170" x2="260" y2="195" class="fl"/>
+
+<rect x="130" y="195" width="260" height="30" class="act"/>
+<text x="260" y="214" class="ft">Clic en "+ Nueva Sede"</text>
+<line x1="260" y1="225" x2="260" y2="250" class="fl"/>
+
+<rect x="80" y="250" width="360" height="30" class="act"/>
+<text x="260" y="269" class="ft">Completar: nombre, ciudad, direcci&oacute;n, tel&eacute;fono</text>
+<line x1="260" y1="280" x2="260" y2="310" class="fl"/>
+
+<polygon points="260,310 340,340 260,370 180,340" class="dec"/>
+<text x="260" y="344" class="ft">&iquest;Campos v&aacute;lidos?</text>
+
+<line x1="180" y1="340" x2="70" y2="340" class="fl"/>
+<text x="130" y="333" class="lb">No</text>
+<rect x="10" y="327" width="65" height="26" class="err"/>
+<text x="42" y="343" style="font-size:7px;fill:#C62828;text-anchor:middle">Error</text>
+
+<line x1="260" y1="370" x2="260" y2="395" class="fl"/>
+<text x="275" y="385" class="lb">S&iacute;</text>
+
+<rect x="90" y="395" width="340" height="30" class="ok"/>
+<text x="260" y="414" class="ft">Crear sede + Registrar en log + Notificar</text>
+<line x1="260" y1="425" x2="260" y2="450" class="fl"/>
+
+<line x1="60" y1="450" x2="460" y2="450" stroke="#003087" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="260" y="468" style="font-size:9px;fill:#003087;text-anchor:middle;font-weight:700">Eliminar sede</text>
+<text x="260" y="485" class="ft-sm">Verificar dependencias: &iquest;tiene activos, empleados o departamentos?</text>
+<text x="260" y="500" class="ft-sm">S&iacute; &rarr; "No se puede eliminar: tiene [dependencias] asociados"</text>
+<text x="260" y="515" class="ft-sm">No &rarr; confirmar &rarr; eliminar + log + notificar</text>
+
+<line x1="260" y1="530" x2="260" y2="555" class="fl"/>
+<circle cx="260" cy="567" r="12" class="nf"/>
+<circle cx="260" cy="567" r="6" class="nfi"/>
+</svg>
+
+<!-- ============================================================ -->
+<!-- DA-06: GENERACION DE REPORTES                                -->
+<!-- ============================================================ -->
+<h3>DA-06: Generaci&oacute;n de Reportes (CU-06)</h3>
+<svg viewBox="0 0 520 530" width="520" height="530">
+<circle cx="260" cy="20" r="10" class="nd"/>
+<line x1="260" y1="30" x2="260" y2="55" class="fl"/>
+
+<rect x="100" y="55" width="320" height="30" class="act"/>
+<text x="260" y="74" class="ft">Usuario accede al m&oacute;dulo "Reportes"</text>
+<line x1="260" y1="85" x2="260" y2="110" class="fl"/>
+
+<rect x="60" y="110" width="400" height="30" class="act"/>
+<text x="260" y="129" class="ft">Sistema carga activos (filtrados por sede si es OPERADOR)</text>
+<line x1="260" y1="140" x2="260" y2="165" class="fl"/>
+
+<rect x="50" y="165" width="420" height="30" class="act"/>
+<text x="260" y="184" class="ft">Calcular estad&iacute;sticas: valor total, disponibles, asignados, da&ntilde;ados</text>
+<line x1="260" y1="195" x2="260" y2="220" class="fl"/>
+
+<rect x="60" y="220" width="400" height="30" class="act"/>
+<text x="260" y="239" class="ft">Mostrar 4 tarjetas de resumen + tabs (Disponibles/Asignados/Reparaci&oacute;n)</text>
+<line x1="260" y1="250" x2="260" y2="275" class="fl"/>
+
+<rect x="100" y="275" width="320" height="30" class="act"/>
+<text x="260" y="294" class="ft">Usuario selecciona un tab para ver reporte</text>
+<line x1="260" y1="305" x2="260" y2="335" class="fl"/>
+
+<polygon points="260,335 340,365 260,395 180,365" class="dec"/>
+<text x="260" y="365" class="ft">&iquest;Exportar CSV?</text>
+
+<line x1="180" y1="365" x2="80" y2="365" class="fl"/>
+<text x="135" y="358" class="lb">No</text>
+<rect x="15" y="352" width="70" height="26" class="act"/>
+<text x="50" y="368" style="font-size:7.5px;fill:#003087;text-anchor:middle">Consultar</text>
+<text x="50" y="377" style="font-size:7.5px;fill:#003087;text-anchor:middle">en pantalla</text>
+
+<line x1="260" y1="395" x2="260" y2="420" class="fl"/>
+<text x="275" y="410" class="lb">S&iacute;</text>
+
+<rect x="80" y="420" width="360" height="30" class="act"/>
+<text x="260" y="439" class="ft">Generar archivo CSV (UTF-8 + BOM para Excel)</text>
+<line x1="260" y1="450" x2="260" y2="475" class="fl"/>
+
+<rect x="100" y="475" width="320" height="30" class="ok"/>
+<text x="260" y="494" class="ft">&#10004; Descarga autom&aacute;tica: activos_reporte.csv</text>
+<line x1="260" y1="505" x2="260" y2="520" class="fl"/>
+
+<circle cx="260" cy="525" r="10" class="nf"/>
+<circle cx="260" cy="525" r="5" class="nfi"/>
+</svg>
+
+<!-- ============================================================ -->
+<!-- DA-07: GESTION DE USUARIOS                                   -->
+<!-- ============================================================ -->
+<h3>DA-07: Gesti&oacute;n de Usuarios (CU-07) &mdash; Solo Admin</h3>
+<svg viewBox="0 0 520 620" width="520" height="620">
+<circle cx="260" cy="20" r="10" class="nd"/>
+<line x1="260" y1="30" x2="260" y2="55" class="fl"/>
+
+<polygon points="260,55 340,85 260,115 180,85" class="dec"/>
+<text x="260" y="89" class="ft">&iquest;Rol = ADMIN?</text>
+
+<line x1="180" y1="85" x2="70" y2="85" class="fl"/>
+<text x="130" y="78" class="lb">No</text>
+<rect x="10" y="72" width="65" height="26" class="err"/>
+<text x="42" y="88" style="font-size:7px;fill:#C62828;text-anchor:middle">Acceso</text>
+<text x="42" y="97" style="font-size:7px;fill:#C62828;text-anchor:middle">denegado</text>
+
+<line x1="260" y1="115" x2="260" y2="140" class="fl"/>
+<text x="275" y="130" class="lb">S&iacute;</text>
+
+<rect x="60" y="140" width="400" height="30" class="act"/>
+<text x="260" y="159" class="ft">Mostrar formulario de creaci&oacute;n + tabla de usuarios existentes</text>
+<line x1="260" y1="170" x2="260" y2="195" class="fl"/>
+
+<rect x="50" y="195" width="420" height="30" class="act"/>
+<text x="260" y="214" class="ft">Completar: usuario, email, contrase&ntilde;a, nombre, apellido, rol, sede</text>
+<line x1="260" y1="225" x2="260" y2="255" class="fl"/>
+
+<polygon points="260,255 350,290 260,325 170,290" class="dec"/>
+<text x="260" y="287" class="ft">&iquest;Datos v&aacute;lidos?</text>
+<text x="260" y="300" class="ft-sm">(username &uacute;nico, pass &ge; 6)</text>
+
+<line x1="170" y1="290" x2="60" y2="290" class="fl"/>
+<text x="120" y="283" class="lb">No</text>
+<rect x="5" y="277" width="60" height="26" class="err"/>
+<text x="35" y="293" style="font-size:7px;fill:#C62828;text-anchor:middle">Error</text>
+
+<line x1="260" y1="325" x2="260" y2="350" class="fl"/>
+<text x="275" y="340" class="lb">S&iacute;</text>
+
+<rect x="60" y="350" width="400" height="35" class="ok"/>
+<text x="260" y="372" class="ft">Crear usuario (contrase&ntilde;a cifrada PBKDF2) + Log</text>
+<line x1="260" y1="385" x2="260" y2="410" class="fl"/>
+
+<rect x="100" y="410" width="320" height="30" class="ok"/>
+<text x="260" y="429" class="ft">&#10004; "Usuario creado: [username]"</text>
+<line x1="260" y1="440" x2="260" y2="465" class="fl"/>
+
+<line x1="60" y1="465" x2="460" y2="465" stroke="#003087" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="260" y="483" style="font-size:9px;fill:#003087;text-anchor:middle;font-weight:700">Eliminar usuario</text>
+<text x="260" y="500" class="ft-sm">&iquest;Es su propia cuenta? &rarr; S&iacute;: "No puede eliminar su propia cuenta"</text>
+<text x="260" y="515" class="ft-sm">&iquest;Es su propia cuenta? &rarr; No: confirmar &rarr; eliminar + log</text>
+
+<line x1="260" y1="530" x2="260" y2="560" class="fl"/>
+<circle cx="260" cy="572" r="12" class="nf"/>
+<circle cx="260" cy="572" r="6" class="nfi"/>
+</svg>
+
+<!-- ============================================================ -->
+<!-- LEYENDA                                                      -->
+<!-- ============================================================ -->
+<h3>Simbolog&iacute;a UML utilizada</h3>
+<svg viewBox="0 0 500 200" width="500" height="200">
+<circle cx="30" cy="20" r="8" class="nd"/>
+<text x="50" y="24" style="font-size:10px;fill:#333">Nodo inicial</text>
+
+<circle cx="30" cy="50" r="10" class="nf"/>
+<circle cx="30" cy="50" r="5" class="nfi"/>
+<text x="50" y="54" style="font-size:10px;fill:#333">Nodo final</text>
+
+<rect x="15" y="70" width="30" height="20" class="act"/>
+<text x="50" y="84" style="font-size:10px;fill:#333">Acci&oacute;n</text>
+
+<polygon points="30,100 45,112 30,124 15,112" class="dec"/>
+<text x="50" y="116" style="font-size:10px;fill:#333">Decisi&oacute;n</text>
+
+<rect x="15" y="135" width="30" height="20" class="atm"/>
+<text x="50" y="149" style="font-size:10px;fill:#333">Transacci&oacute;n at&oacute;mica (@atomic)</text>
+
+<rect x="15" y="165" width="30" height="20" class="err"/>
+<text x="50" y="179" style="font-size:10px;fill:#333">Error / Bloqueo</text>
+
+<line x1="250" y1="20" x2="300" y2="20" class="fl"/>
+<text x="310" y="24" style="font-size:10px;fill:#333">Flujo de control</text>
+
+<rect x="235" y="40" width="30" height="20" class="ok"/>
+<text x="275" y="54" style="font-size:10px;fill:#333">&Eacute;xito / Notificaci&oacute;n</text>
+
+<text x="235" y="84" class="lb">S&iacute; / No</text>
+<text x="290" y="84" style="font-size:10px;fill:#333">Etiqueta de bifurcaci&oacute;n</text>
+
+<line x1="235" y1="100" x2="300" y2="100" stroke="#333" stroke-width="1"/>
+<text x="310" y="104" style="font-size:10px;fill:#333">L&iacute;nea de uni&oacute;n (merge)</text>
+</svg>
+
+</div>
 </body>
 </html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Wireframe - Empleados - SIGAE</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',sans-serif;background:#fff;padding:20px}h3{text-align:center;color:#003087;margin-bottom:15px}</style>
+</head>
+<body>
+<h3>Wireframe 5: Gesti&oacute;n de Empleados</h3>
+<svg viewBox="0 0 750 480" width="750" height="480" style="display:block;margin:0 auto;border:1px solid #ddd;border-radius:8px">
+
+<!-- Header -->
+<text x="20" y="28" fill="#333" font-size="14" font-weight="700">Empleados (50)</text>
+<rect x="580" y="10" width="120" height="26" rx="5" fill="#003087"/>
+<text x="640" y="27" text-anchor="middle" fill="#fff" font-size="9" font-weight="600">+ Nuevo Empleado</text>
+
+<!-- Busqueda -->
+<rect x="20" y="48" width="280" height="30" rx="5" fill="#fff" stroke="#ddd"/>
+<text x="30" y="67" fill="#bbb" font-size="9">Buscar nombre, c&eacute;dula, cargo...</text>
+
+<!-- Tabla header -->
+<rect x="20" y="92" width="710" height="22" fill="#F8F9FA"/>
+<text x="30" y="106" fill="#666" font-size="7" font-weight="700">EMPLEADO</text>
+<text x="160" y="106" fill="#666" font-size="7" font-weight="700">C&Eacute;DULA</text>
+<text x="250" y="106" fill="#666" font-size="7" font-weight="700">SEDE</text>
+<text x="350" y="106" fill="#666" font-size="7" font-weight="700">DEPTO</text>
+<text x="440" y="106" fill="#666" font-size="7" font-weight="700">CARGO</text>
+<text x="530" y="106" fill="#666" font-size="7" font-weight="700">ACTIVOS</text>
+<text x="575" y="106" fill="#666" font-size="7" font-weight="700">INGRESO</text>
+<text x="640" y="106" fill="#666" font-size="7" font-weight="700">ESTADO</text>
+<text x="695" y="106" fill="#666" font-size="7" font-weight="700">ACC.</text>
+
+<!-- Fila 1 -->
+<line x1="20" y1="114" x2="730" y2="114" stroke="#f0f0f0"/>
+<text x="30" y="130" fill="#333" font-size="8" font-weight="600">Carlos Rodriguez</text>
+<text x="30" y="141" fill="#999" font-size="7">carlos.rodriguez0@empresa.com</text>
+<text x="160" y="133" fill="#333" font-size="8">1000000000</text>
+<text x="250" y="133" fill="#333" font-size="8">Sede Bogota</text>
+<text x="350" y="133" fill="#333" font-size="8">Tecnologia</text>
+<text x="440" y="133" fill="#333" font-size="8">Desarrollador</text>
+<rect x="530" y="125" width="22" height="14" rx="7" fill="#FEF3C7"/>
+<text x="541" y="135" text-anchor="middle" fill="#92400E" font-size="7" font-weight="700">2</text>
+<text x="575" y="133" fill="#888" font-size="7">15 ene 2022</text>
+<rect x="640" y="125" width="35" height="14" rx="7" fill="#D1FAE5"/>
+<text x="657" y="135" text-anchor="middle" fill="#065F46" font-size="6" font-weight="700">Activo</text>
+<text x="700" y="133" fill="#003087" font-size="7">Ver Editar Baja</text>
+
+<!-- Fila 2 (dado de baja) -->
+<line x1="20" y1="148" x2="730" y2="148" stroke="#f0f0f0"/>
+<g opacity=".5">
+<text x="30" y="164" fill="#333" font-size="8" font-weight="600">Maria Lopez</text>
+<text x="30" y="175" fill="#999" font-size="7">maria.lopez1@empresa.com</text>
+<text x="160" y="167" fill="#333" font-size="8">1000000111</text>
+<text x="250" y="167" fill="#333" font-size="8">Sede Medellin</text>
+<text x="350" y="167" fill="#333" font-size="8">Contabilidad</text>
+<text x="440" y="167" fill="#333" font-size="8">Analista</text>
+<rect x="530" y="159" width="22" height="14" rx="7" fill="#D1FAE5"/>
+<text x="541" y="169" text-anchor="middle" fill="#065F46" font-size="7" font-weight="700">0</text>
+<text x="575" y="163" fill="#888" font-size="7">3 mar 2022</text>
+<text x="575" y="174" fill="#C62828" font-size="6">Baja: 1 abr 2026</text>
+</g>
+<rect x="640" y="159" width="35" height="14" rx="7" fill="#FEE2E2"/>
+<text x="657" y="169" text-anchor="middle" fill="#991B1B" font-size="6" font-weight="700">Baja</text>
+<text x="700" y="167" fill="#00AA00" font-size="7">Reactivar</text>
+
+<!-- Vista expandida (al hacer clic en "Ver") -->
+<rect x="20" y="195" width="710" height="140" rx="0" fill="#F8F9FA" stroke="#eee"/>
+<text x="30" y="215" fill="#333" font-size="9" font-weight="600">Activos asignados a Carlos Rodriguez:</text>
+
+<!-- Dropdown asignacion rapida -->
+<rect x="430" y="202" width="200" height="22" rx="4" fill="#fff" stroke="#ddd"/>
+<text x="440" y="217" fill="#bbb" font-size="8">Asignar activo... &#9660;</text>
+<rect x="640" y="202" width="55" height="22" rx="4" fill="#003087"/>
+<text x="667" y="217" text-anchor="middle" fill="#fff" font-size="8" font-weight="600">Asignar</text>
+
+<!-- Mini tabla de activos del empleado -->
+<rect x="30" y="232" width="690" height="18" fill="#fff"/>
+<text x="40" y="244" fill="#666" font-size="6.5" font-weight="700">ACTIVO</text>
+<text x="200" y="244" fill="#666" font-size="6.5" font-weight="700">SERIAL</text>
+<text x="340" y="244" fill="#666" font-size="6.5" font-weight="700">TIPO</text>
+<text x="440" y="244" fill="#666" font-size="6.5" font-weight="700">VALOR</text>
+<text x="560" y="244" fill="#666" font-size="6.5" font-weight="700">FECHA ASIG.</text>
+<text x="670" y="244" fill="#666" font-size="6.5" font-weight="700">ACC.</text>
+
+<line x1="30" y1="250" x2="720" y2="250" stroke="#eee"/>
+<text x="40" y="264" fill="#333" font-size="8" font-weight="600">Laptop Dell #1</text>
+<text x="200" y="264" fill="#333" font-size="7" font-family="Consolas">COM-2024-0001</text>
+<text x="340" y="264" fill="#333" font-size="8">Computador</text>
+<text x="440" y="264" fill="#333" font-size="8">$3.500.000</text>
+<text x="560" y="264" fill="#888" font-size="7.5">5 may 2026</text>
+<rect x="670" y="255" width="40" height="16" rx="3" fill="#00AA00"/>
+<text x="690" y="266" text-anchor="middle" fill="#fff" font-size="6.5">Devolver</text>
+
+<line x1="30" y1="275" x2="720" y2="275" stroke="#eee"/>
+<text x="40" y="289" fill="#333" font-size="8" font-weight="600">Mouse Logitech #15</text>
+<text x="200" y="289" fill="#333" font-size="7" font-family="Consolas">PER-2024-0015</text>
+<text x="340" y="289" fill="#333" font-size="8">Periferico</text>
+<text x="440" y="289" fill="#333" font-size="8">$120.000</text>
+<text x="560" y="289" fill="#888" font-size="7.5">1 abr 2026</text>
+<rect x="670" y="280" width="40" height="16" rx="3" fill="#00AA00"/>
+<text x="690" y="291" text-anchor="middle" fill="#fff" font-size="6.5">Devolver</text>
+
+<!-- Formulario nuevo empleado -->
+<rect x="20" y="350" width="710" height="95" rx="8" fill="#fff" stroke="#eee"/>
+<rect x="20" y="350" width="710" height="25" rx="8 8 0 0" fill="#F8F9FA" stroke="#eee"/>
+<text x="30" y="366" fill="#333" font-size="9" font-weight="600">Nuevo Empleado</text>
+
+<text x="30" y="390" fill="#333" font-size="7" font-weight="600">Nombre *</text>
+<rect x="30" y="394" width="110" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+<text x="150" y="390" fill="#333" font-size="7" font-weight="600">Apellido *</text>
+<rect x="150" y="394" width="110" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+<text x="270" y="390" fill="#333" font-size="7" font-weight="600">C&eacute;dula *</text>
+<rect x="270" y="394" width="100" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+<text x="380" y="390" fill="#333" font-size="7" font-weight="600">Email</text>
+<rect x="380" y="394" width="120" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+<text x="510" y="390" fill="#333" font-size="7" font-weight="600">Sede</text>
+<rect x="510" y="394" width="100" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+<text x="620" y="390" fill="#333" font-size="7" font-weight="600">Cargo *</text>
+<rect x="620" y="394" width="100" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+
+<rect x="640" y="420" width="80" height="20" rx="4" fill="#003087"/>
+<text x="680" y="434" text-anchor="middle" fill="#fff" font-size="8" font-weight="600">Guardar</text>
+
+<!-- Notas -->
+<rect x="20" y="455" width="710" height="20" rx="3" fill="#FFF8E1" stroke="#FFD54F" stroke-dasharray="4,2"/>
+<text x="30" y="469" fill="#6D4C00" font-size="7.5">Vista expandible muestra activos del empleado + asignaci&oacute;n r&aacute;pida. Empleados dados de baja aparecen atenuados (opacity 50%)</text>
+</svg>
+</body>
+</html>

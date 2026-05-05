@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Wireframes - Sedes, Reportes, Usuarios - SIGAE</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',sans-serif;background:#fff;padding:20px}h3{text-align:center;color:#003087;margin-bottom:15px;margin-top:40px}</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- WIREFRAME 6: SEDES                                           -->
+<!-- ============================================================ -->
+<h3>Wireframe 6: Gesti&oacute;n de Sedes (Solo Admin)</h3>
+<svg viewBox="0 0 750 340" width="750" height="340" style="display:block;margin:0 auto;border:1px solid #ddd;border-radius:8px">
+
+<text x="20" y="28" fill="#333" font-size="14" font-weight="700">Sedes (20)</text>
+<rect x="610" y="10" width="100" height="26" rx="5" fill="#003087"/>
+<text x="660" y="27" text-anchor="middle" fill="#fff" font-size="9" font-weight="600">+ Nueva Sede</text>
+
+<!-- Tabla -->
+<rect x="20" y="48" width="710" height="22" fill="#F8F9FA"/>
+<text x="30" y="62" fill="#666" font-size="7" font-weight="700">SEDE</text>
+<text x="170" y="62" fill="#666" font-size="7" font-weight="700">CIUDAD</text>
+<text x="280" y="62" fill="#666" font-size="7" font-weight="700">DIRECCI&Oacute;N</text>
+<text x="430" y="62" fill="#666" font-size="7" font-weight="700">TEL&Eacute;FONO</text>
+<text x="530" y="62" fill="#666" font-size="7" font-weight="700">DEPTOS</text>
+<text x="590" y="62" fill="#666" font-size="7" font-weight="700">ACTIVOS</text>
+<text x="660" y="62" fill="#666" font-size="7" font-weight="700">ACCIONES</text>
+
+<line x1="20" y1="70" x2="730" y2="70" stroke="#f0f0f0"/>
+<text x="30" y="86" fill="#333" font-size="9" font-weight="600">Sede Bogota</text>
+<text x="170" y="86" fill="#333" font-size="8">Bogota</text>
+<text x="280" y="86" fill="#333" font-size="8">Cra 7 #72-41</text>
+<text x="430" y="86" fill="#333" font-size="8">601-555-0100</text>
+<rect x="530" y="78" width="22" height="14" rx="7" fill="#DBEAFE"/>
+<text x="541" y="88" text-anchor="middle" fill="#1E40AF" font-size="7" font-weight="700">5</text>
+<rect x="590" y="78" width="22" height="14" rx="7" fill="#EDE9FE"/>
+<text x="601" y="88" text-anchor="middle" fill="#5B21B6" font-size="7" font-weight="700">25</text>
+<text x="660" y="86" fill="#003087" font-size="7">Editar</text>
+<text x="695" y="86" fill="#C62828" font-size="7">Eliminar</text>
+
+<line x1="20" y1="96" x2="730" y2="96" stroke="#f0f0f0"/>
+<text x="30" y="112" fill="#333" font-size="9" font-weight="600">Sede Medellin</text>
+<text x="170" y="112" fill="#333" font-size="8">Medellin</text>
+<text x="280" y="112" fill="#333" font-size="8">Calle 10 #43</text>
+<text x="430" y="112" fill="#333" font-size="8">604-555-0200</text>
+<rect x="530" y="104" width="22" height="14" rx="7" fill="#DBEAFE"/>
+<text x="541" y="114" text-anchor="middle" fill="#1E40AF" font-size="7" font-weight="700">2</text>
+<rect x="590" y="104" width="22" height="14" rx="7" fill="#EDE9FE"/>
+<text x="601" y="114" text-anchor="middle" fill="#5B21B6" font-size="7" font-weight="700">12</text>
+<text x="660" y="112" fill="#003087" font-size="7">Editar</text>
+<text x="695" y="112" fill="#C62828" font-size="7">Eliminar</text>
+
+<text x="375" y="140" text-anchor="middle" fill="#ccc" font-size="9">... 18 sedes m&aacute;s ...</text>
+
+<!-- Formulario -->
+<rect x="20" y="160" width="710" height="80" rx="8" fill="#fff" stroke="#eee"/>
+<rect x="20" y="160" width="710" height="25" rx="8 8 0 0" fill="#F8F9FA" stroke="#eee"/>
+<text x="30" y="176" fill="#333" font-size="9" font-weight="600">Nueva Sede</text>
+<text x="30" y="205" fill="#333" font-size="7" font-weight="600">Nombre *</text>
+<rect x="30" y="209" width="160" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+<text x="200" y="205" fill="#333" font-size="7" font-weight="600">Ciudad *</text>
+<rect x="200" y="209" width="130" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+<text x="340" y="205" fill="#333" font-size="7" font-weight="600">Direcci&oacute;n *</text>
+<rect x="340" y="209" width="200" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+<text x="550" y="205" fill="#333" font-size="7" font-weight="600">Tel&eacute;fono</text>
+<rect x="550" y="209" width="170" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+
+<!-- Notas -->
+<rect x="20" y="255" width="710" height="75" rx="4" fill="#FFF8E1" stroke="#FFD54F" stroke-dasharray="4,2"/>
+<text x="30" y="273" fill="#6D4C00" font-size="9" font-weight="700">Notas:</text>
+<text x="30" y="290" fill="#6D4C00" font-size="8">&#8226; Solo visible para usuarios con rol ADMIN. Operadores no ven esta p&aacute;gina</text>
+<text x="30" y="305" fill="#6D4C00" font-size="8">&#8226; Al eliminar: valida dependencias (activos, empleados, departamentos asociados)</text>
+<text x="30" y="320" fill="#6D4C00" font-size="8">&#8226; Badges azul = departamentos, morado = activos por sede</text>
+</svg>
+
+<!-- ============================================================ -->
+<!-- WIREFRAME 7: REPORTES                                        -->
+<!-- ============================================================ -->
+<h3>Wireframe 7: Generaci&oacute;n de Reportes</h3>
+<svg viewBox="0 0 750 380" width="750" height="380" style="display:block;margin:0 auto;border:1px solid #ddd;border-radius:8px">
+
+<text x="20" y="28" fill="#333" font-size="14" font-weight="700">Reportes</text>
+<rect x="620" y="10" width="90" height="26" rx="5" fill="#00AA00"/>
+<text x="665" y="27" text-anchor="middle" fill="#fff" font-size="9" font-weight="600">&#128229; Exportar CSV</text>
+
+<!-- Tarjetas resumen -->
+<rect x="20" y="48" width="168" height="50" rx="6" fill="#fff" stroke="#eee"/>
+<text x="35" y="70" fill="#00AA00" font-size="16" font-weight="700">$350M</text>
+<text x="35" y="85" fill="#999" font-size="7">Valor Total</text>
+
+<rect x="198" y="48" width="168" height="50" rx="6" fill="#fff" stroke="#eee"/>
+<text x="213" y="70" fill="#003087" font-size="16" font-weight="700">100</text>
+<text x="213" y="85" fill="#999" font-size="7">Total Activos</text>
+
+<rect x="376" y="48" width="168" height="50" rx="6" fill="#fff" stroke="#eee"/>
+<text x="391" y="70" fill="#FF8800" font-size="16" font-weight="700">20</text>
+<text x="391" y="85" fill="#999" font-size="7">Asignados</text>
+
+<rect x="554" y="48" width="168" height="50" rx="6" fill="#fff" stroke="#eee"/>
+<text x="569" y="70" fill="#CC0000" font-size="16" font-weight="700">8</text>
+<text x="569" y="85" fill="#999" font-size="7">Reparaci&oacute;n</text>
+
+<!-- Tabs -->
+<rect x="20" y="112" width="100" height="28" rx="5" fill="#CC0000"/>
+<text x="70" y="130" text-anchor="middle" fill="#fff" font-size="8" font-weight="600">Disponibles (72)</text>
+<rect x="125" y="112" width="95" height="28" rx="5" fill="#fff" stroke="#ddd"/>
+<text x="172" y="130" text-anchor="middle" fill="#666" font-size="8">Asignados (20)</text>
+<rect x="225" y="112" width="100" height="28" rx="5" fill="#fff" stroke="#ddd"/>
+<text x="275" y="130" text-anchor="middle" fill="#666" font-size="8">Reparaci&oacute;n (8)</text>
+
+<!-- Tabla del tab activo -->
+<rect x="20" y="150" width="710" height="22" fill="#F8F9FA"/>
+<text x="30" y="164" fill="#666" font-size="7" font-weight="700">NOMBRE</text>
+<text x="200" y="164" fill="#666" font-size="7" font-weight="700">TIPO</text>
+<text x="310" y="164" fill="#666" font-size="7" font-weight="700">SERIAL</text>
+<text x="450" y="164" fill="#666" font-size="7" font-weight="700">VALOR</text>
+<text x="580" y="164" fill="#666" font-size="7" font-weight="700">SEDE</text>
+
+<line x1="20" y1="172" x2="730" y2="172" stroke="#f0f0f0"/>
+<text x="30" y="188" fill="#333" font-size="8">Laptop Lenovo #3</text>
+<text x="200" y="188" fill="#333" font-size="8">Computador</text>
+<text x="310" y="188" fill="#333" font-size="7.5" font-family="Consolas">COM-2024-0003</text>
+<text x="450" y="188" fill="#333" font-size="9" font-weight="600">$3.200.000</text>
+<text x="580" y="188" fill="#333" font-size="8">Sede Cali</text>
+
+<line x1="20" y1="196" x2="730" y2="196" stroke="#f0f0f0"/>
+<text x="30" y="212" fill="#333" font-size="8">Monitor Dell #8</text>
+<text x="200" y="212" fill="#333" font-size="8">Monitor</text>
+<text x="310" y="212" fill="#333" font-size="7.5" font-family="Consolas">MON-2024-0008</text>
+<text x="450" y="212" fill="#333" font-size="9" font-weight="600">$1.800.000</text>
+<text x="580" y="212" fill="#333" font-size="8">Sede Bogota</text>
+
+<text x="375" y="240" text-anchor="middle" fill="#ccc" font-size="9">... m&aacute;s filas ...</text>
+
+<!-- Notas -->
+<rect x="20" y="260" width="710" height="110" rx="4" fill="#FFF8E1" stroke="#FFD54F" stroke-dasharray="4,2"/>
+<text x="30" y="278" fill="#6D4C00" font-size="9" font-weight="700">Notas:</text>
+<text x="30" y="295" fill="#6D4C00" font-size="8">&#8226; 4 tarjetas de resumen con valores calculados en tiempo real</text>
+<text x="30" y="310" fill="#6D4C00" font-size="8">&#8226; Tabs cambian el contenido de la tabla sin recargar la p&aacute;gina (SPA)</text>
+<text x="30" y="325" fill="#6D4C00" font-size="8">&#8226; Tab activo en rojo (#CC0000), tabs inactivos con borde gris</text>
+<text x="30" y="340" fill="#6D4C00" font-size="8">&#8226; CSV genera archivo con BOM UTF-8 para compatibilidad con Excel</text>
+<text x="30" y="355" fill="#6D4C00" font-size="8">&#8226; Para OPERADOR: datos filtrados autom&aacute;ticamente por su sede</text>
+</svg>
+
+<!-- ============================================================ -->
+<!-- WIREFRAME 8: USUARIOS (SOLO ADMIN)                           -->
+<!-- ============================================================ -->
+<h3>Wireframe 8: Gesti&oacute;n de Usuarios (Solo Admin)</h3>
+<svg viewBox="0 0 750 370" width="750" height="370" style="display:block;margin:0 auto;border:1px solid #ddd;border-radius:8px">
+
+<text x="20" y="28" fill="#333" font-size="14" font-weight="700">Usuarios del Sistema (3)</text>
+
+<!-- Formulario crear -->
+<rect x="20" y="42" width="710" height="120" rx="8" fill="#fff" stroke="#eee"/>
+<rect x="20" y="42" width="710" height="25" rx="8 8 0 0" fill="#F8F9FA" stroke="#eee"/>
+<text x="30" y="58" fill="#333" font-size="9" font-weight="600">Crear Nuevo Usuario</text>
+
+<!-- Fila 1 campos -->
+<text x="30" y="82" fill="#333" font-size="7" font-weight="600">Usuario *</text>
+<rect x="30" y="86" width="110" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+<text x="150" y="82" fill="#333" font-size="7" font-weight="600">Email *</text>
+<rect x="150" y="86" width="140" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+<text x="300" y="82" fill="#333" font-size="7" font-weight="600">Contrase&ntilde;a *</text>
+<rect x="300" y="86" width="120" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+
+<!-- Fila 2 campos -->
+<text x="430" y="82" fill="#333" font-size="7" font-weight="600">Nombre</text>
+<rect x="430" y="86" width="90" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+<text x="530" y="82" fill="#333" font-size="7" font-weight="600">Rol</text>
+<rect x="530" y="86" width="90" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+<text x="540" y="100" fill="#888" font-size="7">Operador &#9660;</text>
+<text x="630" y="82" fill="#333" font-size="7" font-weight="600">Sede</text>
+<rect x="630" y="86" width="90" height="20" rx="3" fill="#fff" stroke="#ddd"/>
+<text x="640" y="100" fill="#888" font-size="7">Sin sede &#9660;</text>
+
+<rect x="30" y="118" width="100" height="24" rx="4" fill="#003087"/>
+<text x="80" y="134" text-anchor="middle" fill="#fff" font-size="8" font-weight="600">Crear Usuario</text>
+
+<!-- Tabla usuarios -->
+<rect x="20" y="175" width="710" height="22" fill="#F8F9FA"/>
+<text x="30" y="189" fill="#666" font-size="7" font-weight="700">USUARIO</text>
+<text x="130" y="189" fill="#666" font-size="7" font-weight="700">NOMBRE</text>
+<text x="280" y="189" fill="#666" font-size="7" font-weight="700">EMAIL</text>
+<text x="440" y="189" fill="#666" font-size="7" font-weight="700">ROL</text>
+<text x="520" y="189" fill="#666" font-size="7" font-weight="700">SEDE</text>
+<text x="640" y="189" fill="#666" font-size="7" font-weight="700">ACCIONES</text>
+
+<line x1="20" y1="197" x2="730" y2="197" stroke="#f0f0f0"/>
+<text x="30" y="213" fill="#333" font-size="9" font-weight="600">admin</text>
+<text x="130" y="213" fill="#333" font-size="8">Administrador General</text>
+<text x="280" y="213" fill="#333" font-size="8">admin@inventpro.com</text>
+<rect x="440" y="205" width="40" height="14" rx="7" fill="#FEE2E2"/>
+<text x="460" y="215" text-anchor="middle" fill="#991B1B" font-size="6.5" font-weight="700">ADMIN</text>
+<text x="520" y="213" fill="#888" font-size="8">-</text>
+<text x="640" y="213" fill="#003087" font-size="7">Editar</text>
+<text x="680" y="213" fill="#C62828" font-size="7">Eliminar</text>
+
+<line x1="20" y1="223" x2="730" y2="223" stroke="#f0f0f0"/>
+<text x="30" y="239" fill="#333" font-size="9" font-weight="600">operador_bog</text>
+<text x="130" y="239" fill="#333" font-size="8">Juan Perez</text>
+<text x="280" y="239" fill="#333" font-size="8">juan@empresa.com</text>
+<rect x="440" y="231" width="55" height="14" rx="7" fill="#DBEAFE"/>
+<text x="467" y="241" text-anchor="middle" fill="#1E40AF" font-size="6.5" font-weight="700">OPERADOR</text>
+<text x="520" y="239" fill="#333" font-size="8">Sede Bogota</text>
+<text x="640" y="239" fill="#003087" font-size="7">Editar</text>
+<text x="680" y="239" fill="#C62828" font-size="7">Eliminar</text>
+
+<!-- Notas -->
+<rect x="20" y="265" width="710" height="95" rx="4" fill="#FFF8E1" stroke="#FFD54F" stroke-dasharray="4,2"/>
+<text x="30" y="283" fill="#6D4C00" font-size="9" font-weight="700">Notas:</text>
+<text x="30" y="300" fill="#6D4C00" font-size="8">&#8226; Solo accesible para usuarios con rol ADMIN</text>
+<text x="30" y="315" fill="#6D4C00" font-size="8">&#8226; Contrase&ntilde;a m&iacute;nimo 6 caracteres, cifrada con PBKDF2-SHA256</text>
+<text x="30" y="330" fill="#6D4C00" font-size="8">&#8226; Badge rojo = ADMIN, badge azul = OPERADOR</text>
+<text x="30" y="345" fill="#6D4C00" font-size="8">&#8226; No se puede eliminar la propia cuenta del admin logueado</text>
+</svg>
+
+</body>
+</html>

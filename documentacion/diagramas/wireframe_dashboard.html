@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Wireframe - Dashboard - SIGAE</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',sans-serif;background:#fff;padding:20px}h3{text-align:center;color:#003087;margin-bottom:15px}</style>
+</head>
+<body>
+<h3>Wireframe 2: Dashboard + Layout General (Sidebar)</h3>
+<svg viewBox="0 0 900 580" width="900" height="580" style="display:block;margin:0 auto;border:1px solid #ddd;border-radius:8px">
+
+<!-- ====== SIDEBAR (250px) ====== -->
+<rect x="0" y="0" width="200" height="580" fill="#003087"/>
+
+<!-- Logo -->
+<rect x="15" y="15" width="170" height="50" rx="4" fill="rgba(255,255,255,.05)"/>
+<circle cx="40" cy="40" r="12" fill="#CC0000"/>
+<circle cx="40" cy="40" r="5" fill="#fff"/>
+<text x="58" y="36" fill="rgba(255,255,255,.4)" font-size="5.5" font-weight="700" letter-spacing=".5">SISTEMA DE GESTION</text>
+<text x="58" y="44" fill="rgba(255,255,255,.4)" font-size="5.5">DE INVENTARIO Y CONTROL</text>
+<text x="58" y="52" fill="rgba(255,255,255,.4)" font-size="5.5">DE ACTIVOS EMPRESARIALES</text>
+
+<!-- Usuario -->
+<rect x="15" y="75" width="170" height="35" rx="4" fill="rgba(255,255,255,.05)"/>
+<rect x="22" y="82" width="20" height="20" rx="4" fill="#CC0000"/>
+<text x="32" y="96" text-anchor="middle" fill="#fff" font-size="8" font-weight="700">A</text>
+<text x="50" y="91" fill="#fff" font-size="8" font-weight="600">admin</text>
+<text x="50" y="101" fill="rgba(255,255,255,.4)" font-size="6">ADMIN</text>
+
+<!-- Menu items -->
+<text x="15" y="130" fill="rgba(255,255,255,.25)" font-size="6" font-weight="700" letter-spacing="1">PRINCIPAL</text>
+<rect x="0" y="136" width="200" height="24" fill="rgba(255,0,0,.15)"/>
+<rect x="0" y="136" width="3" height="24" fill="#CC0000"/>
+<text x="25" y="152" fill="#fff" font-size="8">&#128202; Dashboard</text>
+
+<text x="15" y="178" fill="rgba(255,255,255,.25)" font-size="6" font-weight="700" letter-spacing="1">INVENTARIO</text>
+<text x="25" y="196" fill="rgba(255,255,255,.55)" font-size="8">&#128187; Activos</text>
+<text x="25" y="214" fill="rgba(255,255,255,.55)" font-size="8">&#128101; Empleados</text>
+<text x="25" y="232" fill="rgba(255,255,255,.55)" font-size="8">&#128260; Asignaciones</text>
+
+<text x="15" y="255" fill="rgba(255,255,255,.25)" font-size="6" font-weight="700" letter-spacing="1">ORGANIZACI&Oacute;N</text>
+<text x="25" y="273" fill="rgba(255,255,255,.55)" font-size="8">&#127970; Sedes</text>
+<text x="25" y="291" fill="rgba(255,255,255,.55)" font-size="8">&#127963; Departamentos</text>
+
+<text x="15" y="314" fill="rgba(255,255,255,.25)" font-size="6" font-weight="700" letter-spacing="1">AN&Aacute;LISIS</text>
+<text x="25" y="332" fill="rgba(255,255,255,.55)" font-size="8">&#128200; Reportes</text>
+
+<text x="15" y="355" fill="rgba(255,255,255,.25)" font-size="6" font-weight="700" letter-spacing="1">ADMINISTRACI&Oacute;N</text>
+<text x="25" y="373" fill="rgba(255,255,255,.55)" font-size="8">&#128100; Usuarios</text>
+<text x="25" y="391" fill="rgba(255,255,255,.55)" font-size="8">&#128203; Actividad</text>
+
+<!-- Boton logout -->
+<rect x="15" y="540" width="170" height="28" rx="4" fill="#CC0000"/>
+<text x="100" y="558" text-anchor="middle" fill="#fff" font-size="8" font-weight="600">&#128682; Cerrar Sesi&oacute;n</text>
+
+<!-- ====== AREA PRINCIPAL ====== -->
+<rect x="200" y="0" width="700" height="580" fill="#fff"/>
+
+<!-- Topbar -->
+<rect x="200" y="0" width="700" height="40" fill="#fff"/>
+<line x1="200" y1="40" x2="900" y2="40" stroke="#003087" stroke-width="2"/>
+<circle cx="220" cy="20" r="8" fill="#CC0000"/>
+<circle cx="220" cy="20" r="3.5" fill="#fff"/>
+<text x="235" y="18" fill="#003087" font-size="8" font-weight="700">Sistema de Gesti&oacute;n de Inventario</text>
+<text x="235" y="28" fill="#999" font-size="6">Control de Activos Empresariales</text>
+<text x="790" y="18" fill="#999" font-size="7">lunes, 5 de mayo de 2026</text>
+<rect x="830" y="22" width="40" height="14" rx="3" fill="#CC0000"/>
+<text x="850" y="32" text-anchor="middle" fill="#fff" font-size="6" font-weight="600">ADMIN</text>
+
+<!-- Banner bienvenida -->
+<rect x="215" y="52" width="670" height="55" rx="8" fill="#003087"/>
+<text x="230" y="75" fill="#fff" font-size="12" font-weight="700">Bienvenido, admin</text>
+<text x="230" y="92" fill="rgba(255,255,255,.7)" font-size="9">Vista global del sistema</text>
+
+<!-- Stats row 1 -->
+<rect x="215" y="120" width="158" height="55" rx="6" fill="#fff" stroke="#eee"/>
+<rect x="225" y="132" width="30" height="30" rx="6" fill="#CC0000"/>
+<text x="240" y="151" text-anchor="middle" fill="#fff" font-size="10">&#128187;</text>
+<text x="265" y="145" fill="#333" font-size="16" font-weight="700">100</text>
+<text x="265" y="160" fill="#999" font-size="7">Total Activos</text>
+
+<rect x="383" y="120" width="158" height="55" rx="6" fill="#fff" stroke="#eee"/>
+<rect x="393" y="132" width="30" height="30" rx="6" fill="#00AA00"/>
+<text x="408" y="151" text-anchor="middle" fill="#fff" font-size="10">&#9989;</text>
+<text x="433" y="145" fill="#333" font-size="16" font-weight="700">72</text>
+<text x="433" y="160" fill="#999" font-size="7">Disponibles</text>
+
+<rect x="551" y="120" width="158" height="55" rx="6" fill="#fff" stroke="#eee"/>
+<rect x="561" y="132" width="30" height="30" rx="6" fill="#FF8800"/>
+<text x="576" y="151" text-anchor="middle" fill="#fff" font-size="10">&#128203;</text>
+<text x="601" y="145" fill="#333" font-size="16" font-weight="700">20</text>
+<text x="601" y="160" fill="#999" font-size="7">Asignados</text>
+
+<rect x="719" y="120" width="158" height="55" rx="6" fill="#fff" stroke="#eee"/>
+<rect x="729" y="132" width="30" height="30" rx="6" fill="#003087"/>
+<text x="744" y="151" text-anchor="middle" fill="#fff" font-size="10">&#9888;</text>
+<text x="769" y="145" fill="#333" font-size="16" font-weight="700">8</text>
+<text x="769" y="160" fill="#999" font-size="7">Reparaci&oacute;n</text>
+
+<!-- Stats row 2 -->
+<rect x="215" y="185" width="158" height="55" rx="6" fill="#fff" stroke="#eee"/>
+<rect x="225" y="197" width="30" height="30" rx="6" fill="#0066CC"/>
+<text x="240" y="216" text-anchor="middle" fill="#fff" font-size="10">&#128101;</text>
+<text x="265" y="210" fill="#333" font-size="16" font-weight="700">50</text>
+<text x="265" y="225" fill="#999" font-size="7">Empleados</text>
+
+<rect x="383" y="185" width="158" height="55" rx="6" fill="#fff" stroke="#eee"/>
+<rect x="393" y="197" width="30" height="30" rx="6" fill="#CC0000"/>
+<text x="408" y="216" text-anchor="middle" fill="#fff" font-size="10">&#127970;</text>
+<text x="433" y="210" fill="#333" font-size="16" font-weight="700">20</text>
+<text x="433" y="225" fill="#999" font-size="7">Sedes</text>
+
+<rect x="551" y="185" width="158" height="55" rx="6" fill="#fff" stroke="#eee"/>
+<rect x="561" y="197" width="30" height="30" rx="6" fill="#003087"/>
+<text x="576" y="216" text-anchor="middle" fill="#fff" font-size="10">&#127963;</text>
+<text x="601" y="210" fill="#333" font-size="16" font-weight="700">10</text>
+<text x="601" y="225" fill="#999" font-size="7">Departamentos</text>
+
+<rect x="719" y="185" width="158" height="55" rx="6" fill="#fff" stroke="#eee"/>
+<rect x="729" y="197" width="30" height="30" rx="6" fill="#00AA00"/>
+<text x="744" y="216" text-anchor="middle" fill="#fff" font-size="10">&#128176;</text>
+<text x="769" y="210" fill="#333" font-size="11" font-weight="700">$350M</text>
+<text x="769" y="225" fill="#999" font-size="7">Valor Inventario</text>
+
+<!-- Tabla actividad reciente -->
+<rect x="215" y="255" width="670" height="25" rx="6 6 0 0" fill="#fff" stroke="#eee"/>
+<text x="225" y="272" fill="#333" font-size="9" font-weight="600">Actividad reciente</text>
+
+<!-- Header tabla -->
+<rect x="215" y="280" width="670" height="22" fill="#F8F9FA"/>
+<text x="230" y="294" fill="#666" font-size="7" font-weight="700">ACTIVO</text>
+<text x="400" y="294" fill="#666" font-size="7" font-weight="700">EMPLEADO</text>
+<text x="570" y="294" fill="#666" font-size="7" font-weight="700">FECHA</text>
+<text x="720" y="294" fill="#666" font-size="7" font-weight="700">ESTADO</text>
+
+<!-- Filas -->
+<line x1="215" y1="302" x2="885" y2="302" stroke="#f0f0f0"/>
+<text x="230" y="318" fill="#333" font-size="8">Laptop Dell #1</text>
+<text x="400" y="318" fill="#333" font-size="8">Carlos Rodriguez</text>
+<text x="570" y="318" fill="#888" font-size="8">5 may 2026</text>
+<rect x="720" y="308" width="45" height="14" rx="7" fill="#FEF3C7"/>
+<text x="742" y="318" text-anchor="middle" fill="#92400E" font-size="6" font-weight="600">Activa</text>
+
+<line x1="215" y1="326" x2="885" y2="326" stroke="#f0f0f0"/>
+<text x="230" y="342" fill="#333" font-size="8">Monitor Samsung #5</text>
+<text x="400" y="342" fill="#333" font-size="8">Maria Lopez</text>
+<text x="570" y="342" fill="#888" font-size="8">3 may 2026</text>
+<rect x="720" y="332" width="50" height="14" rx="7" fill="#D1FAE5"/>
+<text x="745" y="342" text-anchor="middle" fill="#065F46" font-size="6" font-weight="600">Devuelta</text>
+
+<line x1="215" y1="350" x2="885" y2="350" stroke="#f0f0f0"/>
+<text x="230" y="366" fill="#333" font-size="8">Laptop HP #3</text>
+<text x="400" y="366" fill="#333" font-size="8">Juan Martinez</text>
+<text x="570" y="366" fill="#888" font-size="8">1 may 2026</text>
+<rect x="720" y="356" width="45" height="14" rx="7" fill="#FEF3C7"/>
+<text x="742" y="366" text-anchor="middle" fill="#92400E" font-size="6" font-weight="600">Activa</text>
+
+<!-- Anotaciones -->
+<rect x="215" y="400" width="670" height="170" rx="6" fill="#FFF8E1" stroke="#FFD54F" stroke-dasharray="4,2"/>
+<text x="225" y="418" fill="#6D4C00" font-size="9" font-weight="700">Notas del wireframe:</text>
+<text x="225" y="435" fill="#6D4C00" font-size="8">&#8226; Sidebar fijo 250px, fondo azul #003087, men&uacute; agrupado por secciones</text>
+<text x="225" y="450" fill="#6D4C00" font-size="8">&#8226; Secci&oacute;n ADMINISTRACI&Oacute;N solo visible para rol ADMIN</text>
+<text x="225" y="465" fill="#6D4C00" font-size="8">&#8226; Topbar sticky con logo, t&iacute;tulo y badge de rol</text>
+<text x="225" y="480" fill="#6D4C00" font-size="8">&#8226; Banner de bienvenida azul con nombre de usuario y contexto</text>
+<text x="225" y="495" fill="#6D4C00" font-size="8">&#8226; 8 tarjetas de estad&iacute;sticas en grid 4x2 con &iacute;conos de color</text>
+<text x="225" y="510" fill="#6D4C00" font-size="8">&#8226; Tabla de actividad reciente con &uacute;ltimas 5 asignaciones</text>
+<text x="225" y="525" fill="#6D4C00" font-size="8">&#8226; Colores: Rojo #CC0000 | Azul #003087 | Blanco #FFFFFF</text>
+<text x="225" y="540" fill="#6D4C00" font-size="8">&#8226; Para OPERADOR: misma estructura pero sin secci&oacute;n Administraci&oacute;n y datos filtrados por sede</text>
+</svg>
+</body>
+</html>
