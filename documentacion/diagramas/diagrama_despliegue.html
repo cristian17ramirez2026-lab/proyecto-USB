@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama de Despliegue — SIGAE</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <svg viewBox="0 0 900 500" width="900" height="500" xmlns="http://www.w3.org/2000/svg">
+            <!-- Título principal -->
+            <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a2e">Diagrama de Despliegue — SIGAE</text>
+            <text x="450" y="50" text-anchor="middle" font-size="12" fill="#555">Configuración de hardware y software</text>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- NODO IZQUIERDO: CLIENTE WEB -->
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- Efecto 3D sutil -->
+            <rect x="35" y="80" width="350" height="320" rx="10" fill="#D6E4F0" stroke="none"/>
+            <!-- Nodo principal -->
+            <rect x="30" y="75" width="350" height="320" rx="10" fill="#F0F7FF" stroke="#1565C0" stroke-width="2.5"/>
+            <!-- Título del nodo -->
+            <rect x="30" y="75" width="350" height="35" rx="10" fill="#1565C0"/>
+            <rect x="30" y="95" width="350" height="15" fill="#1565C0"/>
+            <text x="205" y="97" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🖥️  CLIENTE WEB</text>
+
+            <!-- Componente: React SPA -->
+            <rect x="60" y="130" width="290" height="60" rx="6" fill="white" stroke="#42A5F5" stroke-width="1.5"/>
+            <text x="205" y="155" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a1a2e">React SPA</text>
+            <text x="205" y="175" text-anchor="middle" font-size="9" fill="#666">Vite + React 18 • Enrutamiento SPA • Context API</text>
+
+            <!-- Componente: Bootstrap 5 -->
+            <rect x="60" y="205" width="290" height="60" rx="6" fill="white" stroke="#42A5F5" stroke-width="1.5"/>
+            <text x="205" y="230" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a1a2e">Bootstrap 5</text>
+            <text x="205" y="250" text-anchor="middle" font-size="9" fill="#666">UI responsiva • Tablas • Formularios • Modales</text>
+
+            <!-- Componente: localStorage -->
+            <rect x="60" y="280" width="290" height="60" rx="6" fill="white" stroke="#42A5F5" stroke-width="1.5"/>
+            <text x="205" y="305" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a1a2e">localStorage</text>
+            <text x="205" y="325" text-anchor="middle" font-size="9" fill="#666">Tokens JWT • Datos de sesión • Preferencias</text>
+
+            <!-- Requisitos del navegador -->
+            <rect x="55" y="355" width="300" height="28" rx="4" fill="#E3F2FD" stroke="#90CAF9" stroke-width="1"/>
+            <text x="205" y="374" text-anchor="middle" font-size="9" font-weight="bold" fill="#1565C0">Chrome 90+ • Firefox 88+ • Edge 90+</text>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- NODO DERECHO: SERVIDOR VPS -->
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- Efecto 3D sutil -->
+            <rect x="525" y="80" width="350" height="320" rx="10" fill="#C8E6C9" stroke="none"/>
+            <!-- Nodo principal -->
+            <rect x="520" y="75" width="350" height="320" rx="10" fill="#F1F8F1" stroke="#2E7D32" stroke-width="2.5"/>
+            <!-- Título del nodo -->
+            <rect x="520" y="75" width="350" height="35" rx="10" fill="#2E7D32"/>
+            <rect x="520" y="95" width="350" height="15" fill="#2E7D32"/>
+            <text x="695" y="97" text-anchor="middle" font-size="13" font-weight="bold" fill="white">🖧  SERVIDOR VPS</text>
+
+            <!-- Componente: Nginx -->
+            <rect x="550" y="130" width="290" height="55" rx="6" fill="white" stroke="#66BB6A" stroke-width="1.5"/>
+            <text x="695" y="153" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a1a2e">Nginx</text>
+            <text x="695" y="171" text-anchor="middle" font-size="9" fill="#666">Proxy inverso • SSL/TLS • Archivos estáticos</text>
+
+            <!-- Flecha Nginx → Django -->
+            <defs>
+                <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                    <polygon points="0 0, 8 3, 0 6" fill="#2E7D32"/>
+                </marker>
+                <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#C62828"/>
+                </marker>
+            </defs>
+            <line x1="695" y1="185" x2="695" y2="198" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+            <!-- Componente: Django + Gunicorn -->
+            <rect x="550" y="200" width="290" height="55" rx="6" fill="white" stroke="#66BB6A" stroke-width="1.5"/>
+            <text x="695" y="223" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a1a2e">Django + Gunicorn</text>
+            <text x="695" y="241" text-anchor="middle" font-size="9" fill="#666">REST Framework • JWT Auth • 4 workers</text>
+
+            <!-- Flecha Django → DB -->
+            <line x1="695" y1="255" x2="695" y2="268" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+            <!-- Componente: Base de datos (cilindro) -->
+            <ellipse cx="695" cy="280" rx="80" ry="12" fill="#E8F5E9" stroke="#66BB6A" stroke-width="1.5"/>
+            <rect x="615" y="280" width="160" height="50" fill="#E8F5E9" stroke="none"/>
+            <line x1="615" y1="280" x2="615" y2="330" stroke="#66BB6A" stroke-width="1.5"/>
+            <line x1="855" y1="280" x2="855" y2="330" stroke="none"/>
+            <rect x="615" y="280" width="160" height="50" fill="white" stroke="#66BB6A" stroke-width="1.5" rx="0"/>
+            <ellipse cx="695" cy="280" rx="80" ry="12" fill="#E8F5E9" stroke="#66BB6A" stroke-width="1.5"/>
+            <ellipse cx="695" cy="330" rx="80" ry="12" fill="#E8F5E9" stroke="#66BB6A" stroke-width="1.5"/>
+            <line x1="615" y1="280" x2="615" y2="330" stroke="#66BB6A" stroke-width="1.5"/>
+            <line x1="775" y1="280" x2="775" y2="330" stroke="#66BB6A" stroke-width="1.5"/>
+            <text x="695" y="308" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">SQLite / PostgreSQL</text>
+
+            <!-- Requisitos del servidor -->
+            <rect x="545" y="355" width="300" height="28" rx="4" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1"/>
+            <text x="695" y="374" text-anchor="middle" font-size="9" font-weight="bold" fill="#2E7D32">Ubuntu 22.04 • Python 3.12 • 2GB RAM</text>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- CONEXIÓN ENTRE NODOS -->
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- Línea de conexión gruesa -->
+            <line x1="380" y1="235" x2="520" y2="235" stroke="#C62828" stroke-width="3" stroke-dasharray="none" marker-end="url(#arrowRed)"/>
+            <line x1="520" y1="235" x2="380" y2="235" stroke="#C62828" stroke-width="3" marker-end="url(#arrowRed)"/>
+
+            <!-- Etiqueta de conexión -->
+            <rect x="400" y="205" width="110" height="20" rx="4" fill="#FFEBEE" stroke="#C62828" stroke-width="1.5"/>
+            <text x="455" y="219" text-anchor="middle" font-size="11" font-weight="bold" fill="#C62828">HTTPS (443)</text>
+            <text x="455" y="258" text-anchor="middle" font-size="10" fill="#C62828">JSON + JWT</text>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- LEYENDA -->
+            <!-- ═══════════════════════════════════════════ -->
+            <rect x="30" y="415" width="840" height="75" rx="8" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1"/>
+            <text x="450" y="435" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">Leyenda</text>
+
+            <!-- Leyenda items -->
+            <rect x="60" y="448" width="16" height="16" rx="3" fill="#F0F7FF" stroke="#1565C0" stroke-width="1.5"/>
+            <text x="82" y="460" font-size="9" fill="#555">Nodo Cliente</text>
+
+            <rect x="180" y="448" width="16" height="16" rx="3" fill="#F1F8F1" stroke="#2E7D32" stroke-width="1.5"/>
+            <text x="202" y="460" font-size="9" fill="#555">Nodo Servidor</text>
+
+            <rect x="310" y="448" width="16" height="16" rx="3" fill="white" stroke="#42A5F5" stroke-width="1.5"/>
+            <text x="332" y="460" font-size="9" fill="#555">Componente Software</text>
+
+            <line x1="470" y1="456" x2="520" y2="456" stroke="#C62828" stroke-width="2.5"/>
+            <text x="528" y="460" font-size="9" fill="#555">Comunicación HTTPS</text>
+
+            <!-- Protocolo info -->
+            <text x="60" y="480" font-size="9" fill="#777">Protocolo: REST sobre HTTPS • Autenticación: JWT (access + refresh tokens) • Puerto: 443 (producción) / 8000 (desarrollo)</text>
+        </svg>
+    </div>
+</body>
+</html>

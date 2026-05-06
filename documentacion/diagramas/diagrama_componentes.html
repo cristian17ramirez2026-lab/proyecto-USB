@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama de Componentes — SIGAE</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <svg viewBox="0 0 900 550" width="900" height="550" xmlns="http://www.w3.org/2000/svg">
+            <!-- Título principal -->
+            <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a2e">Diagrama de Componentes — SIGAE</text>
+            <text x="450" y="50" text-anchor="middle" font-size="12" fill="#555">Arquitectura de tres capas</text>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- CAPA 1: PRESENTACIÓN -->
+            <!-- ═══════════════════════════════════════════ -->
+            <rect x="30" y="65" width="840" height="120" rx="8" fill="#E8F4FD" stroke="#90CAF9" stroke-width="1.5"/>
+            <text x="50" y="88" font-size="13" font-weight="bold" fill="#1565C0">PRESENTACIÓN — React.js</text>
+
+            <!-- Componente: Pages -->
+            <rect x="60" y="100" width="180" height="65" rx="6" fill="white" stroke="#42A5F5" stroke-width="1.5"/>
+            <text x="150" y="125" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">Pages</text>
+            <text x="150" y="145" text-anchor="middle" font-size="9" fill="#666">(13 vistas: Dashboard,</text>
+            <text x="150" y="157" text-anchor="middle" font-size="9" fill="#666">Activos, Empleados...)</text>
+
+            <!-- Componente: Components -->
+            <rect x="270" y="100" width="180" height="65" rx="6" fill="white" stroke="#42A5F5" stroke-width="1.5"/>
+            <text x="360" y="125" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">Components</text>
+            <text x="360" y="145" text-anchor="middle" font-size="9" fill="#666">(Layout, Navbar,</text>
+            <text x="360" y="157" text-anchor="middle" font-size="9" fill="#666">PrivateRoute, AdminRoute)</text>
+
+            <!-- Componente: AuthContext -->
+            <rect x="480" y="100" width="180" height="65" rx="6" fill="white" stroke="#42A5F5" stroke-width="1.5"/>
+            <text x="570" y="125" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">AuthContext</text>
+            <text x="570" y="145" text-anchor="middle" font-size="9" fill="#666">(Gestión de sesión,</text>
+            <text x="570" y="157" text-anchor="middle" font-size="9" fill="#666">tokens JWT, roles)</text>
+
+            <!-- Componente: Services -->
+            <rect x="690" y="100" width="160" height="65" rx="6" fill="white" stroke="#42A5F5" stroke-width="1.5"/>
+            <text x="770" y="125" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">Services</text>
+            <text x="770" y="145" text-anchor="middle" font-size="9" fill="#666">(apiService.js,</text>
+            <text x="770" y="157" text-anchor="middle" font-size="9" fill="#666">db.js)</text>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- FLECHA CAPA 1 → CAPA 2 -->
+            <!-- ═══════════════════════════════════════════ -->
+            <defs>
+                <marker id="arrowDown" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#E53935"/>
+                </marker>
+                <marker id="arrowRight" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#E53935"/>
+                </marker>
+            </defs>
+            <line x1="450" y1="185" x2="450" y2="225" stroke="#E53935" stroke-width="2.5" marker-end="url(#arrowDown)"/>
+            <rect x="320" y="195" width="260" height="22" rx="4" fill="white" stroke="#E53935" stroke-width="1"/>
+            <text x="450" y="210" text-anchor="middle" font-size="10" font-weight="bold" fill="#C62828">HTTP REST (JSON + JWT)</text>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- CAPA 2: LÓGICA DE NEGOCIO -->
+            <!-- ═══════════════════════════════════════════ -->
+            <rect x="30" y="230" width="840" height="120" rx="8" fill="#E8F8E8" stroke="#A5D6A7" stroke-width="1.5"/>
+            <text x="50" y="253" font-size="13" font-weight="bold" fill="#2E7D32">LÓGICA DE NEGOCIO — Django REST</text>
+
+            <!-- Componente: ViewSets -->
+            <rect x="60" y="265" width="180" height="65" rx="6" fill="white" stroke="#66BB6A" stroke-width="1.5"/>
+            <text x="150" y="290" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">ViewSets</text>
+            <text x="150" y="310" text-anchor="middle" font-size="9" fill="#666">(CRUD endpoints,</text>
+            <text x="150" y="322" text-anchor="middle" font-size="9" fill="#666">filtros, paginación)</text>
+
+            <!-- Componente: Serializers -->
+            <rect x="270" y="265" width="180" height="65" rx="6" fill="white" stroke="#66BB6A" stroke-width="1.5"/>
+            <text x="360" y="290" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">Serializers</text>
+            <text x="360" y="310" text-anchor="middle" font-size="9" fill="#666">(Validación de datos,</text>
+            <text x="360" y="322" text-anchor="middle" font-size="9" fill="#666">transformación JSON)</text>
+
+            <!-- Componente: Models -->
+            <rect x="480" y="265" width="180" height="65" rx="6" fill="white" stroke="#66BB6A" stroke-width="1.5"/>
+            <text x="570" y="290" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">Models</text>
+            <text x="570" y="310" text-anchor="middle" font-size="9" fill="#666">(ORM Django,</text>
+            <text x="570" y="322" text-anchor="middle" font-size="9" fill="#666">migraciones)</text>
+
+            <!-- Componente: Permissions -->
+            <rect x="690" y="265" width="160" height="65" rx="6" fill="white" stroke="#66BB6A" stroke-width="1.5"/>
+            <text x="770" y="290" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">Permissions</text>
+            <text x="770" y="310" text-anchor="middle" font-size="9" fill="#666">(JWT + Roles:</text>
+            <text x="770" y="322" text-anchor="middle" font-size="9" fill="#666">Admin, Operador)</text>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- FLECHA CAPA 2 → CAPA 3 -->
+            <!-- ═══════════════════════════════════════════ -->
+            <line x1="450" y1="350" x2="450" y2="390" stroke="#E53935" stroke-width="2.5" marker-end="url(#arrowDown)"/>
+            <rect x="320" y="360" width="260" height="22" rx="4" fill="white" stroke="#E53935" stroke-width="1"/>
+            <text x="450" y="375" text-anchor="middle" font-size="10" font-weight="bold" fill="#C62828">ORM Django (QuerySets)</text>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- CAPA 3: DATOS -->
+            <!-- ═══════════════════════════════════════════ -->
+            <rect x="30" y="395" width="840" height="110" rx="8" fill="#F0E8F8" stroke="#CE93D8" stroke-width="1.5"/>
+            <text x="50" y="418" font-size="13" font-weight="bold" fill="#6A1B9A">DATOS — SQLite / PostgreSQL</text>
+
+            <!-- Grupo: Tablas principales -->
+            <rect x="60" y="430" width="240" height="55" rx="6" fill="white" stroke="#AB47BC" stroke-width="1.5"/>
+            <text x="180" y="452" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">Tablas Principales</text>
+            <text x="180" y="472" text-anchor="middle" font-size="9" fill="#666">activo • empleado • asignacion</text>
+
+            <!-- Grupo: Organización -->
+            <rect x="330" y="430" width="240" height="55" rx="6" fill="white" stroke="#AB47BC" stroke-width="1.5"/>
+            <text x="450" y="452" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">Organización</text>
+            <text x="450" y="472" text-anchor="middle" font-size="9" fill="#666">sede • departamento</text>
+
+            <!-- Grupo: Sistema -->
+            <rect x="600" y="430" width="240" height="55" rx="6" fill="white" stroke="#AB47BC" stroke-width="1.5"/>
+            <text x="720" y="452" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">Sistema</text>
+            <text x="720" y="472" text-anchor="middle" font-size="9" fill="#666">usuario • log_actividad</text>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- LEYENDA -->
+            <!-- ═══════════════════════════════════════════ -->
+            <rect x="30" y="518" width="840" height="25" rx="4" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1"/>
+            <rect x="50" y="525" width="12" height="12" rx="2" fill="#E8F4FD" stroke="#90CAF9" stroke-width="1"/>
+            <text x="68" y="535" font-size="9" fill="#555">Presentación</text>
+            <rect x="160" y="525" width="12" height="12" rx="2" fill="#E8F8E8" stroke="#A5D6A7" stroke-width="1"/>
+            <text x="178" y="535" font-size="9" fill="#555">Lógica de Negocio</text>
+            <rect x="300" y="525" width="12" height="12" rx="2" fill="#F0E8F8" stroke="#CE93D8" stroke-width="1"/>
+            <text x="318" y="535" font-size="9" fill="#555">Datos</text>
+            <line x1="400" y1="531" x2="440" y2="531" stroke="#E53935" stroke-width="2" marker-end="url(#arrowDown)"/>
+            <text x="448" y="535" font-size="9" fill="#555">Comunicación entre capas</text>
+            <rect x="620" y="525" width="12" height="12" rx="2" fill="white" stroke="#42A5F5" stroke-width="1.5"/>
+            <text x="638" y="535" font-size="9" fill="#555">Componente</text>
+        </svg>
+    </div>
+</body>
+</html>

@@ -12,6 +12,7 @@ export default function Empleados() {
   const [asigActivo, setAsigActivo] = useState('');
   const [form, setForm] = useState({ nombre: '', apellido: '', cedula: '', email: '', sede_id: '', departamento_id: '', cargo: '' });
   const [error, setError] = useState('');
+  const [confirmAction, setConfirmAction] = useState(null); // { id, type: 'asignar'|'editar'|'eliminar' }
 
   const empleados = filtrar(DB.getEmpleados()).filter(e => {
     const q = search.toLowerCase();
@@ -26,7 +27,34 @@ export default function Empleados() {
 
   const resetForm = () => { setForm({ nombre: '', apellido: '', cedula: '', email: '', sede_id: '', departamento_id: '', cargo: '' }); setEditId(null); setShowForm(false); setError(''); };
 
-  const handleEdit = (e) => { setForm({ nombre: e.nombre, apellido: e.apellido, cedula: e.cedula, email: e.email || '', sede_id: e.sede_id || '', departamento_id: e.departamento_id || '', cargo: e.cargo }); setEditId(e.id); setShowForm(true); };
+  const handleEdit = (e) => { 
+    setForm({ nombre: e.nombre, apellido: e.apellido, cedula: e.cedula, email: e.email || '', sede_id: e.sede_id || '', departamento_id: e.departamento_id || '', cargo: e.cargo }); 
+    setEditId(e.id); 
+    setShowForm(true);
+    setConfirmAction(null);
+  };
+
+  const confirmarAccion = (id, tipo) => {
+    const emp = DB.getEmpleado(id);
+    if (tipo === 'asignar') {
+      setViewId(viewId === id ? null : id);
+      setConfirmAction(null);
+    } else if (tipo === 'editar') {
+      handleEdit(emp);
+      setConfirmAction(null);
+    } else if (tipo === 'eliminar') {
+      const hasAsig = DB.getAsignaciones().some(a => a.empleado_id === id && !a.fecha_devolucion);
+      if (hasAsig) { 
+        alert('No se puede eliminar: tiene activos asignados.'); 
+        setConfirmAction(null);
+        return; 
+      }
+      DB.deleteEmpleado(id); 
+      DB.addLog('Empleado eliminado', emp.nombre, user.username); 
+      setRefresh(r => r + 1);
+      setConfirmAction(null);
+    }
+  };
 
   const handleSubmit = (ev) => {
     ev.preventDefault(); setError('');
@@ -39,11 +67,20 @@ export default function Empleados() {
     resetForm(); setRefresh(r => r + 1);
   };
 
+  const handleBajaConMotivo = (id, motivo) => {
+    const e = DB.getEmpleado(id);
+    if (window.confirm(`¿Dar de baja a "${e.nombre} ${e.apellido}" por motivo: ${motivo}?`)) {
+      DB.updateEmpleado(id, { fecha_salida: new Date().toISOString(), activo: false, motivo_baja: motivo });
+      DB.addLog('Empleado dado de baja', e.nombre + ' ' + e.apellido + ' - Motivo: ' + motivo, user.username);
+      setRefresh(r => r + 1);
+    }
+  };
+
   const handleBaja = (id) => {
     const e = DB.getEmpleado(id);
-    if (window.confirm('Dar de baja a "' + e.nombre + ' ' + e.apellido + '"?')) {
+    if (window.confirm('¿Dar de baja a "' + e.nombre + ' ' + e.apellido + '"?')) {
       DB.updateEmpleado(id, { fecha_salida: new Date().toISOString(), activo: false });
-      DB.addLog('Empleado baja', e.nombre + ' ' + e.apellido, user.username);
+      DB.addLog('Empleado dado de baja', e.nombre + ' ' + e.apellido, user.username);
       setRefresh(r => r + 1);
     }
   };
@@ -56,16 +93,11 @@ export default function Empleados() {
   };
 
   const handleDelete = (id) => {
-    const e = DB.getEmpleado(id);
-    const hasAsig = DB.getAsignaciones().some(a => a.empleado_id === id && !a.fecha_devolucion);
-    if (hasAsig) { alert('No se puede eliminar: tiene activos asignados.'); return; }
-    if (window.confirm('Eliminar "' + e.nombre + ' ' + e.apellido + '"?')) {
-      DB.deleteEmpleado(id); DB.addLog('Empleado eliminado', e.nombre, user.username); setRefresh(r => r + 1);
-    }
+    setConfirmAction({ id, type: 'eliminar' });
   };
 
   return (
-    <div>
+    <div className="container-fluid px-3 px-md-4 py-3">
       <div className="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
         <h5 className="fw-bold mb-0">Empleados ({empleados.length})</h5>
         {canAdd && <button className="btn btn-sm text-white" style={{ background: '#003087' }} onClick={() => { resetForm(); setShowForm(!showForm); }}>{showForm ? 'Cerrar' : '+ Nuevo Empleado'}</button>}
@@ -97,42 +129,96 @@ export default function Empleados() {
         </div>
       )}
 
-      <input type="text" className="form-control mb-3" style={{ maxWidth: 350 }} placeholder="Buscar nombre, cedula, cargo..." value={search} onChange={e => setSearch(e.target.value)} />
+      <input type="text" className="form-control mb-3" style={{ maxWidth: '100%', width: '100%', maxWidth: 350 }} placeholder="Buscar nombre, cédula, cargo..." value={search} onChange={e => setSearch(e.target.value)} />
 
       <div className="card shadow-sm">
         <div className="table-responsive">
-          <table className="table table-hover mb-0">
-            <thead className="table-light">
-              <tr><th>Empleado</th><th>Cedula</th><th>Sede</th><th>Depto</th><th>Cargo</th><th>Activos</th><th>Ingreso</th><th>Estado</th>{canAdd && <th>Acciones</th>}</tr>
+          <table className="table table-hover mb-0 align-middle" style={{ fontSize: '0.8125rem' }}>
+            <thead className="table-light" style={{ fontSize: '0.75rem' }}>
+              <tr>
+                <th style={{ fontWeight: 600, padding: '0.5rem' }}>Empleado</th>
+                <th className="d-none d-lg-table-cell" style={{ fontWeight: 600, padding: '0.5rem' }}>Cédula</th>
+                <th className="d-none d-md-table-cell" style={{ fontWeight: 600, padding: '0.5rem' }}>Sede</th>
+                <th className="d-none d-xl-table-cell" style={{ fontWeight: 600, padding: '0.5rem' }}>Depto</th>
+                <th className="d-none d-md-table-cell" style={{ fontWeight: 600, padding: '0.5rem' }}>Cargo</th>
+                <th style={{ fontWeight: 600, padding: '0.5rem' }}>Activos</th>
+                <th className="d-none d-lg-table-cell" style={{ fontWeight: 600, padding: '0.5rem' }}>Ingreso</th>
+                <th style={{ fontWeight: 600, padding: '0.5rem' }}>Estado</th>
+                {canAdd && <th style={{ fontWeight: 600, padding: '0.5rem' }}>Acciones</th>}
+              </tr>
             </thead>
-            <tbody>
+            <tbody style={{ fontSize: '0.8125rem' }}>
               {empleados.length === 0 ? <tr><td colSpan={9} className="text-center text-muted py-4">No hay empleados</td></tr> :
                 empleados.map(e => {
                   const cnt = DB.getAsignaciones().filter(a => a.empleado_id === e.id && !a.fecha_devolucion).length;
                   return (
                     <React.Fragment key={e.id}>
                     <tr style={e.fecha_salida ? { opacity: 0.5 } : {}}>
-                      <td><strong>{e.nombre} {e.apellido}</strong>{e.email && <><br /><small className="text-muted">{e.email}</small></>}</td>
-                      <td>{e.cedula}</td>
-                      <td>{sn(e.sede_id)}</td>
-                      <td>{dn(e.departamento_id)}</td>
-                      <td>{e.cargo}</td>
-                      <td><span className={`badge bg-${cnt > 0 ? 'warning' : 'success'}`}>{cnt}</span></td>
-                      <td>
-                        <small>{fd(e.fecha_ingreso)}</small>
-                        {e.fecha_salida && <><br /><small className="text-danger">Baja: {fd(e.fecha_salida)}</small></>}
+                      <td style={{ maxWidth: '250px', padding: '0.5rem' }}>
+                        <strong style={{ fontSize: '0.8125rem' }}>{e.nombre} {e.apellido}</strong>
+                        {e.email && <><br /><small className="text-muted" style={{ fontSize: '0.7rem' }}>{e.email}</small></>}
+                        <div className="d-lg-none mt-1">
+                          <small className="text-muted d-block" style={{ fontSize: '0.7rem' }}>Cédula: {e.cedula}</small>
+                          <small className="text-muted d-block d-md-none" style={{ fontSize: '0.7rem' }}>Cargo: {e.cargo}</small>
+                        </div>
                       </td>
-                      <td>{e.fecha_salida ? <span className="badge bg-danger">Baja</span> : <span className="badge bg-success">Activo</span>}</td>
+                      <td className="d-none d-lg-table-cell" style={{ fontSize: '0.75rem', padding: '0.5rem' }}>{e.cedula}</td>
+                      <td className="d-none d-md-table-cell" style={{ fontSize: '0.75rem', padding: '0.5rem' }}>{sn(e.sede_id)}</td>
+                      <td className="d-none d-xl-table-cell" style={{ fontSize: '0.75rem', padding: '0.5rem' }}>{dn(e.departamento_id)}</td>
+                      <td className="d-none d-md-table-cell" style={{ fontSize: '0.75rem', padding: '0.5rem' }}>{e.cargo}</td>
+                      <td style={{ padding: '0.5rem' }}><span className={`badge bg-${cnt > 0 ? 'warning' : 'success'}`} style={{ fontSize: '0.7rem' }}>{cnt}</span></td>
+                      <td className="d-none d-lg-table-cell" style={{ padding: '0.5rem' }}>
+                        <small style={{ fontSize: '0.7rem' }}>{fd(e.fecha_ingreso)}</small>
+                        {e.fecha_salida && <><br /><small className="text-danger" style={{ fontSize: '0.7rem' }}>Baja: {fd(e.fecha_salida)}</small></>}
+                      </td>
+                      <td style={{ padding: '0.5rem' }}><span className={`badge bg-${e.fecha_salida ? 'danger' : 'success'}`} style={{ fontSize: '0.7rem' }}>{e.fecha_salida ? 'Baja' : 'Activo'}</span></td>
                       {canAdd && (
-                        <td className="d-flex gap-1 flex-wrap">
-                          <button className="btn btn-outline-info btn-sm" onClick={() => setViewId(viewId === e.id ? null : e.id)}>Ver</button>
-                          <button className="btn btn-outline-primary btn-sm" onClick={() => handleEdit(e)}>Editar</button>
-                          {!e.fecha_salida && <button className="btn btn-outline-warning btn-sm" onClick={() => handleBaja(e.id)}>Baja</button>}
-                          {e.fecha_salida && <button className="btn btn-outline-success btn-sm" onClick={() => handleReactivar(e.id)}>Reactivar</button>}
-                          {isAdmin && <button className="btn btn-outline-danger btn-sm" onClick={() => handleDelete(e.id)}>Eliminar</button>}
+                        <td style={{ padding: '0.5rem', verticalAlign: 'middle' }}>
+                          <div className="d-flex gap-1 flex-nowrap align-items-center" style={{ minWidth: 'max-content' }}>
+                            <button className="btn btn-outline-success btn-sm px-2 py-1" style={{ fontSize: '0.7rem', lineHeight: '1.2' }} onClick={() => {
+                              if (confirmAction?.id === e.id && confirmAction?.type === 'asignar') {
+                                setConfirmAction(null);
+                              } else {
+                                setConfirmAction({ id: e.id, type: 'asignar' });
+                              }
+                            }}>Asignar</button>
+                            <button className="btn btn-outline-primary btn-sm px-2 py-1" style={{ fontSize: '0.7rem', lineHeight: '1.2' }} onClick={() => {
+                              if (confirmAction?.id === e.id && confirmAction?.type === 'editar') {
+                                setConfirmAction(null);
+                              } else {
+                                setConfirmAction({ id: e.id, type: 'editar' });
+                              }
+                            }}>Editar</button>
+                            {isAdmin && <button className="btn btn-outline-danger btn-sm px-2 py-1" style={{ fontSize: '0.7rem', lineHeight: '1.2' }} onClick={() => {
+                              if (confirmAction?.id === e.id && confirmAction?.type === 'eliminar') {
+                                setConfirmAction(null);
+                              } else {
+                                handleDelete(e.id);
+                              }
+                            }}>Eliminar</button>}
+                          </div>
                         </td>
                       )}
                     </tr>
+                    {confirmAction && confirmAction.id === e.id && (
+                      <tr>
+                        <td colSpan={9} className="bg-warning bg-opacity-10 p-3">
+                          <div className="d-flex justify-content-between align-items-center">
+                            <div>
+                              <strong>
+                                {confirmAction.type === 'asignar' && `¿Desea asignar activos a ${e.nombre} ${e.apellido}?`}
+                                {confirmAction.type === 'editar' && `¿Desea editar los datos de ${e.nombre} ${e.apellido}?`}
+                                {confirmAction.type === 'eliminar' && `¿Está seguro de eliminar a ${e.nombre} ${e.apellido}? Esta acción no se puede deshacer.`}
+                              </strong>
+                            </div>
+                            <div className="d-flex gap-2">
+                              <button className="btn btn-secondary btn-sm" onClick={() => setConfirmAction(null)}>Cancelar</button>
+                              <button className="btn btn-primary btn-sm" onClick={() => confirmarAccion(e.id, confirmAction.type)}>Confirmar</button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    )}
                     {viewId === e.id && (
                       <tr><td colSpan={9} style={{ background: '#f8f9fa', padding: 16 }}>
                         <div className="d-flex justify-content-between align-items-center mb-2">

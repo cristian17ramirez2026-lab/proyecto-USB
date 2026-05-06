@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Diagramas de Componentes y Despliegue - SIGAE</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;padding:20px}
+h1{text-align:center;font-size:15pt;color:#003087;margin-bottom:4px}
+h2{text-align:center;font-size:10pt;color:#666;margin-bottom:20px;font-weight:400}
+h3{font-size:13pt;color:#003087;margin:40px 0 10px;padding-bottom:6px;border-bottom:2px solid #003087}
+</style>
+</head>
+<body>
+<h1>Diagramas de Arquitectura &mdash; SIGAE</h1>
+<h2>Diagrama de Componentes y Diagrama de Despliegue</h2>
+
+<!-- ============================================================ -->
+<!-- DIAGRAMA DE COMPONENTES                                      -->
+<!-- ============================================================ -->
+<h3>5.6.2 Diagrama de Componentes</h3>
+
+<svg viewBox="0 0 950 620" width="950" height="620" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;background:#FAFCFF;border:1px solid #dde;border-radius:8px">
+<style>
+  .layer{fill:none;stroke-width:2;rx:10}
+  .layer-pres{stroke:#2980b9}
+  .layer-logic{stroke:#27ae60}
+  .layer-data{stroke:#8e44ad}
+  .layer-fill-p{fill:#EBF5FB;rx:10}
+  .layer-fill-l{fill:#EAFAF1;rx:10}
+  .layer-fill-d{fill:#F4ECF7;rx:10}
+  .layer-t{font-size:12px;font-weight:700;font-family:'Segoe UI',sans-serif}
+  .comp{fill:#fff;stroke:#2c3e50;stroke-width:1.5;rx:6}
+  .comp-t{font-size:10px;font-weight:600;fill:#2c3e50;text-anchor:middle;font-family:'Segoe UI',sans-serif}
+  .comp-sub{font-size:8px;fill:#7f8c8d;text-anchor:middle;font-family:'Segoe UI',sans-serif}
+  .comp-icon{fill:#fff;stroke:#2c3e50;stroke-width:1.2}
+  .arrow{stroke:#2c3e50;stroke-width:1.5;fill:none;marker-end:url(#arrowC)}
+  .arrow-t{font-size:8.5px;fill:#555;text-anchor:middle;font-family:'Segoe UI',sans-serif}
+  .iface{fill:#fff;stroke:#2c3e50;stroke-width:1.5}
+</style>
+<defs>
+  <marker id="arrowC" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#2c3e50"/></marker>
+</defs>
+
+<!-- CAPA PRESENTACION -->
+<rect x="20" y="20" width="910" height="170" class="layer-fill-p"/>
+<rect x="20" y="20" width="910" height="170" class="layer layer-pres"/>
+<text x="40" y="42" class="layer-t" fill="#2980b9">CAPA DE PRESENTACI&Oacute;N (React.js 19 + Bootstrap 5 + Vite 8)</text>
+
+<!-- Componentes frontend -->
+<rect x="40" y="55" width="120" height="55" class="comp"/>
+<rect x="40" y="55" width="15" height="10" fill="#2980b9" rx="2"/>
+<rect x="40" y="68" width="15" height="10" fill="#2980b9" rx="2"/>
+<text x="100" y="80" class="comp-t">Pages</text>
+<text x="100" y="93" class="comp-sub">13 p&aacute;ginas JSX</text>
+
+<rect x="180" y="55" width="120" height="55" class="comp"/>
+<rect x="180" y="55" width="15" height="10" fill="#2980b9" rx="2"/>
+<rect x="180" y="68" width="15" height="10" fill="#2980b9" rx="2"/>
+<text x="240" y="80" class="comp-t">Components</text>
+<text x="240" y="93" class="comp-sub">Layout, Navbar, Routes</text>
+
+<rect x="320" y="55" width="120" height="55" class="comp"/>
+<rect x="320" y="55" width="15" height="10" fill="#2980b9" rx="2"/>
+<rect x="320" y="68" width="15" height="10" fill="#2980b9" rx="2"/>
+<text x="380" y="80" class="comp-t">AuthContext</text>
+<text x="380" y="93" class="comp-sub">Estado global sesi&oacute;n</text>
+
+<rect x="460" y="55" width="120" height="55" class="comp"/>
+<rect x="460" y="55" width="15" height="10" fill="#2980b9" rx="2"/>
+<rect x="460" y="68" width="15" height="10" fill="#2980b9" rx="2"/>
+<text x="520" y="80" class="comp-t">Services</text>
+<text x="520" y="93" class="comp-sub">db.js + apiService</text>
+
+<rect x="600" y="55" width="130" height="55" class="comp"/>
+<rect x="600" y="55" width="15" height="10" fill="#2980b9" rx="2"/>
+<rect x="600" y="68" width="15" height="10" fill="#2980b9" rx="2"/>
+<text x="665" y="80" class="comp-t">React Router</text>
+<text x="665" y="93" class="comp-sub">Navegaci&oacute;n SPA</text>
+
+<rect x="750" y="55" width="160" height="55" class="comp"/>
+<rect x="750" y="55" width="15" height="10" fill="#2980b9" rx="2"/>
+<rect x="750" y="68" width="15" height="10" fill="#2980b9" rx="2"/>
+<text x="830" y="80" class="comp-t">Bootstrap 5</text>
+<text x="830" y="93" class="comp-sub">Grid + Componentes CSS</text>
+
+<!-- Interfaz proporcionada -->
+<text x="475" y="155" class="arrow-t">Interfaz: HTTP REST (JSON) + JWT Token</text>
+<line x1="475" y1="160" x2="475" y2="190" class="arrow" stroke-width="2"/>
+
+<!-- CAPA LOGICA DE NEGOCIO -->
+<rect x="20" y="210" width="910" height="200" class="layer-fill-l"/>
+<rect x="20" y="210" width="910" height="200" class="layer layer-logic"/>
+<text x="40" y="232" class="layer-t" fill="#27ae60">CAPA DE L&Oacute;GICA DE NEGOCIO (Django 5 + Django REST Framework)</text>
+
+<!-- Componentes backend -->
+<rect x="40" y="248" width="130" height="55" class="comp"/>
+<rect x="40" y="248" width="15" height="10" fill="#27ae60" rx="2"/>
+<rect x="40" y="261" width="15" height="10" fill="#27ae60" rx="2"/>
+<text x="105" y="273" class="comp-t">ViewSets</text>
+<text x="105" y="286" class="comp-sub">Activo, Empleado, Asignac</text>
+
+<rect x="190" y="248" width="130" height="55" class="comp"/>
+<rect x="190" y="248" width="15" height="10" fill="#27ae60" rx="2"/>
+<rect x="190" y="261" width="15" height="10" fill="#27ae60" rx="2"/>
+<text x="255" y="273" class="comp-t">Serializers</text>
+<text x="255" y="286" class="comp-sub">Validaci&oacute;n + Transf.</text>
+
+<rect x="340" y="248" width="120" height="55" class="comp"/>
+<rect x="340" y="248" width="15" height="10" fill="#27ae60" rx="2"/>
+<rect x="340" y="261" width="15" height="10" fill="#27ae60" rx="2"/>
+<text x="400" y="273" class="comp-t">Models</text>
+<text x="400" y="286" class="comp-sub">Activo, Empleado, Asig</text>
+
+<rect x="480" y="248" width="130" height="55" class="comp"/>
+<rect x="480" y="248" width="15" height="10" fill="#27ae60" rx="2"/>
+<rect x="480" y="261" width="15" height="10" fill="#27ae60" rx="2"/>
+<text x="545" y="273" class="comp-t">Permissions</text>
+<text x="545" y="286" class="comp-sub">IsAdminRole, IsAuth</text>
+
+<rect x="630" y="248" width="130" height="55" class="comp"/>
+<rect x="630" y="248" width="15" height="10" fill="#27ae60" rx="2"/>
+<rect x="630" y="261" width="15" height="10" fill="#27ae60" rx="2"/>
+<text x="695" y="273" class="comp-t">JWT Auth</text>
+<text x="695" y="286" class="comp-sub">simplejwt (token/refresh)</text>
+
+<rect x="780" y="248" width="130" height="55" class="comp"/>
+<rect x="780" y="248" width="15" height="10" fill="#27ae60" rx="2"/>
+<rect x="780" y="261" width="15" height="10" fill="#27ae60" rx="2"/>
+<text x="845" y="273" class="comp-t">URLs / Router</text>
+<text x="845" y="286" class="comp-sub">Endpoints REST</text>
+
+<!-- Reportes -->
+<rect x="40" y="320" width="130" height="45" class="comp"/>
+<rect x="40" y="320" width="15" height="10" fill="#27ae60" rx="2"/>
+<text x="105" y="347" class="comp-t">Reportes API</text>
+<text x="105" y="358" class="comp-sub">4 vistas especializadas</text>
+
+<!-- Transactions -->
+<rect x="190" y="320" width="150" height="45" class="comp"/>
+<rect x="190" y="320" width="15" height="10" fill="#27ae60" rx="2"/>
+<text x="265" y="347" class="comp-t">@transaction.atomic</text>
+<text x="265" y="358" class="comp-sub">Asignaci&oacute;n / Devoluci&oacute;n</text>
+
+<!-- Interfaz ORM -->
+<text x="475" y="385" class="arrow-t">Interfaz: ORM Django (QuerySets)</text>
+<line x1="475" y1="390" x2="475" y2="420" class="arrow" stroke-width="2"/>
+
+<!-- CAPA DE DATOS -->
+<rect x="20" y="430" width="910" height="170" class="layer-fill-d"/>
+<rect x="20" y="430" width="910" height="170" class="layer layer-data"/>
+<text x="40" y="452" class="layer-t" fill="#8e44ad">CAPA DE DATOS (SQLite / PostgreSQL)</text>
+
+<!-- Tablas -->
+<rect x="40" y="470" width="110" height="40" class="comp"/>
+<text x="95" y="494" class="comp-t">activo</text>
+
+<rect x="170" y="470" width="110" height="40" class="comp"/>
+<text x="225" y="494" class="comp-t">empleado</text>
+
+<rect x="300" y="470" width="110" height="40" class="comp"/>
+<text x="355" y="494" class="comp-t">asignacion</text>
+
+<rect x="430" y="470" width="110" height="40" class="comp"/>
+<text x="485" y="494" class="comp-t">usuario</text>
+
+<rect x="560" y="470" width="100" height="40" class="comp"/>
+<text x="610" y="494" class="comp-t">sede</text>
+
+<rect x="680" y="470" width="120" height="40" class="comp"/>
+<text x="740" y="494" class="comp-t">departamento</text>
+
+<rect x="820" y="470" width="100" height="40" class="comp"/>
+<text x="870" y="494" class="comp-t">log_actividad</text>
+
+<!-- Nota -->
+<text x="475" y="555" text-anchor="middle" style="font-size:9px;fill:#8e44ad;font-family:'Segoe UI'">7 tablas &bull; Integridad referencial con PROTECT &bull; Migraciones Django &bull; Indices en PK, FK, UK</text>
+
+<!-- Leyenda -->
+<rect x="40" y="575" width="870" height="20" rx="4" fill="#f8f9fa"/>
+<text x="50" y="589" style="font-size:9px;fill:#555;font-family:'Segoe UI'">
+  <tspan fill="#2980b9" font-weight="700">&#9632;</tspan> Presentaci&oacute;n (React) &nbsp;&nbsp;
+  <tspan fill="#27ae60" font-weight="700">&#9632;</tspan> L&oacute;gica de Negocio (Django) &nbsp;&nbsp;
+  <tspan fill="#8e44ad" font-weight="700">&#9632;</tspan> Datos (SQLite/PostgreSQL) &nbsp;&nbsp;
+  <tspan fill="#2c3e50" font-weight="700">&#9642;</tspan> = Componente UML &nbsp;&nbsp;
+  &#8594; = Dependencia / Interfaz
+</text>
+</svg>
+
+<!-- ============================================================ -->
+<!-- DIAGRAMA DE DESPLIEGUE                                       -->
+<!-- ============================================================ -->
+<h3>5.6.3 Diagrama de Despliegue</h3>
+
+<svg viewBox="0 0 950 550" width="950" height="550" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:0 auto;background:#FAFCFF;border:1px solid #dde;border-radius:8px">
+
+<!-- NODO: CLIENTE -->
+<rect x="30" y="30" width="350" height="280" rx="10" fill="#EBF5FB" stroke="#2980b9" stroke-width="2"/>
+<rect x="30" y="30" width="350" height="30" rx="10 10 0 0" fill="#2980b9"/>
+<text x="205" y="50" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Segoe UI">&laquo;device&raquo; Cliente Web (Navegador)</text>
+
+<!-- Artefactos cliente -->
+<rect x="55" y="80" width="300" height="50" rx="6" fill="#fff" stroke="#2c3e50" stroke-width="1.2"/>
+<text x="205" y="100" text-anchor="middle" font-size="10" font-weight="600" fill="#2c3e50" font-family="Segoe UI">React SPA (Build de Producci&oacute;n)</text>
+<text x="205" y="116" text-anchor="middle" font-size="8" fill="#7f8c8d" font-family="Segoe UI">index.html + index-*.js (297KB) + index-*.css (230KB)</text>
+
+<rect x="55" y="145" width="140" height="40" rx="6" fill="#fff" stroke="#2c3e50" stroke-width="1.2"/>
+<text x="125" y="165" text-anchor="middle" font-size="9" font-weight="600" fill="#2c3e50" font-family="Segoe UI">React Router DOM</text>
+<text x="125" y="178" text-anchor="middle" font-size="8" fill="#7f8c8d" font-family="Segoe UI">Navegaci&oacute;n SPA</text>
+
+<rect x="210" y="145" width="140" height="40" rx="6" fill="#fff" stroke="#2c3e50" stroke-width="1.2"/>
+<text x="280" y="165" text-anchor="middle" font-size="9" font-weight="600" fill="#2c3e50" font-family="Segoe UI">Bootstrap 5.3</text>
+<text x="280" y="178" text-anchor="middle" font-size="8" fill="#7f8c8d" font-family="Segoe UI">UI Framework</text>
+
+<!-- Requisitos -->
+<text x="55" y="210" font-size="9" fill="#2c3e50" font-weight="600" font-family="Segoe UI">Requisitos m&iacute;nimos:</text>
+<text x="55" y="225" font-size="8" fill="#555" font-family="Segoe UI">&bull; Chrome 90+ / Firefox 88+ / Edge 90+</text>
+<text x="55" y="240" font-size="8" fill="#555" font-family="Segoe UI">&bull; Conexi&oacute;n a internet</text>
+<text x="55" y="255" font-size="8" fill="#555" font-family="Segoe UI">&bull; JavaScript habilitado</text>
+<text x="55" y="270" font-size="8" fill="#555" font-family="Segoe UI">&bull; Resoluci&oacute;n m&iacute;nima: 360px (responsivo)</text>
+
+<!-- CONEXION HTTPS -->
+<line x1="380" y1="170" x2="530" y2="170" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="8,4"/>
+<rect x="415" y="155" width="80" height="22" rx="4" fill="#e74c3c"/>
+<text x="455" y="170" text-anchor="middle" fill="#fff" font-size="9" font-weight="700" font-family="Segoe UI">HTTPS</text>
+<text x="455" y="190" text-anchor="middle" font-size="8" fill="#e74c3c" font-family="Segoe UI">Puerto 443</text>
+
+<!-- NODO: SERVIDOR -->
+<rect x="530" y="30" width="390" height="490" rx="10" fill="#EAFAF1" stroke="#27ae60" stroke-width="2"/>
+<rect x="530" y="30" width="390" height="30" rx="10 10 0 0" fill="#27ae60"/>
+<text x="725" y="50" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Segoe UI">&laquo;device&raquo; Servidor VPS (Linux)</text>
+
+<!-- Nginx -->
+<rect x="555" y="75" width="340" height="50" rx="6" fill="#fff" stroke="#2c3e50" stroke-width="1.5"/>
+<text x="725" y="95" text-anchor="middle" font-size="11" font-weight="700" fill="#2c3e50" font-family="Segoe UI">Nginx (Proxy Reverso)</text>
+<text x="725" y="112" text-anchor="middle" font-size="8" fill="#7f8c8d" font-family="Segoe UI">SSL/TLS &bull; Sirve est&aacute;ticos &bull; Redirige /api/* a Gunicorn</text>
+
+<!-- Flechas desde Nginx -->
+<line x1="640" y1="125" x2="640" y2="155" stroke="#2c3e50" stroke-width="1.5" marker-end="url(#arrowC)"/>
+<line x1="810" y1="125" x2="810" y2="155" stroke="#2c3e50" stroke-width="1.5" marker-end="url(#arrowC)"/>
+<text x="640" y="148" text-anchor="middle" font-size="7" fill="#555" font-family="Segoe UI">/api/*</text>
+<text x="810" y="148" text-anchor="middle" font-size="7" fill="#555" font-family="Segoe UI">/* (static)</text>
+
+<!-- Django + Gunicorn -->
+<rect x="555" y="160" width="200" height="80" rx="6" fill="#fff" stroke="#27ae60" stroke-width="1.5"/>
+<text x="655" y="182" text-anchor="middle" font-size="11" font-weight="700" fill="#27ae60" font-family="Segoe UI">Django + Gunicorn</text>
+<text x="655" y="198" text-anchor="middle" font-size="8" fill="#555" font-family="Segoe UI">Python 3.12 &bull; Puerto 8000</text>
+<text x="655" y="212" text-anchor="middle" font-size="8" fill="#555" font-family="Segoe UI">Django REST Framework</text>
+<text x="655" y="226" text-anchor="middle" font-size="8" fill="#555" font-family="Segoe UI">JWT Auth &bull; 4 workers</text>
+
+<!-- Static Files -->
+<rect x="770" y="160" width="140" height="60" rx="6" fill="#fff" stroke="#2980b9" stroke-width="1.5"/>
+<text x="840" y="182" text-anchor="middle" font-size="10" font-weight="600" fill="#2980b9" font-family="Segoe UI">Static Files</text>
+<text x="840" y="198" text-anchor="middle" font-size="8" fill="#555" font-family="Segoe UI">/dist (Vite build)</text>
+<text x="840" y="212" text-anchor="middle" font-size="8" fill="#555" font-family="Segoe UI">HTML + JS + CSS</text>
+
+<!-- Flecha Django -> BD -->
+<line x1="655" y1="240" x2="655" y2="280" stroke="#2c3e50" stroke-width="1.5" marker-end="url(#arrowC)"/>
+<text x="680" y="265" font-size="7" fill="#555" font-family="Segoe UI">ORM</text>
+
+<!-- Base de datos -->
+<rect x="555" y="285" width="200" height="60" rx="6" fill="#fff" stroke="#8e44ad" stroke-width="1.8"/>
+<ellipse cx="655" cy="295" rx="30" ry="8" fill="none" stroke="#8e44ad" stroke-width="1.2"/>
+<text x="655" y="318" text-anchor="middle" font-size="11" font-weight="700" fill="#8e44ad" font-family="Segoe UI">SQLite / PostgreSQL</text>
+<text x="655" y="334" text-anchor="middle" font-size="8" fill="#555" font-family="Segoe UI">7 tablas &bull; Integridad PROTECT</text>
+
+<!-- Especificaciones servidor -->
+<rect x="555" y="370" width="340" height="130" rx="6" fill="#f8f9fa" stroke="#ddd"/>
+<text x="570" y="390" font-size="9" fill="#2c3e50" font-weight="700" font-family="Segoe UI">Especificaciones del servidor:</text>
+<text x="570" y="408" font-size="8.5" fill="#555" font-family="Segoe UI">&bull; Sistema Operativo: Ubuntu 22.04 LTS</text>
+<text x="570" y="424" font-size="8.5" fill="#555" font-family="Segoe UI">&bull; Python: 3.12+</text>
+<text x="570" y="440" font-size="8.5" fill="#555" font-family="Segoe UI">&bull; Node.js: 20 LTS (solo para build)</text>
+<text x="570" y="456" font-size="8.5" fill="#555" font-family="Segoe UI">&bull; RAM: 2 GB m&iacute;nimo</text>
+<text x="570" y="472" font-size="8.5" fill="#555" font-family="Segoe UI">&bull; Almacenamiento: 40 GB SSD</text>
+<text x="570" y="488" font-size="8.5" fill="#555" font-family="Segoe UI">&bull; Certificado SSL: Let's Encrypt (HTTPS gratuito)</text>
+
+<!-- Leyenda -->
+<rect x="30" y="340" width="350" height="170" rx="8" fill="#f8f9fa" stroke="#ddd"/>
+<text x="50" y="362" font-size="10" fill="#2c3e50" font-weight="700" font-family="Segoe UI">Leyenda UML (Despliegue)</text>
+<rect x="50" y="375" width="60" height="25" rx="4" fill="#EBF5FB" stroke="#2980b9" stroke-width="1.5"/>
+<text x="120" y="392" font-size="9" fill="#333" font-family="Segoe UI">&laquo;device&raquo; Nodo f&iacute;sico</text>
+<rect x="50" y="410" width="60" height="20" rx="4" fill="#fff" stroke="#2c3e50" stroke-width="1.2"/>
+<text x="120" y="424" font-size="9" fill="#333" font-family="Segoe UI">Artefacto / Componente</text>
+<line x1="50" y1="445" x2="110" y2="445" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="8,4"/>
+<text x="120" y="449" font-size="9" fill="#333" font-family="Segoe UI">Protocolo de comunicaci&oacute;n</text>
+<line x1="50" y1="468" x2="110" y2="468" stroke="#2c3e50" stroke-width="1.5" marker-end="url(#arrowC)"/>
+<text x="120" y="472" font-size="9" fill="#333" font-family="Segoe UI">Dependencia / Flujo</text>
+<ellipse cx="80" cy="492" rx="15" ry="6" fill="none" stroke="#8e44ad" stroke-width="1.2"/>
+<text x="120" y="496" font-size="9" fill="#333" font-family="Segoe UI">Base de datos</text>
+</svg>
+
+</body>
+</html>

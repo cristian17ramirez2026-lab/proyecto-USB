@@ -41,7 +41,7 @@ export default function Layout({ children }) {
   return (
     <div className="d-flex" style={{ minHeight: '100vh' }}>
       {/* SIDEBAR */}
-      <aside className="text-white d-flex flex-column" style={{ width: 250, background: '#003087', position: 'fixed', top: 0, bottom: 0, overflowY: 'auto' }}>
+      <aside className="text-white d-flex flex-column" style={{ width: 250, background: '#003087', position: 'fixed', top: 0, bottom: 0, overflowY: 'hidden' }}>
         {/* Logo */}
         <div className="p-3 text-center" style={{ borderBottom: '1px solid rgba(255,255,255,.1)' }}>
           <div className="d-flex align-items-center justify-content-center gap-2 mb-1">
@@ -60,7 +60,7 @@ export default function Layout({ children }) {
         </div>
 
         {/* Menu */}
-        <nav className="flex-grow-1 py-1" style={{ overflowY: 'auto' }}>
+        <nav className="flex-grow-1 py-1" style={{ overflowY: 'auto', overflowX: 'hidden', scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.3) transparent' }}>
           <SectionTitle title="PRINCIPAL" />
           <NavItem to="/dashboard" icon="📊" label="Dashboard" />
           <SectionTitle title="INVENTARIO" />

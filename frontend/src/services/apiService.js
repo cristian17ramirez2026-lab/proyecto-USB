@@ -1,7 +1,25 @@
 import axios from 'axios';
 
+// Base URL configurable vía variable de entorno VITE_API_URL.
+// Si no está definida, se infiere del hostname actual (útil en LAN):
+//   - Si el frontend se sirve en http://192.168.1.100:3000, el backend será http://192.168.1.100:8000/api/
+//   - En desarrollo local cae a http://localhost:8000/api/
+const resolveBaseURL = () => {
+  const envUrl = import.meta.env.VITE_API_URL;
+  if (envUrl) return envUrl;
+
+  if (typeof window !== 'undefined' && window.location) {
+    const { protocol, hostname } = window.location;
+    return `${protocol}//${hostname}:8000/api/`;
+  }
+
+  return 'http://localhost:8000/api/';
+};
+
+export const API_BASE_URL = resolveBaseURL();
+
 const apiService = axios.create({
-  baseURL: 'http://localhost:8000/api/',
+  baseURL: API_BASE_URL,
 });
 
 // Request interceptor: attach JWT access token
@@ -34,7 +52,7 @@ apiService.interceptors.response.use(
       }
 
       try {
-        const { data } = await axios.post('http://localhost:8000/api/token/refresh/', {
+        const { data } = await axios.post(`${API_BASE_URL}token/refresh/`, {
           refresh: refreshToken,
         });
 
