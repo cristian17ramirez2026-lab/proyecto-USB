@@ -122,6 +122,10 @@ if DEBUG:
     CORS_ALLOW_ALL_ORIGINS = True
     CORS_ALLOW_CREDENTIALS = True
 else:
-    CORS_ALLOWED_ORIGINS = [
-        'http://localhost:3000',
-    ]
+    # En producción, leer orígenes permitidos desde variable de entorno
+    cors_origins = os.environ.get('CORS_ALLOWED_ORIGINS', '')
+    if cors_origins:
+        CORS_ALLOWED_ORIGINS = [origin.strip() for origin in cors_origins.split(',')]
+    else:
+        CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
+    CORS_ALLOW_CREDENTIALS = True
