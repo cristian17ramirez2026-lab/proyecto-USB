@@ -1,15 +1,33 @@
 import axios from 'axios';
 
+// URL del backend en producción (Render)
+const PRODUCTION_API_URL = 'https://gestion-inventario-backend-zvlj.onrender.com/api/';
+
 // Base URL configurable vía variable de entorno VITE_API_URL.
 // Si no está definida, se infiere del hostname actual (útil en LAN):
+//   - Si estamos en producción (Vercel, Netlify, etc.), usamos la URL de Render
 //   - Si el frontend se sirve en http://192.168.1.100:3000, el backend será http://192.168.1.100:8000/api/
 //   - En desarrollo local cae a http://localhost:8000/api/
 const resolveBaseURL = () => {
-  const envUrl = import.meta.env.VITE_API_URL;
-  if (envUrl) return envUrl;
-
+  // Si estamos en producción (no es localhost ni IP local), usar siempre la URL de Render
   if (typeof window !== 'undefined' && window.location) {
     const { protocol, hostname } = window.location;
+    
+    // Detectar si estamos en producción (dominio público como vercel.app, netlify.app, etc.)
+    const isProduction = !hostname.includes('localhost') && 
+                         !hostname.startsWith('127.') && 
+                         !hostname.startsWith('192.168.') &&
+                         !hostname.startsWith('10.') &&
+                         !hostname.match(/^172\.(1[6-9]|2[0-9]|3[0-1])\./);
+    
+    if (isProduction) {
+      return PRODUCTION_API_URL;
+    }
+    
+    // En desarrollo local o LAN, usar la variable de entorno si existe
+    const envUrl = import.meta.env.VITE_API_URL;
+    if (envUrl) return envUrl;
+    
     return `${protocol}//${hostname}:8000/api/`;
   }
 
