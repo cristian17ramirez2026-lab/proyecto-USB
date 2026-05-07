@@ -60,16 +60,20 @@ const DB = {
 
   // Init
   init() {
-    if (localStorage.getItem(PREFIX + 'react_v3')) return;
+    if (localStorage.getItem(PREFIX + 'react_v4')) return;
     // Solo limpiar datos de ejemplo, NO usuarios
-    const existingUsers = this.getUsers();
-    ['s','d','e','a','g','log'].forEach(k => localStorage.removeItem(PREFIX + k));
-    // Restaurar usuarios existentes o crear admin
-    if (existingUsers.length > 0) {
-      this.s('u', existingUsers);
-    } else {
-      this.createUser({ username: 'admin', email: 'admin@inventpro.com', password: 'admin123', rol: 'ADMIN', nombre: 'Administrador', apellido: 'General' });
-    }
+    ['s','d','e','a','g','log','u'].forEach(k => localStorage.removeItem(PREFIX + k));
+    
+    // Usuarios predefinidos que existen en TODOS los PCs
+    // Admin y operadores de cada sede, para que todos puedan entrar desde cualquier navegador
+    this.createUser({ username: 'admin', email: 'admin@inventpro.com', password: 'admin123', rol: 'ADMIN', nombre: 'Administrador', apellido: 'General' });
+    this.createUser({ username: 'operador', email: 'operador@inventpro.com', password: 'operador123', rol: 'OPERADOR', nombre: 'Operador', apellido: 'General', sede_id: 1 });
+    this.createUser({ username: 'consulta', email: 'consulta@inventpro.com', password: 'consulta123', rol: 'CONSULTA', nombre: 'Usuario', apellido: 'Consulta', sede_id: 1 });
+    this.createUser({ username: 'admin2', email: 'admin2@inventpro.com', password: 'admin123', rol: 'ADMIN', nombre: 'Administrador', apellido: 'Secundario' });
+    this.createUser({ username: 'operador2', email: 'operador2@inventpro.com', password: 'operador123', rol: 'OPERADOR', nombre: 'Operador', apellido: 'Medellin', sede_id: 2 });
+    this.createUser({ username: 'usuario1', email: 'usuario1@inventpro.com', password: 'usuario123', rol: 'OPERADOR', nombre: 'Usuario', apellido: 'Uno', sede_id: 1 });
+    this.createUser({ username: 'usuario2', email: 'usuario2@inventpro.com', password: 'usuario123', rol: 'OPERADOR', nombre: 'Usuario', apellido: 'Dos', sede_id: 2 });
+    this.createUser({ username: 'demo', email: 'demo@inventpro.com', password: 'demo123', rol: 'CONSULTA', nombre: 'Usuario', apellido: 'Demo', sede_id: 1 });
     // 20 Sedes
     const sedes = [['Sede Bogota','Bogota','Cra 7 #72-41','601-555-0100'],['Sede Medellin','Medellin','Calle 10 #43','604-555-0200'],['Sede Cali','Cali','Av 6N #25','602-555-0300'],['Sede Barranquilla','Barranquilla','Cra 54 #72','605-555-0400'],['Sede Cartagena','Cartagena','Bocagrande','605-555-0500'],['Sede Bucaramanga','Bucaramanga','Calle 36','607-555-0600'],['Sede Pereira','Pereira','Av Circunvalar','606-555-0700'],['Sede Manizales','Manizales','Cra 23','606-555-0800'],['Sede Santa Marta','Santa Marta','Calle 22','605-555-0900'],['Sede Ibague','Ibague','Cra 5','608-555-1000'],['Sede Cucuta','Cucuta','Av 0','607-555-1100'],['Sede Villavicencio','Villavicencio','Calle 39','608-555-1200'],['Sede Pasto','Pasto','Cra 27','602-555-1300'],['Sede Neiva','Neiva','Calle 8','608-555-1400'],['Sede Armenia','Armenia','Cra 14','606-555-1500'],['Sede Popayan','Popayan','Calle 5','602-555-1600'],['Sede Monteria','Monteria','Cra 6','604-555-1700'],['Sede Sincelejo','Sincelejo','Calle 25','605-555-1800'],['Sede Tunja','Tunja','Cra 10','608-555-1900'],['Sede Florencia','Florencia','Calle 16','608-555-2000']];
     sedes.forEach(s => this.createSede({ nombre: s[0], ciudad: s[1], direccion: s[2], telefono: s[3] }));
@@ -96,7 +100,7 @@ const DB = {
       this.createAsignacion({ activo_id: 1 + g * 4, empleado_id: 1 + (g % 50), observaciones: 'Asignacion inicial' });
       this.updateActivo(1 + g * 4, { estado: 'ASIGNADO' });
     }
-    localStorage.setItem(PREFIX + 'react_v3', '1');
+    localStorage.setItem(PREFIX + 'react_v4', '1');
   }
 };
 

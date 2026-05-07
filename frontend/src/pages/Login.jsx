@@ -95,8 +95,12 @@ export default function Login() {
       </p>
 
       {/* Info de credenciales (solo para demo) */}
-      <div style={{ marginTop: 12, padding: '10px 20px', background: 'rgba(0,0,0,.2)', borderRadius: 8, fontSize: '.75rem', color: 'rgba(255,255,255,.6)' }}>
-        Demo: <strong>admin</strong> / <strong>admin123</strong>
+      <div style={{ marginTop: 12, padding: '10px 20px', background: 'rgba(0,0,0,.2)', borderRadius: 8, fontSize: '.75rem', color: 'rgba(255,255,255,.9)', textAlign: 'center', maxWidth: 800 }}>
+        <strong style={{ display: 'block', marginBottom: 4 }}>Usuarios de prueba:</strong>
+        <span style={{ display: 'inline-block', margin: '0 8px' }}>admin / admin123</span>
+        <span style={{ display: 'inline-block', margin: '0 8px' }}>operador / operador123</span>
+        <span style={{ display: 'inline-block', margin: '0 8px' }}>consulta / consulta123</span>
+        <span style={{ display: 'inline-block', margin: '0 8px' }}>demo / demo123</span>
       </div>
     </div>
   );
