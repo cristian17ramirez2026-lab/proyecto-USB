@@ -116,16 +116,29 @@ SIMPLE_JWT = {
 }
 
 # CORS
-# En desarrollo permitimos cualquier origen de la LAN para que otros equipos
-# puedan consumir la API. Controlado por DEBUG para no dejarlo abierto en prod.
-if DEBUG:
-    CORS_ALLOW_ALL_ORIGINS = True
-    CORS_ALLOW_CREDENTIALS = True
-else:
-    # En producción, leer orígenes permitidos desde variable de entorno
-    cors_origins = os.environ.get('CORS_ALLOWED_ORIGINS', '')
-    if cors_origins:
-        CORS_ALLOWED_ORIGINS = [origin.strip() for origin in cors_origins.split(',')]
-    else:
-        CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
-    CORS_ALLOW_CREDENTIALS = True
+# Permitimos todos los orígenes tanto en desarrollo como en producción
+# para facilitar el despliegue sin configuración manual de CORS.
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+# Configuración adicional de CORS para producción
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
