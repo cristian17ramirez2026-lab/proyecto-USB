@@ -26,8 +26,8 @@ export default function Usuarios() {
   const handleSubmit = (e) => {
     e.preventDefault(); setError('');
     if (!form.username || !form.email) { setError('Complete usuario y email.'); return; }
-    if (!editId && !form.password) { setError('Contrasena requerida para nuevo usuario.'); return; }
-    if (form.password && form.password.length < 6) { setError('Contrasena minimo 6 caracteres.'); return; }
+    if (!editId && !form.password) { setError('Contraseña requerida para nuevo usuario.'); return; }
+    if (form.password && form.password.length < 6) { setError('Contraseña mínimo 6 caracteres.'); return; }
 
     if (editId) {
       // Actualizar
@@ -48,7 +48,7 @@ export default function Usuarios() {
 
   const handleDelete = (id) => {
     if (id === user.id) { alert('No puede eliminar su propia cuenta.'); return; }
-    if (window.confirm('Eliminar usuario?')) { DB.deleteUser(id); DB.addLog('Usuario eliminado', 'ID ' + id, user.username); setRefresh(r => r + 1); }
+    if (window.confirm('¿Eliminar usuario?')) { DB.deleteUser(id); DB.addLog('Usuario eliminado', 'ID ' + id, user.username); setRefresh(r => r + 1); }
   };
 
   return (
@@ -62,7 +62,7 @@ export default function Usuarios() {
             <div className="row g-3">
               <div className="col-md-4"><label className="form-label small fw-bold">Usuario *</label><input className="form-control" value={form.username} onChange={e => setForm({ ...form, username: e.target.value })} required disabled={!!editId} /></div>
               <div className="col-md-4"><label className="form-label small fw-bold">Email *</label><input type="email" className="form-control" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required /></div>
-              <div className="col-md-4"><label className="form-label small fw-bold">Contrasena {editId ? '(dejar vacio para no cambiar)' : '*'}</label><input type="password" className="form-control" value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} required={!editId} /></div>
+              <div className="col-md-4"><label className="form-label small fw-bold">Contraseña {editId ? '(dejar vacío para no cambiar)' : '*'}</label><input type="password" className="form-control" value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} required={!editId} /></div>
               <div className="col-md-3"><label className="form-label small fw-bold">Nombre</label><input className="form-control" value={form.nombre} onChange={e => setForm({ ...form, nombre: e.target.value })} /></div>
               <div className="col-md-3"><label className="form-label small fw-bold">Apellido</label><input className="form-control" value={form.apellido} onChange={e => setForm({ ...form, apellido: e.target.value })} /></div>
               <div className="col-md-3"><label className="form-label small fw-bold">Rol</label>

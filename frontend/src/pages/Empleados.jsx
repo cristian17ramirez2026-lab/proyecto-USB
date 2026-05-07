@@ -60,7 +60,7 @@ export default function Empleados() {
     ev.preventDefault(); setError('');
     if (!form.nombre || !form.apellido || !form.cedula || !form.cargo) { setError('Complete los campos obligatorios.'); return; }
     const dup = DB.getEmpleados().find(x => x.cedula === form.cedula && x.id !== editId);
-    if (dup) { setError('Cedula "' + form.cedula + '" ya existe.'); return; }
+    if (dup) { setError('Cédula "' + form.cedula + '" ya existe.'); return; }
     const data = { ...form, sede_id: form.sede_id ? parseInt(form.sede_id) : null, departamento_id: form.departamento_id ? parseInt(form.departamento_id) : null };
     if (editId) { DB.updateEmpleado(editId, data); DB.addLog('Empleado editado', data.nombre + ' ' + data.apellido, user.username); }
     else { DB.createEmpleado(data); DB.addLog('Empleado creado', data.nombre + ' ' + data.apellido, user.username); }
@@ -112,7 +112,7 @@ export default function Empleados() {
               <div className="row g-3">
                 <div className="col-md-4"><label className="form-label small fw-bold">Nombre *</label><input className="form-control" value={form.nombre} onChange={e => setForm({ ...form, nombre: e.target.value })} required /></div>
                 <div className="col-md-4"><label className="form-label small fw-bold">Apellido *</label><input className="form-control" value={form.apellido} onChange={e => setForm({ ...form, apellido: e.target.value })} required /></div>
-                <div className="col-md-4"><label className="form-label small fw-bold">Cedula * (unica)</label><input className="form-control" value={form.cedula} onChange={e => setForm({ ...form, cedula: e.target.value })} required /></div>
+                <div className="col-md-4"><label className="form-label small fw-bold">Cédula * (única)</label><input className="form-control" value={form.cedula} onChange={e => setForm({ ...form, cedula: e.target.value })} required /></div>
                 <div className="col-md-4"><label className="form-label small fw-bold">Email</label><input type="email" className="form-control" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} /></div>
                 <div className="col-md-4"><label className="form-label small fw-bold">Sede</label>
                   <select className="form-select" value={form.sede_id} onChange={e => setForm({ ...form, sede_id: e.target.value })}><option value="">Seleccione...</option>{sedes.map(s => <option key={s.id} value={s.id}>{s.nombre}</option>)}</select></div>
@@ -233,7 +233,7 @@ export default function Empleados() {
                                 if (!asigActivo) return;
                                 DB.createAsignacion({ activo_id: parseInt(asigActivo), empleado_id: e.id, observaciones: 'Asignado desde perfil' });
                                 DB.updateActivo(parseInt(asigActivo), { estado: 'ASIGNADO' });
-                                DB.addLog('Asignacion', DB.getActivo(parseInt(asigActivo))?.nombre + ' -> ' + e.nombre, user.username);
+                                DB.addLog('Asignación', DB.getActivo(parseInt(asigActivo))?.nombre + ' -> ' + e.nombre, user.username);
                                 setAsigActivo(''); setRefresh(r => r + 1);
                               }}>Asignar</button>
                             </div>
@@ -244,7 +244,7 @@ export default function Empleados() {
                           if (!asigs.length) return <p className="text-muted small mb-0">Sin activos asignados.</p>;
                           return (
                             <table className="table table-sm table-bordered mb-0">
-                              <thead><tr><th>Activo</th><th>Serial</th><th>Tipo</th><th>Valor</th><th>Fecha Asignacion</th>{canAdd && <th></th>}</tr></thead>
+                              <thead><tr><th>Activo</th><th>Serial</th><th>Tipo</th><th>Valor</th><th>Fecha Asignación</th>{canAdd && <th></th>}</tr></thead>
                               <tbody>
                                 {asigs.map(a => {
                                   const act = DB.getActivo(a.activo_id);
@@ -260,7 +260,7 @@ export default function Empleados() {
                                           if (!window.confirm('Devolver este activo?')) return;
                                           DB.updateAsignacion(a.id, { fecha_devolucion: new Date().toISOString() });
                                           DB.updateActivo(a.activo_id, { estado: 'DISPONIBLE' });
-                                          DB.addLog('Devolucion', act?.nombre, user.username);
+                                          DB.addLog('Devolución', act?.nombre, user.username);
                                           setRefresh(r => r + 1);
                                         }}>Devolver</button>
                                       </td>}

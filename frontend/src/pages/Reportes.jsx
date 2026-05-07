@@ -51,7 +51,7 @@ export default function Reportes() {
   const tabs = [
     { id: 'disp', label: `Disponibles (${disp.length})` },
     { id: 'asig', label: `Asignados (${asig.length})` },
-    { id: 'dan', label: `Reparacion (${dan.length})` },
+    { id: 'dan', label: `Reparación (${dan.length})` },
   ];
 
   return (
@@ -64,7 +64,7 @@ export default function Reportes() {
         <div className="col-md-3"><div className="bg-white rounded-3 p-3 shadow-sm border text-center"><div className="fw-bold fs-5" style={{ color: '#00AA00' }}>{fc(valor)}</div><small className="text-muted">Valor Total</small></div></div>
         <div className="col-md-3"><div className="bg-white rounded-3 p-3 shadow-sm border text-center"><div className="fw-bold fs-5" style={{ color: '#003087' }}>{activos.length}</div><small className="text-muted">Total Activos</small></div></div>
         <div className="col-md-3"><div className="bg-white rounded-3 p-3 shadow-sm border text-center"><div className="fw-bold fs-5" style={{ color: '#FF8800' }}>{asig.length}</div><small className="text-muted">Asignados</small></div></div>
-        <div className="col-md-3"><div className="bg-white rounded-3 p-3 shadow-sm border text-center"><div className="fw-bold fs-5" style={{ color: '#FF0000' }}>{dan.length}</div><small className="text-muted">Reparacion</small></div></div>
+        <div className="col-md-3"><div className="bg-white rounded-3 p-3 shadow-sm border text-center"><div className="fw-bold fs-5" style={{ color: '#FF0000' }}>{dan.length}</div><small className="text-muted">Reparación</small></div></div>
       </div>
       <div className="d-flex gap-2 mb-3">
         {tabs.map(t => (

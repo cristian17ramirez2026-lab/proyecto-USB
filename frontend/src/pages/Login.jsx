@@ -36,7 +36,7 @@ export default function Login() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 40 }}>
             <Logo />
             <div>
-              <span style={{ fontSize: '1rem', fontWeight: 800, color: '#1a1a1a', display: 'block' }}>Sistema de Gestion de Inventario</span>
+              <span style={{ fontSize: '1rem', fontWeight: 800, color: '#1a1a1a', display: 'block' }}>Sistema de Gestión de Inventario</span>
               <span style={{ fontSize: '.75rem', color: '#666' }}>Control de Activos Empresariales</span>
             </div>
           </div>
@@ -53,7 +53,7 @@ export default function Login() {
               />
             </div>
             <div style={{ marginBottom: 28 }}>
-              <label style={{ display: 'block', fontSize: '.8rem', fontWeight: 600, color: '#666', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 8 }}>Contrasena</label>
+              <label style={{ display: 'block', fontSize: '.8rem', fontWeight: 600, color: '#666', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 8 }}>Contraseña</label>
               <input type="password" value={password} onChange={e => setPassword(e.target.value)} required
                 style={{ width: '100%', padding: '12px 16px', border: '1px solid #ddd', borderRadius: 8, fontSize: '.95rem', outline: 'none', fontFamily: 'inherit' }}
                 onFocus={e => e.target.style.borderColor = '#003087'}
@@ -64,7 +64,7 @@ export default function Login() {
               Ingresar
             </button>
           </form>
-          <p style={{ textAlign: 'center', marginTop: 16, fontSize: '.85rem', color: '#999' }}>Inicie sesion para continuar</p>
+          <p style={{ textAlign: 'center', marginTop: 16, fontSize: '.85rem', color: '#999' }}>Inicie sesión para continuar</p>
         </div>
 
         {/* Lado derecho - Visual */}
@@ -79,7 +79,7 @@ export default function Login() {
               <path d="M50 25 C38 42, 30 55, 35 68 C37 74, 43 80, 50 80 C57 80, 63 74, 65 68 C70 55, 62 42, 50 25Z" fill="#FFFFFF" opacity=".9"/>
               <circle cx="50" cy="60" r="10" fill="#FF0000"/>
             </svg>
-            <h3 style={{ color: '#FFFFFF', fontWeight: 800, fontSize: '1.1rem', marginBottom: 8 }}>Sistema de Gestion</h3>
+            <h3 style={{ color: '#FFFFFF', fontWeight: 800, fontSize: '1.1rem', marginBottom: 8 }}>Sistema de Gestión</h3>
             <p style={{ color: 'rgba(255,255,255,.7)', fontSize: '.82rem', lineHeight: 1.5 }}>de Inventario y Control<br/>de Activos Empresariales</p>
           </div>
 
@@ -91,16 +91,12 @@ export default function Login() {
 
       {/* Footer */}
       <p style={{ color: 'rgba(255,255,255,.5)', fontSize: '.78rem', marginTop: 24 }}>
-        Sistema de Gestion de Inventario y Control de Activos &copy; 2026. Todos los derechos reservados.
+        Sistema de Gestión de Inventario y Control de Activos &copy; 2026. Todos los derechos reservados.
       </p>
 
       {/* Info de credenciales (solo para demo) */}
-      <div style={{ marginTop: 12, padding: '10px 20px', background: 'rgba(0,0,0,.2)', borderRadius: 8, fontSize: '.75rem', color: 'rgba(255,255,255,.9)', textAlign: 'center', maxWidth: 800 }}>
-        <strong style={{ display: 'block', marginBottom: 4 }}>Usuarios de prueba:</strong>
-        <span style={{ display: 'inline-block', margin: '0 8px' }}>admin / admin123</span>
-        <span style={{ display: 'inline-block', margin: '0 8px' }}>operador / operador123</span>
-        <span style={{ display: 'inline-block', margin: '0 8px' }}>consulta / consulta123</span>
-        <span style={{ display: 'inline-block', margin: '0 8px' }}>demo / demo123</span>
+      <div style={{ marginTop: 12, padding: '10px 20px', background: 'rgba(0,0,0,.2)', borderRadius: 8, fontSize: '.75rem', color: 'rgba(255,255,255,.9)', textAlign: 'center' }}>
+        <strong>Usuario:</strong> admin / <strong>Contraseña:</strong> admin123
       </div>
     </div>
   );

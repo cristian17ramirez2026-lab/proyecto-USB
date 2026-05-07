@@ -20,7 +20,7 @@ export default function Actividad() {
       <div className="card shadow-sm">
         <div className="table-responsive">
           <table className="table table-hover mb-0">
-            <thead className="table-light"><tr><th>Fecha</th><th>Usuario</th><th>Accion</th><th>Detalle</th></tr></thead>
+            <thead className="table-light"><tr><th>Fecha</th><th>Usuario</th><th>Acción</th><th>Detalle</th></tr></thead>
             <tbody>
               {log.length === 0 ? <tr><td colSpan={4} className="text-center text-muted py-4">Sin actividad</td></tr> :
                 log.slice(0, 100).map((x, i) => (

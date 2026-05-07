@@ -47,7 +47,7 @@ export default function Layout({ children }) {
           <div className="d-flex align-items-center justify-content-center gap-2 mb-1">
             <Logo />
           </div>
-          <div style={{ fontSize: '.58rem', letterSpacing: 1, color: 'rgba(255,255,255,.4)', lineHeight: 1.4, fontWeight: 700 }}>SISTEMA DE GESTION<br/>DE INVENTARIO Y CONTROL<br/>DE ACTIVOS EMPRESARIALES</div>
+          <div style={{ fontSize: '.58rem', letterSpacing: 1, color: 'rgba(255,255,255,.4)', lineHeight: 1.4, fontWeight: 700 }}>SISTEMA DE GESTIÓN<br/>DE INVENTARIO Y CONTROL<br/>DE ACTIVOS EMPRESARIALES</div>
         </div>
 
         {/* Usuario */}
@@ -65,23 +65,23 @@ export default function Layout({ children }) {
           <NavItem to="/dashboard" icon="📊" label="Dashboard" />
           <SectionTitle title="INVENTARIO" />
           {menu.slice(1, 4).map(m => <NavItem key={m.to} {...m} />)}
-          <SectionTitle title="ORGANIZACION" />
+          <SectionTitle title="ORGANIZACIÓN" />
           {menu.slice(4, 6).map(m => <NavItem key={m.to} {...m} />)}
-          <SectionTitle title="ANALISIS" />
+          <SectionTitle title="ANÁLISIS" />
           {menu.slice(6).map(m => <NavItem key={m.to} {...m} />)}
           {isAdmin && (
             <div>
-              <SectionTitle title="ADMINISTRACION" />
+              <SectionTitle title="ADMINISTRACIÓN" />
               <NavItem to="/usuarios" icon="👤" label="Usuarios" />
               <NavItem to="/actividad" icon="📋" label="Actividad" />
             </div>
           )}
         </nav>
 
-        {/* Boton Cerrar Sesion */}
+        {/* Botón Cerrar Sesión */}
         <div className="p-3" style={{ borderTop: '1px solid rgba(255,255,255,.1)', flexShrink: 0 }}>
           <button onClick={handleLogout} className="btn btn-sm w-100 d-flex align-items-center justify-content-center gap-2" style={{ background: '#FF0000', color: '#FFFFFF', border: 'none', padding: '8px 0', fontWeight: 600, fontSize: '.82rem' }}>
-            🚪 Cerrar Sesion
+            🚪 Cerrar Sesión
           </button>
         </div>
       </aside>
@@ -92,7 +92,7 @@ export default function Layout({ children }) {
           <div className="d-flex align-items-center gap-2">
             <Logo />
             <div>
-              <h6 className="mb-0 fw-bold" style={{ color: '#003087', fontSize: '.9rem' }}>Sistema de Gestion de Inventario</h6>
+              <h6 className="mb-0 fw-bold" style={{ color: '#003087', fontSize: '.9rem' }}>Sistema de Gestión de Inventario</h6>
               <small style={{ color: '#999', fontSize: '.65rem' }}>Control de Activos Empresariales</small>
             </div>
           </div>

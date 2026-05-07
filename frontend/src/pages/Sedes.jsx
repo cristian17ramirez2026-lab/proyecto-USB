@@ -41,7 +41,7 @@ export default function Sedes() {
       alert('No se puede eliminar: la sede tiene ' + deps.join(', ') + ' asociados.');
       return;
     }
-    if (window.confirm(`Eliminar sede "${s.nombre}"?`)) { DB.deleteSede(id); DB.addLog('Sede eliminada', s.nombre, user.username); setRefresh(r => r + 1); }
+    if (window.confirm(`¿Eliminar sede "${s.nombre}"?`)) { DB.deleteSede(id); DB.addLog('Sede eliminada', s.nombre, user.username); setRefresh(r => r + 1); }
   };
 
   return (
@@ -60,8 +60,8 @@ export default function Sedes() {
               <div className="row g-3">
                 <div className="col-md-6"><label className="form-label small fw-bold">Nombre *</label><input className="form-control" value={form.nombre} onChange={e => setForm({ ...form, nombre: e.target.value })} required /></div>
                 <div className="col-md-6"><label className="form-label small fw-bold">Ciudad *</label><input className="form-control" value={form.ciudad} onChange={e => setForm({ ...form, ciudad: e.target.value })} required /></div>
-                <div className="col-md-6"><label className="form-label small fw-bold">Direccion *</label><input className="form-control" value={form.direccion} onChange={e => setForm({ ...form, direccion: e.target.value })} required /></div>
-                <div className="col-md-6"><label className="form-label small fw-bold">Telefono</label><input className="form-control" value={form.telefono} onChange={e => setForm({ ...form, telefono: e.target.value })} /></div>
+                <div className="col-md-6"><label className="form-label small fw-bold">Dirección *</label><input className="form-control" value={form.direccion} onChange={e => setForm({ ...form, direccion: e.target.value })} required /></div>
+                <div className="col-md-6"><label className="form-label small fw-bold">Teléfono</label><input className="form-control" value={form.telefono} onChange={e => setForm({ ...form, telefono: e.target.value })} /></div>
               </div>
               <div className="mt-3 d-flex gap-2 justify-content-end">
                 <button type="button" className="btn btn-secondary btn-sm" onClick={resetForm}>Cancelar</button>
@@ -75,7 +75,7 @@ export default function Sedes() {
       <div className="card shadow-sm">
         <div className="table-responsive">
           <table className="table table-hover mb-0">
-            <thead className="table-light"><tr><th>Sede</th><th>Ciudad</th><th>Direccion</th><th>Telefono</th><th>Deptos</th><th>Activos</th>{isAdmin && <th></th>}</tr></thead>
+            <thead className="table-light"><tr><th>Sede</th><th>Ciudad</th><th>Dirección</th><th>Teléfono</th><th>Deptos</th><th>Activos</th>{isAdmin && <th></th>}</tr></thead>
             <tbody>
               {sedesFiltradas.length === 0 ? <tr><td colSpan={7} className="text-center text-muted py-4">No hay sedes</td></tr> :
                 sedesFiltradas.map(s => {

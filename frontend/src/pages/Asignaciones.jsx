@@ -27,16 +27,16 @@ export default function Asignaciones() {
     if (!act || act.estado !== 'DISPONIBLE') { setError('Activo no disponible.'); return; }
     DB.createAsignacion({ activo_id: aid, empleado_id: eid, observaciones: obs });
     DB.updateActivo(aid, { estado: 'ASIGNADO' });
-    DB.addLog('Asignacion', act.nombre, 'admin');
+    DB.addLog('Asignación', act.nombre, 'admin');
     setActivoId(''); setEmpleadoId(''); setObs(''); setRefresh(r => r + 1);
   };
 
   const handleDevolver = (id) => {
-    if (!window.confirm('Confirmar devolucion?')) return;
+    if (!window.confirm('Confirmar devolución?')) return;
     const asig = DB.getAsignacion(id);
     DB.updateAsignacion(id, { fecha_devolucion: new Date().toISOString() });
     DB.updateActivo(asig.activo_id, { estado: 'DISPONIBLE' });
-    DB.addLog('Devolucion', DB.getActivo(asig.activo_id)?.nombre, 'admin');
+    DB.addLog('Devolución', DB.getActivo(asig.activo_id)?.nombre, 'admin');
     setRefresh(r => r + 1);
   };
 
@@ -47,7 +47,7 @@ export default function Asignaciones() {
       <h5 className="fw-bold mb-3">Asignaciones ({asigs.length})</h5>
       {canAdd && (
         <div className="card shadow-sm mb-4">
-          <div className="card-header fw-bold">Nueva Asignacion</div>
+          <div className="card-header fw-bold">Nueva Asignación</div>
           <div className="card-body">
             {error && <div className="alert alert-danger py-2 small">{error}</div>}
             <form onSubmit={handleAsignar} className="row g-3">
@@ -93,7 +93,7 @@ export default function Asignaciones() {
                     <td>
                       <small className="text-muted">Asignado: {fd(x.fecha_asignacion)}</small>
                       {x.fecha_devolucion && <><br/><small className="text-success">Devuelto: {fd(x.fecha_devolucion)}</small></>}
-                      {!x.fecha_devolucion && <><br/><small className="text-warning">Dias: {Math.floor((new Date() - new Date(x.fecha_asignacion)) / 86400000)}</small></>}
+                      {!x.fecha_devolucion && <><br/><small className="text-warning">Días: {Math.floor((new Date() - new Date(x.fecha_asignacion)) / 86400000)}</small></>}
                     </td>
                     <td>{x.fecha_devolucion ? <><span className="badge bg-success">Devuelta</span><br /><small className="text-muted">{fd(x.fecha_devolucion)}</small></> : <span className="badge bg-warning">Activa</span>}</td>
                     <td>{x.observaciones || '-'}</td>

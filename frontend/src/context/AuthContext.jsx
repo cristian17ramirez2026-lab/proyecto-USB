@@ -10,8 +10,8 @@ export function AuthProvider({ children }) {
 
   const login = useCallback((username, password) => {
     const u = DB.getUserByName(username);
-    if (!u || u.password !== password) return 'Usuario o contrasena incorrectos';
-    // Registrar ultimo acceso
+    if (!u || u.password !== password) return 'Usuario o contraseña incorrectos';
+    // Registrar último acceso
     DB.updateUser(u.id, { ultimo_acceso: new Date().toISOString() });
     const session = { id: u.id, username: u.username, email: u.email, rol: u.rol, sede_id: u.sede_id || null };
     DB.setSession(session);

@@ -40,7 +40,7 @@ export default function Departamentos() {
       alert('No se puede eliminar: el departamento tiene ' + deps.join(' y ') + ' asociados.');
       return;
     }
-    if (window.confirm(`Eliminar "${d.nombre}"?`)) { DB.deleteDep(id); DB.addLog('Depto eliminado', d.nombre, user.username); setRefresh(r => r + 1); }
+    if (window.confirm(`¿Eliminar "${d.nombre}"?`)) { DB.deleteDep(id); DB.addLog('Depto eliminado', d.nombre, user.username); setRefresh(r => r + 1); }
   };
 
   return (
@@ -64,7 +64,7 @@ export default function Departamentos() {
                     {sedes.map(s => <option key={s.id} value={s.id}>{s.nombre}</option>)}
                   </select>
                 </div>
-                <div className="col-md-6"><label className="form-label small fw-bold">Area *</label><input className="form-control" value={form.area} onChange={e => setForm({ ...form, area: e.target.value })} required /></div>
+                <div className="col-md-6"><label className="form-label small fw-bold">Área *</label><input className="form-control" value={form.area} onChange={e => setForm({ ...form, area: e.target.value })} required /></div>
                 <div className="col-md-6"><label className="form-label small fw-bold">Responsable</label><input className="form-control" value={form.responsable} onChange={e => setForm({ ...form, responsable: e.target.value })} /></div>
               </div>
               <div className="mt-3 d-flex gap-2 justify-content-end">
@@ -79,7 +79,7 @@ export default function Departamentos() {
       <div className="card shadow-sm">
         <div className="table-responsive">
           <table className="table table-hover mb-0">
-            <thead className="table-light"><tr><th>Departamento</th><th>Sede</th><th>Area</th><th>Responsable</th><th>Empleados</th>{isAdmin && <th></th>}</tr></thead>
+            <thead className="table-light"><tr><th>Departamento</th><th>Sede</th><th>Área</th><th>Responsable</th><th>Empleados</th>{isAdmin && <th></th>}</tr></thead>
             <tbody>
               {deps.length === 0 ? <tr><td colSpan={6} className="text-center text-muted py-4">No hay departamentos</td></tr> :
                 deps.map(d => {

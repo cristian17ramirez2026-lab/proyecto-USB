@@ -14,7 +14,7 @@ export default function Dashboard() {
     { label: 'Total Activos', value: activos.length, color: '#FF0000', icon: '💻' },
     { label: 'Disponibles', value: disp, color: '#00AA00', icon: '✅' },
     { label: 'Asignados', value: asig, color: '#FF8800', icon: '📋' },
-    { label: 'En Reparacion', value: dan, color: '#003087', icon: '⚠️' },
+    { label: 'En Reparación', value: dan, color: '#003087', icon: '⚠️' },
     { label: 'Empleados', value: empleados.length, color: '#0066CC', icon: '👥' },
     { label: 'Sedes', value: DB.getSedes().length, color: '#FF0000', icon: '🏢' },
     { label: 'Departamentos', value: DB.getDeps().length, color: '#003087', icon: '🏛️' },

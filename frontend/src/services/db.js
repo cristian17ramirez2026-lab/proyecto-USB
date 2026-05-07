@@ -60,47 +60,21 @@ const DB = {
 
   // Init
   init() {
-    if (localStorage.getItem(PREFIX + 'react_v4')) return;
-    // Solo limpiar datos de ejemplo, NO usuarios
+    if (localStorage.getItem(PREFIX + 'react_v5')) return;
+    // Limpiar TODOS los datos (incluyendo usuarios) para empezar desde cero
     ['s','d','e','a','g','log','u'].forEach(k => localStorage.removeItem(PREFIX + k));
     
-    // Usuarios predefinidos que existen en TODOS los PCs
-    // Admin y operadores de cada sede, para que todos puedan entrar desde cualquier navegador
-    this.createUser({ username: 'admin', email: 'admin@inventpro.com', password: 'admin123', rol: 'ADMIN', nombre: 'Administrador', apellido: 'General' });
-    this.createUser({ username: 'operador', email: 'operador@inventpro.com', password: 'operador123', rol: 'OPERADOR', nombre: 'Operador', apellido: 'General', sede_id: 1 });
-    this.createUser({ username: 'consulta', email: 'consulta@inventpro.com', password: 'consulta123', rol: 'CONSULTA', nombre: 'Usuario', apellido: 'Consulta', sede_id: 1 });
-    this.createUser({ username: 'admin2', email: 'admin2@inventpro.com', password: 'admin123', rol: 'ADMIN', nombre: 'Administrador', apellido: 'Secundario' });
-    this.createUser({ username: 'operador2', email: 'operador2@inventpro.com', password: 'operador123', rol: 'OPERADOR', nombre: 'Operador', apellido: 'Medellin', sede_id: 2 });
-    this.createUser({ username: 'usuario1', email: 'usuario1@inventpro.com', password: 'usuario123', rol: 'OPERADOR', nombre: 'Usuario', apellido: 'Uno', sede_id: 1 });
-    this.createUser({ username: 'usuario2', email: 'usuario2@inventpro.com', password: 'usuario123', rol: 'OPERADOR', nombre: 'Usuario', apellido: 'Dos', sede_id: 2 });
-    this.createUser({ username: 'demo', email: 'demo@inventpro.com', password: 'demo123', rol: 'CONSULTA', nombre: 'Usuario', apellido: 'Demo', sede_id: 1 });
-    // 20 Sedes
-    const sedes = [['Sede Bogota','Bogota','Cra 7 #72-41','601-555-0100'],['Sede Medellin','Medellin','Calle 10 #43','604-555-0200'],['Sede Cali','Cali','Av 6N #25','602-555-0300'],['Sede Barranquilla','Barranquilla','Cra 54 #72','605-555-0400'],['Sede Cartagena','Cartagena','Bocagrande','605-555-0500'],['Sede Bucaramanga','Bucaramanga','Calle 36','607-555-0600'],['Sede Pereira','Pereira','Av Circunvalar','606-555-0700'],['Sede Manizales','Manizales','Cra 23','606-555-0800'],['Sede Santa Marta','Santa Marta','Calle 22','605-555-0900'],['Sede Ibague','Ibague','Cra 5','608-555-1000'],['Sede Cucuta','Cucuta','Av 0','607-555-1100'],['Sede Villavicencio','Villavicencio','Calle 39','608-555-1200'],['Sede Pasto','Pasto','Cra 27','602-555-1300'],['Sede Neiva','Neiva','Calle 8','608-555-1400'],['Sede Armenia','Armenia','Cra 14','606-555-1500'],['Sede Popayan','Popayan','Calle 5','602-555-1600'],['Sede Monteria','Monteria','Cra 6','604-555-1700'],['Sede Sincelejo','Sincelejo','Calle 25','605-555-1800'],['Sede Tunja','Tunja','Cra 10','608-555-1900'],['Sede Florencia','Florencia','Calle 16','608-555-2000']];
-    sedes.forEach(s => this.createSede({ nombre: s[0], ciudad: s[1], direccion: s[2], telefono: s[3] }));
-    // 10 Departamentos
-    const deps = [['Tecnologia',1,'Sistemas'],['Contabilidad',1,'Finanzas'],['RRHH',1,'Admin'],['Gerencia',1,'Direccion'],['Soporte TI',2,'Sistemas'],['Ventas',2,'Comercial'],['Logistica',3,'Operaciones'],['Marketing',1,'Comunicaciones'],['Legal',1,'Legal'],['Compras',4,'Admin']];
-    deps.forEach(d => this.createDep({ nombre: d[0], sede_id: d[1], area: d[2], responsable: '' }));
-    // 50 Empleados
-    const noms = ['Carlos','Maria','Juan','Ana','Pedro','Laura','Diego','Sofia','Roberto','Carmen','Andres','Valentina','Felipe','Daniela','Santiago','Camila','Nicolas','Isabella','Sebastian','Natalia','Alejandro','Gabriela','David','Mariana','Jorge','Paula','Luis','Andrea','Fernando','Catalina','Ivan','Tatiana','Jaime','Viviana','Mauricio','Sandra','Ernesto','Luz','Arturo','Pilar','Gonzalo','Rocio','Hernan','Olga','Rodrigo','Yolanda','Enrique','Marta','Alvaro','Beatriz'];
-    const apes = ['Rodriguez','Lopez','Martinez','Garcia','Sanchez','Diaz','Torres','Herrera','Mendez','Ruiz','Gomez','Morales','Ortiz','Ramirez','Vargas','Castro','Rojas','Reyes','Jimenez','Pena'];
-    const cargos = ['Desarrollador','Analista','Coordinador','Asistente','Ingeniero','Contador','Abogado','Tecnico','Consultor','Especialista'];
-    for (let m = 0; m < 50; m++) {
-      const fechaIng = '202' + (2 + Math.floor(m / 20)) + '-' + String(1 + m % 12).padStart(2, '0') + '-' + String(1 + m % 28).padStart(2, '0');
-      this.createEmpleado({ nombre: noms[m % noms.length], apellido: apes[m % apes.length], cedula: '' + (1000000000 + m * 111), departamento_id: (m % 10) + 1, sede_id: (m % 20) + 1, cargo: cargos[m % cargos.length], email: noms[m % noms.length].toLowerCase() + m + '@empresa.com', fecha_ingreso: fechaIng + 'T08:00:00.000Z' });
-    }
-    // 100 Activos
-    const items = [['Laptop Dell','16GB i7','Computador',3500000],['Laptop HP','8GB i5','Computador',2800000],['Monitor Samsung 27','4K','Monitor',1200000],['Monitor LG 24','FHD','Monitor',650000],['Impresora HP','Laser','Impresora',850000],['Silla Ergonomica','Ajustable','Mobiliario',650000],['Escritorio','En L','Mobiliario',780000],['Teclado Logitech','Inalambrico','Periferico',180000],['Mouse Logitech','Ergonomico','Periferico',120000],['Servidor Dell','64GB','Servidor',12500000],['Switch Cisco','48P PoE','Red',3200000],['UPS APC','3000VA','Energia',1800000],['Proyector Epson','4000L','Audiovisual',2100000],['Telefono IP','Cisco','Telefonia',280000],['Camara Seguridad','4MP','Seguridad',320000]];
-    for (let k = 0; k < 100; k++) {
-      const it = items[k % items.length];
-      this.createActivo({ nombre: it[0] + ' #' + (k + 1), descripcion: it[1], tipo: it[2], serial: it[2].substring(0, 3).toUpperCase() + '-' + String(2024) + '-' + String(k + 1).padStart(4, '0'), valor: it[3], fecha_compra: '2024-' + String(1 + k % 12).padStart(2, '0') + '-' + String(1 + k % 28).padStart(2, '0'), sede_id: (k % 20) + 1, departamento_id: (k % 10) + 1 });
-    }
-    // Algunos danados y asignados
-    for (let d = 0; d < 8; d++) this.updateActivo(5 + d * 12, { estado: 'DANADO' });
-    for (let g = 0; g < 20; g++) {
-      this.createAsignacion({ activo_id: 1 + g * 4, empleado_id: 1 + (g % 50), observaciones: 'Asignacion inicial' });
-      this.updateActivo(1 + g * 4, { estado: 'ASIGNADO' });
-    }
-    localStorage.setItem(PREFIX + 'react_v4', '1');
+    // Solo crear el usuario administrador principal
+    this.createUser({ 
+      username: 'admin', 
+      email: 'admin@inventpro.com', 
+      password: 'admin123', 
+      rol: 'ADMIN', 
+      nombre: 'INGENIERO CRISTIAN', 
+      apellido: 'RAMIREZ' 
+    });
+    
+    localStorage.setItem(PREFIX + 'react_v5', '1');
   }
 };
 
