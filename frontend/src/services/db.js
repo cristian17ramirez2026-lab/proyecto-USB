@@ -60,7 +60,7 @@ const DB = {
 
   // Init
   init() {
-    if (localStorage.getItem(PREFIX + 'react_v8')) return;
+    if (localStorage.getItem(PREFIX + 'react_v9')) return;
     // Limpiar TODOS los datos (incluyendo usuarios) para empezar desde cero
     ['s','d','e','a','g','log','u'].forEach(k => localStorage.removeItem(PREFIX + k));
     
@@ -236,7 +236,151 @@ const DB = {
       fecha_ingreso: e[7] + 'T08:00:00.000Z' 
     }));
     
-    localStorage.setItem(PREFIX + 'react_v8', '1');
+    // Activos de Olímpica S.A.
+    // Estructura: [nombre, descripcion, tipo, serial, valor, fecha_compra, sede_id, dep_id]
+    const activos = [
+      // ========== SEDE PRINCIPAL BARRANQUILLA ==========
+      // Gerencia General (dep 1)
+      ['Laptop Dell Latitude 7420', 'i7 11va Gen, 16GB RAM, 512GB SSD', 'Computador', 'DELL-BAQ-2023-0001', 5800000, '2023-03-15', 1, 1],
+      ['Monitor Dell UltraSharp 27"', '4K UHD, USB-C', 'Monitor', 'DELL-BAQ-2023-0002', 2200000, '2023-03-15', 1, 1],
+      ['iPhone 14 Pro', '256GB, Gerencia', 'Celular', 'APPL-BAQ-2023-0003', 5500000, '2023-05-20', 1, 1],
+      ['Impresora HP LaserJet Pro M404dn', 'Láser monocromática, dúplex', 'Impresora', 'HPLJ-BAQ-2022-0004', 1800000, '2022-11-10', 1, 1],
+      
+      // Gerencia Financiera (dep 2)
+      ['Laptop HP EliteBook 850', 'i5 11va, 16GB, 256GB SSD', 'Computador', 'HPEB-BAQ-2022-0005', 4200000, '2022-08-15', 1, 2],
+      ['Laptop HP EliteBook 850', 'i5 11va, 16GB, 256GB SSD', 'Computador', 'HPEB-BAQ-2022-0006', 4200000, '2022-08-15', 1, 2],
+      ['Monitor LG 24"', 'Full HD, IPS', 'Monitor', 'LG-BAQ-2022-0007', 850000, '2022-08-20', 1, 2],
+      ['Monitor LG 24"', 'Full HD, IPS', 'Monitor', 'LG-BAQ-2022-0008', 850000, '2022-08-20', 1, 2],
+      ['Impresora Multifuncional Canon', 'MF445DW Wi-Fi', 'Impresora', 'CANO-BAQ-2022-0009', 2500000, '2022-10-05', 1, 2],
+      ['Calculadora Casio FR-2650T', 'Impresora térmica', 'Oficina', 'CASI-BAQ-2023-0010', 450000, '2023-02-12', 1, 2],
+      
+      // Gerencia Comercial (dep 3)
+      ['Laptop Lenovo ThinkPad T14', 'i7, 16GB, 512GB', 'Computador', 'LENO-BAQ-2023-0011', 4800000, '2023-01-18', 1, 3],
+      ['iPad Pro 12.9"', 'M2, 256GB, para presentaciones', 'Tablet', 'APPL-BAQ-2023-0012', 5200000, '2023-06-10', 1, 3],
+      ['Proyector Epson PowerLite', '4500 lúmenes, WUXGA', 'Audiovisual', 'EPSN-BAQ-2022-0013', 3800000, '2022-09-08', 1, 3],
+      
+      // Gerencia de Operaciones (dep 4)
+      ['Laptop Dell Latitude 5530', 'i5, 16GB, 256GB', 'Computador', 'DELL-BAQ-2023-0014', 4500000, '2023-04-20', 1, 4],
+      ['Monitor Dell 24"', 'Full HD', 'Monitor', 'DELL-BAQ-2023-0015', 950000, '2023-04-20', 1, 4],
+      ['Radio Comunicación Motorola', 'EP450 UHF', 'Comunicación', 'MOTO-BAQ-2022-0016', 650000, '2022-07-15', 1, 4],
+      
+      // TI (dep 5)
+      ['Servidor Dell PowerEdge R750', 'Xeon Silver, 64GB RAM, 2TB', 'Servidor', 'DELL-BAQ-2023-0017', 28000000, '2023-02-10', 1, 5],
+      ['Servidor HP ProLiant DL380', 'Xeon Gold, 128GB, 4TB', 'Servidor', 'HPEX-BAQ-2022-0018', 35000000, '2022-05-15', 1, 5],
+      ['Switch Cisco Catalyst 9300', '48 puertos PoE+', 'Red', 'CISC-BAQ-2022-0019', 12500000, '2022-06-20', 1, 5],
+      ['Switch Cisco Catalyst 9200', '24 puertos', 'Red', 'CISC-BAQ-2022-0020', 6800000, '2022-06-20', 1, 5],
+      ['Firewall Fortinet FortiGate 100F', 'Next Gen Firewall', 'Red', 'FORT-BAQ-2023-0021', 15000000, '2023-01-25', 1, 5],
+      ['UPS APC Smart 3000VA', 'Online, rack', 'Energía', 'APCU-BAQ-2022-0022', 2800000, '2022-04-18', 1, 5],
+      ['UPS APC Smart 3000VA', 'Online, rack', 'Energía', 'APCU-BAQ-2022-0023', 2800000, '2022-04-18', 1, 5],
+      ['Laptop Dell Precision 5570', 'i9, 32GB, 1TB, para desarrollo', 'Computador', 'DELL-BAQ-2023-0024', 9500000, '2023-03-08', 1, 5],
+      ['Laptop MacBook Pro 14"', 'M2 Pro, 16GB, 512GB', 'Computador', 'APPL-BAQ-2023-0025', 11500000, '2023-05-12', 1, 5],
+      ['Monitor Dell UltraSharp 32"', '4K, USB-C', 'Monitor', 'DELL-BAQ-2023-0026', 3500000, '2023-03-08', 1, 5],
+      ['Estación de trabajo HP Z4', 'Xeon, 64GB, 1TB', 'Computador', 'HPEW-BAQ-2023-0027', 15000000, '2023-07-22', 1, 5],
+      
+      // Talento Humano (dep 6)
+      ['Laptop HP ProBook 450', 'i5, 8GB, 256GB', 'Computador', 'HPPB-BAQ-2022-0028', 3200000, '2022-10-18', 1, 6],
+      ['Laptop HP ProBook 450', 'i5, 8GB, 256GB', 'Computador', 'HPPB-BAQ-2022-0029', 3200000, '2022-10-18', 1, 6],
+      ['Impresora HP LaserJet Pro MFP', 'Multifuncional', 'Impresora', 'HPLJ-BAQ-2022-0030', 1650000, '2022-11-25', 1, 6],
+      
+      // Auditoría (dep 7)
+      ['Laptop Dell Latitude 5420', 'i5, 16GB, 256GB', 'Computador', 'DELL-BAQ-2022-0031', 3800000, '2022-06-10', 1, 7],
+      ['Laptop Dell Latitude 5420', 'i5, 16GB, 256GB', 'Computador', 'DELL-BAQ-2022-0032', 3800000, '2022-06-10', 1, 7],
+      
+      // Jurídica (dep 8)
+      ['Laptop Lenovo ThinkPad L14', 'i5, 16GB, 512GB', 'Computador', 'LENO-BAQ-2023-0033', 4100000, '2023-02-28', 1, 8],
+      ['Escáner Canon ImageFormula', 'DR-C225 II', 'Oficina', 'CANO-BAQ-2023-0034', 1400000, '2023-03-15', 1, 8],
+      
+      // Compras (dep 9)
+      ['Laptop HP EliteBook 840', 'i7, 16GB, 256GB', 'Computador', 'HPEB-BAQ-2023-0035', 4600000, '2023-04-05', 1, 9],
+      ['Laptop HP EliteBook 840', 'i7, 16GB, 256GB', 'Computador', 'HPEB-BAQ-2023-0036', 4600000, '2023-04-05', 1, 9],
+      
+      // Mercadeo (dep 10)
+      ['iMac 24" M3', '16GB, 512GB, para diseño', 'Computador', 'APPL-BAQ-2023-0037', 8500000, '2023-09-15', 1, 10],
+      ['iMac 24" M3', '16GB, 512GB, para diseño', 'Computador', 'APPL-BAQ-2023-0038', 8500000, '2023-09-15', 1, 10],
+      ['Tableta Wacom Intuos Pro', 'Medium, para diseño', 'Periférico', 'WACO-BAQ-2023-0039', 1200000, '2023-10-02', 1, 10],
+      ['Cámara Canon EOS R6', 'Para sesiones publicitarias', 'Audiovisual', 'CANO-BAQ-2023-0040', 9800000, '2023-08-20', 1, 10],
+      
+      // ========== SEDE BOGOTÁ ==========
+      // Operaciones Zona Centro (dep 11)
+      ['Laptop Dell Latitude 5530', 'i5, 16GB', 'Computador', 'DELL-BOG-2023-0041', 4500000, '2023-05-10', 2, 11],
+      ['Laptop Dell Latitude 5530', 'i5, 16GB', 'Computador', 'DELL-BOG-2023-0042', 4500000, '2023-05-10', 2, 11],
+      ['Monitor LG 27"', 'Full HD', 'Monitor', 'LG-BOG-2023-0043', 1100000, '2023-05-10', 2, 11],
+      ['Impresora HP LaserJet', 'Pro M404', 'Impresora', 'HPLJ-BOG-2023-0044', 1800000, '2023-06-18', 2, 11],
+      
+      // Ventas Zona Centro (dep 12)
+      ['Laptop Lenovo ThinkPad E14', 'i5, 8GB, 256GB', 'Computador', 'LENO-BOG-2023-0045', 3400000, '2023-03-22', 2, 12],
+      ['Laptop Lenovo ThinkPad E14', 'i5, 8GB, 256GB', 'Computador', 'LENO-BOG-2023-0046', 3400000, '2023-03-22', 2, 12],
+      ['Laptop Lenovo ThinkPad E14', 'i5, 8GB, 256GB', 'Computador', 'LENO-BOG-2023-0047', 3400000, '2023-03-22', 2, 12],
+      ['iPhone 13', '128GB, para ejecutivos', 'Celular', 'APPL-BOG-2023-0048', 3200000, '2023-07-10', 2, 12],
+      ['iPhone 13', '128GB, para ejecutivos', 'Celular', 'APPL-BOG-2023-0049', 3200000, '2023-07-10', 2, 12],
+      
+      // Soporte TI Bogotá (dep 13)
+      ['Laptop Dell Precision 3570', 'i7, 16GB, 512GB', 'Computador', 'DELL-BOG-2023-0050', 6800000, '2023-04-15', 2, 13],
+      ['Switch Cisco Catalyst 2960', '24 puertos', 'Red', 'CISC-BOG-2022-0051', 3500000, '2022-09-10', 2, 13],
+      ['UPS APC 1500VA', 'Line interactive', 'Energía', 'APCU-BOG-2023-0052', 950000, '2023-02-08', 2, 13],
+      ['Kit herramientas técnicas', 'Klein Tools profesional', 'Herramienta', 'KLEI-BOG-2023-0053', 850000, '2023-05-18', 2, 13],
+      
+      // ========== SEDE MEDELLÍN ==========
+      // Operaciones Zona Occidente (dep 14)
+      ['Laptop HP EliteBook 840', 'i5, 8GB, 256GB', 'Computador', 'HPEB-MED-2023-0054', 3800000, '2023-02-12', 3, 14],
+      ['Laptop HP EliteBook 840', 'i5, 8GB, 256GB', 'Computador', 'HPEB-MED-2023-0055', 3800000, '2023-02-12', 3, 14],
+      ['Impresora HP Multifuncional', 'LaserJet Pro M283', 'Impresora', 'HPLJ-MED-2023-0056', 2100000, '2023-04-08', 3, 14],
+      
+      // Ventas Zona Occidente (dep 15)
+      ['Laptop Lenovo IdeaPad', 'i5, 8GB, 512GB', 'Computador', 'LENO-MED-2023-0057', 2900000, '2023-01-15', 3, 15],
+      ['Laptop Lenovo IdeaPad', 'i5, 8GB, 512GB', 'Computador', 'LENO-MED-2023-0058', 2900000, '2023-01-15', 3, 15],
+      
+      // ========== SEDE CALI ==========
+      // Operaciones Zona Suroccidente (dep 16)
+      ['Laptop Dell Vostro 3520', 'i5, 8GB, 256GB', 'Computador', 'DELL-CAL-2023-0059', 3200000, '2023-03-20', 4, 16],
+      ['Laptop Dell Vostro 3520', 'i5, 8GB, 256GB', 'Computador', 'DELL-CAL-2023-0060', 3200000, '2023-03-20', 4, 16],
+      ['Monitor Samsung 22"', 'Full HD', 'Monitor', 'SAMS-CAL-2023-0061', 650000, '2023-03-20', 4, 16],
+      
+      // Ventas Zona Suroccidente (dep 17)
+      ['Laptop HP ProBook 440', 'i5, 8GB', 'Computador', 'HPPB-CAL-2023-0062', 3400000, '2023-02-28', 4, 17],
+      ['Laptop HP ProBook 440', 'i5, 8GB', 'Computador', 'HPPB-CAL-2023-0063', 3400000, '2023-02-28', 4, 17],
+      
+      // ========== CENTRO DISTRIBUCIÓN MALAMBO ==========
+      // Logística y Distribución (dep 18)
+      ['Laptop Panasonic Toughbook', 'Rugged, para bodega', 'Computador', 'PANA-MAL-2023-0064', 7500000, '2023-06-10', 13, 18],
+      ['Montacargas Toyota 8FBE20', 'Eléctrico 2 ton', 'Maquinaria', 'TOYO-MAL-2022-0065', 85000000, '2022-03-15', 13, 18],
+      ['Montacargas Toyota 8FBE20', 'Eléctrico 2 ton', 'Maquinaria', 'TOYO-MAL-2022-0066', 85000000, '2022-03-15', 13, 18],
+      ['Montacargas Yale Pallet', 'Pallet manual', 'Maquinaria', 'YALE-MAL-2022-0067', 3200000, '2022-08-20', 13, 18],
+      ['Lector Código de Barras Zebra', 'DS2208 USB', 'Equipo', 'ZEBR-MAL-2023-0068', 480000, '2023-04-18', 13, 18],
+      ['Lector Código de Barras Zebra', 'DS2208 USB', 'Equipo', 'ZEBR-MAL-2023-0069', 480000, '2023-04-18', 13, 18],
+      ['Radio Comunicación Motorola', 'EP450 kit 4 unidades', 'Comunicación', 'MOTO-MAL-2023-0070', 2400000, '2023-02-10', 13, 18],
+      
+      // Almacén Central (dep 19)
+      ['Báscula Industrial 500kg', 'Digital, plataforma', 'Equipo', 'BASC-MAL-2022-0071', 2800000, '2022-11-10', 13, 19],
+      ['Báscula Industrial 2000kg', 'Para palets', 'Equipo', 'BASC-MAL-2022-0072', 5500000, '2022-11-10', 13, 19],
+      ['Estantería Industrial 5 Niveles', 'Capacidad 1000kg/nivel', 'Mobiliario', 'ESTA-MAL-2022-0073', 1800000, '2022-05-25', 13, 19],
+      ['Estantería Industrial 5 Niveles', 'Capacidad 1000kg/nivel', 'Mobiliario', 'ESTA-MAL-2022-0074', 1800000, '2022-05-25', 13, 19],
+      ['Estantería Industrial 5 Niveles', 'Capacidad 1000kg/nivel', 'Mobiliario', 'ESTA-MAL-2022-0075', 1800000, '2022-05-25', 13, 19],
+      ['Computador Todo en Uno HP', 'Para inventario', 'Computador', 'HPAI-MAL-2023-0076', 2400000, '2023-07-15', 13, 19],
+      ['Cámara Seguridad Hikvision', 'IP 4MP Dome', 'Seguridad', 'HIKV-MAL-2022-0077', 450000, '2022-04-12', 13, 19],
+      ['Cámara Seguridad Hikvision', 'IP 4MP Dome', 'Seguridad', 'HIKV-MAL-2022-0078', 450000, '2022-04-12', 13, 19],
+      
+      // ========== CENTRO DISTRIBUCIÓN SIBERIA ==========
+      // Distribución Centro (dep 20)
+      ['Laptop Panasonic Toughbook', 'Rugged, para despachos', 'Computador', 'PANA-SIB-2023-0079', 7500000, '2023-05-08', 14, 20],
+      ['Montacargas Hyster H2.5FT', 'Combustión, 2.5 ton', 'Maquinaria', 'HYST-SIB-2022-0080', 72000000, '2022-06-20', 14, 20],
+      ['Sistema GPS Flota Wialon', 'Licencia 15 vehículos', 'Software', 'WIAL-SIB-2023-0081', 5800000, '2023-01-25', 14, 20],
+      ['Lector Código de Barras Honeywell', 'Voyager 1250g', 'Equipo', 'HONE-SIB-2023-0082', 520000, '2023-03-18', 14, 20],
+      ['Impresora Etiquetas Zebra', 'ZD220 térmica', 'Impresora', 'ZEBR-SIB-2023-0083', 1100000, '2023-02-14', 14, 20],
+    ];
+    
+    activos.forEach(a => this.createActivo({
+      nombre: a[0],
+      descripcion: a[1],
+      tipo: a[2],
+      serial: a[3],
+      valor: a[4],
+      fecha_compra: a[5],
+      sede_id: a[6],
+      departamento_id: a[7],
+    }));
+    
+    localStorage.setItem(PREFIX + 'react_v9', '1');
   }
 };
 
