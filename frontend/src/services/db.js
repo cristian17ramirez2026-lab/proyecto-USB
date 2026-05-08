@@ -60,7 +60,7 @@ const DB = {
 
   // Init
   init() {
-    if (localStorage.getItem(PREFIX + 'react_v9')) return;
+    if (localStorage.getItem(PREFIX + 'react_v10')) return;
     // Limpiar TODOS los datos (incluyendo usuarios) para empezar desde cero
     ['s','d','e','a','g','log','u'].forEach(k => localStorage.removeItem(PREFIX + k));
     
@@ -73,6 +73,41 @@ const DB = {
       nombre: 'Cristian', 
       apellido: 'Ramírez' 
     });
+    
+    // Usuarios del sistema adicionales
+    // Estructura: [username, email, password, rol, nombre, apellido, sede_id]
+    const usuarios = [
+      // Administradores
+      ['jrodriguez', 'jrodriguez@olimpica.com.co', 'olimpica2024', 'ADMIN', 'Javier', 'Rodríguez', 1],
+      ['jperez', 'jperez@olimpica.com.co', 'olimpica2024', 'ADMIN', 'Juan Carlos', 'Pérez', 1],
+      ['ebarrios', 'ebarrios@olimpica.com.co', 'olimpica2024', 'ADMIN', 'Elena', 'Barrios', 1],
+      
+      // Operadores por sede
+      ['pmartinez', 'pmartinez@olimpica.com.co', 'olimpica2024', 'OPERADOR', 'Patricia', 'Martínez', 1],
+      ['lcastro', 'lcastro@olimpica.com.co', 'olimpica2024', 'OPERADOR', 'Laura', 'Castro', 1],
+      ['cmoreno', 'cmoreno@olimpica.com.co', 'olimpica2024', 'OPERADOR', 'Camilo', 'Moreno', 1],
+      ['dcardenas', 'dcardenas@olimpica.com.co', 'olimpica2024', 'OPERADOR', 'Daniel', 'Cárdenas', 2],
+      ['jserrano', 'jserrano@olimpica.com.co', 'olimpica2024', 'OPERADOR', 'Juliana', 'Serrano', 2],
+      ['amejia', 'amejia@olimpica.com.co', 'olimpica2024', 'OPERADOR', 'Adriana', 'Mejía', 3],
+      ['dvaldes', 'dvaldes@olimpica.com.co', 'olimpica2024', 'OPERADOR', 'Diana', 'Valdés', 4],
+      ['lfontalvo', 'lfontalvo@olimpica.com.co', 'olimpica2024', 'OPERADOR', 'Luis Miguel', 'Fontalvo', 13],
+      ['cmoreno2', 'cmoreno2@olimpica.com.co', 'olimpica2024', 'OPERADOR', 'Carolina', 'Moreno', 14],
+      
+      // Consulta (solo lectura)
+      ['preyes', 'preyes@olimpica.com.co', 'olimpica2024', 'CONSULTA', 'Paola', 'Reyes', 1],
+      ['rospina', 'rospina@olimpica.com.co', 'olimpica2024', 'CONSULTA', 'Ricardo', 'Ospina', 1],
+      ['avega', 'avega@olimpica.com.co', 'olimpica2024', 'CONSULTA', 'Alejandro', 'Vega', 1],
+    ];
+    
+    usuarios.forEach(u => this.createUser({
+      username: u[0],
+      email: u[1],
+      password: u[2],
+      rol: u[3],
+      nombre: u[4],
+      apellido: u[5],
+      sede_id: u[6],
+    }));
     
     // Sedes principales de Olímpica S.A. en Colombia
     const sedes = [
@@ -380,7 +415,7 @@ const DB = {
       departamento_id: a[7],
     }));
     
-    localStorage.setItem(PREFIX + 'react_v9', '1');
+    localStorage.setItem(PREFIX + 'react_v10', '1');
   }
 };
 
