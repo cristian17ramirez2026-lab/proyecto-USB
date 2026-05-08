@@ -24,7 +24,7 @@ export default function Dashboard() {
   return (
     <div>
       <div className="rounded-3 p-4 text-white mb-4" style={{ background: '#003087' }}>
-        <h4 className="fw-bold mb-1">Bienvenido, {user?.username}</h4>
+        <h4 className="fw-bold mb-1">Bienvenido, {user?.nombre ? `${user.nombre} ${user.apellido || ''}`.trim() : user?.username}</h4>
         <p className="mb-0 opacity-75">{isAdmin ? 'Vista global del sistema' : 'Vista de ' + (DB.getSede(user?.sede_id)?.nombre || 'tu sede')}</p>
       </div>
       <div className="row g-3 mb-4">

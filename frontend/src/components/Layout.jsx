@@ -42,9 +42,9 @@ export default function Layout({ children }) {
 
         {/* Usuario */}
         <div className="px-3 py-2 d-flex align-items-center gap-2" style={{ borderBottom: '1px solid rgba(255,255,255,.1)' }}>
-          <div className="rounded-2 d-flex align-items-center justify-content-center fw-bold" style={{ width: 30, height: 30, background: '#FF0000', fontSize: '.75rem', flexShrink: 0 }}>{user?.username?.[0]?.toUpperCase()}</div>
+          <div className="rounded-2 d-flex align-items-center justify-content-center fw-bold" style={{ width: 30, height: 30, background: '#FF0000', fontSize: '.75rem', flexShrink: 0 }}>{(user?.nombre?.[0] || user?.username?.[0] || '').toUpperCase()}</div>
           <div style={{ minWidth: 0 }}>
-            <div className="fw-bold text-truncate" style={{ fontSize: '.8rem' }}>{user?.username}</div>
+            <div className="fw-bold text-truncate" style={{ fontSize: '.8rem' }}>{user?.nombre ? `${user.nombre} ${user.apellido || ''}`.trim() : user?.username}</div>
             <small className="text-truncate d-block" style={{ fontSize: '.62rem', color: 'rgba(255,255,255,.4)' }}>{user?.rol}{sedeName ? ' | ' + sedeName : ''}</small>
           </div>
         </div>

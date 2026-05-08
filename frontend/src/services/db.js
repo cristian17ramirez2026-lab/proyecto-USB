@@ -60,7 +60,7 @@ const DB = {
 
   // Init
   init() {
-    if (localStorage.getItem(PREFIX + 'react_v5')) return;
+    if (localStorage.getItem(PREFIX + 'react_v6')) return;
     // Limpiar TODOS los datos (incluyendo usuarios) para empezar desde cero
     ['s','d','e','a','g','log','u'].forEach(k => localStorage.removeItem(PREFIX + k));
     
@@ -70,11 +70,11 @@ const DB = {
       email: 'admin@inventpro.com', 
       password: 'admin123', 
       rol: 'ADMIN', 
-      nombre: 'INGENIERO CRISTIAN', 
-      apellido: 'RAMIREZ' 
+      nombre: 'Cristian', 
+      apellido: 'Ramírez' 
     });
     
-    localStorage.setItem(PREFIX + 'react_v5', '1');
+    localStorage.setItem(PREFIX + 'react_v6', '1');
   }
 };
 

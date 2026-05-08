@@ -13,7 +13,15 @@ export function AuthProvider({ children }) {
     if (!u || u.password !== password) return 'Usuario o contraseña incorrectos';
     // Registrar último acceso
     DB.updateUser(u.id, { ultimo_acceso: new Date().toISOString() });
-    const session = { id: u.id, username: u.username, email: u.email, rol: u.rol, sede_id: u.sede_id || null };
+    const session = { 
+      id: u.id, 
+      username: u.username, 
+      email: u.email, 
+      rol: u.rol, 
+      sede_id: u.sede_id || null,
+      nombre: u.nombre || '',
+      apellido: u.apellido || ''
+    };
     DB.setSession(session);
     setUser(session);
     DB.addLog('Login', username, username);
