@@ -60,21 +60,71 @@ const DB = {
 
   // Init
   init() {
-    if (localStorage.getItem(PREFIX + 'react_v6')) return;
+    if (localStorage.getItem(PREFIX + 'react_v7')) return;
     // Limpiar TODOS los datos (incluyendo usuarios) para empezar desde cero
     ['s','d','e','a','g','log','u'].forEach(k => localStorage.removeItem(PREFIX + k));
     
-    // Solo crear el usuario administrador principal
+    // Usuario administrador principal
     this.createUser({ 
       username: 'admin', 
-      email: 'admin@inventpro.com', 
+      email: 'admin@olimpica.com.co', 
       password: 'admin123', 
       rol: 'ADMIN', 
       nombre: 'Cristian', 
       apellido: 'Ramírez' 
     });
     
-    localStorage.setItem(PREFIX + 'react_v6', '1');
+    // Sedes principales de Olímpica S.A. en Colombia
+    const sedes = [
+      ['Sede Principal Barranquilla', 'Barranquilla', 'Calle 77B # 57-141 Centro Empresarial Las Américas', '(605) 361-6000'],
+      ['Sede Bogotá', 'Bogotá D.C.', 'Av. Calle 26 # 69-76 Torre 3', '(601) 423-4000'],
+      ['Sede Medellín', 'Medellín', 'Carrera 48 # 20-114 El Poblado', '(604) 444-5000'],
+      ['Sede Cali', 'Cali', 'Av. 6 Norte # 25N-50', '(602) 667-8000'],
+      ['Sede Cartagena', 'Cartagena', 'Av. Pedro de Heredia # 45-67', '(605) 669-1000'],
+      ['Sede Santa Marta', 'Santa Marta', 'Carrera 4 # 22-35', '(605) 421-5000'],
+      ['Sede Bucaramanga', 'Bucaramanga', 'Carrera 27 # 36-15', '(607) 645-2000'],
+      ['Sede Pereira', 'Pereira', 'Av. Circunvalar # 8-50', '(606) 335-7000'],
+      ['Sede Montería', 'Montería', 'Carrera 6 # 35-20', '(604) 784-3000'],
+      ['Sede Sincelejo', 'Sincelejo', 'Calle 25 # 18-45', '(605) 282-6000'],
+      ['Sede Valledupar', 'Valledupar', 'Carrera 9 # 16A-20', '(605) 573-4000'],
+      ['Sede Riohacha', 'Riohacha', 'Calle 15 # 7-30', '(605) 728-1000'],
+      ['Sede Centro de Distribución Malambo', 'Malambo', 'Parque Industrial Malambo Km 1', '(605) 375-8000'],
+      ['Sede Centro de Distribución Siberia', 'Cota', 'Parque Industrial Siberia Km 3', '(601) 893-2000'],
+    ];
+    sedes.forEach(s => this.createSede({ nombre: s[0], ciudad: s[1], direccion: s[2], telefono: s[3] }));
+    
+    // Departamentos principales de Olímpica S.A.
+    const deps = [
+      // Sede Principal Barranquilla (id: 1)
+      ['Gerencia General', 1, 'Dirección', 'Dirección Ejecutiva'],
+      ['Gerencia Financiera', 1, 'Finanzas', 'Contabilidad y Tesorería'],
+      ['Gerencia Comercial', 1, 'Comercial', 'Ventas y Mercadeo'],
+      ['Gerencia de Operaciones', 1, 'Operaciones', 'Logística Nacional'],
+      ['Tecnología e Información (TI)', 1, 'Sistemas', 'Infraestructura y Soporte'],
+      ['Talento Humano', 1, 'RRHH', 'Gestión del Talento'],
+      ['Auditoría Interna', 1, 'Control', 'Control Interno'],
+      ['Jurídica', 1, 'Legal', 'Asesoría Legal'],
+      ['Compras y Abastecimiento', 1, 'Comercial', 'Negociación Proveedores'],
+      ['Mercadeo y Publicidad', 1, 'Comercial', 'Marketing'],
+      // Sede Bogotá (id: 2)
+      ['Operaciones Zona Centro', 2, 'Operaciones', 'Logística Regional'],
+      ['Ventas Zona Centro', 2, 'Comercial', 'Ventas Regionales'],
+      ['Soporte TI Bogotá', 2, 'Sistemas', 'Soporte Técnico'],
+      // Sede Medellín (id: 3)
+      ['Operaciones Zona Occidente', 3, 'Operaciones', 'Logística Regional'],
+      ['Ventas Zona Occidente', 3, 'Comercial', 'Ventas Regionales'],
+      // Sede Cali (id: 4)
+      ['Operaciones Zona Suroccidente', 4, 'Operaciones', 'Logística Regional'],
+      ['Ventas Zona Suroccidente', 4, 'Comercial', 'Ventas Regionales'],
+      // Centro Distribución Malambo (id: 13)
+      ['Logística y Distribución', 13, 'Operaciones', 'Centro de Distribución'],
+      ['Almacén Central', 13, 'Operaciones', 'Inventario y Bodegas'],
+      // Centro Distribución Siberia (id: 14)
+      ['Distribución Centro', 14, 'Operaciones', 'Centro de Distribución'],
+    ];
+    deps.forEach(d => this.createDep({ nombre: d[0], sede_id: d[1], area: d[2], responsable: d[3] }));
+    
+    localStorage.setItem(PREFIX + 'react_v7', '1');
   }
 };
 
