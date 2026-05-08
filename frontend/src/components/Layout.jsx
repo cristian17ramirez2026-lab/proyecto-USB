@@ -2,16 +2,6 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import DB from '../services/db';
 
-const menu = [
-  { to: '/dashboard', icon: '📊', label: 'Dashboard' },
-  { to: '/activos', icon: '💻', label: 'Activos' },
-  { to: '/empleados', icon: '👥', label: 'Empleados' },
-  { to: '/asignaciones', icon: '🔄', label: 'Asignaciones' },
-  { to: '/sedes', icon: '🏢', label: 'Sedes' },
-  { to: '/departamentos', icon: '🏛️', label: 'Departamentos' },
-  { to: '/reportes', icon: '📈', label: 'Reportes' },
-];
-
 const Logo = () => (
   <svg width="30" height="30" viewBox="0 0 100 100">
     <rect width="100" height="100" rx="18" fill="#FF0000"/>
@@ -63,12 +53,15 @@ export default function Layout({ children }) {
         <nav className="flex-grow-1 py-1" style={{ overflowY: 'auto', overflowX: 'hidden', scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.3) transparent' }}>
           <SectionTitle title="PRINCIPAL" />
           <NavItem to="/dashboard" icon="📊" label="Dashboard" />
-          <SectionTitle title="INVENTARIO" />
-          {menu.slice(1, 4).map(m => <NavItem key={m.to} {...m} />)}
           <SectionTitle title="ORGANIZACIÓN" />
-          {menu.slice(4, 6).map(m => <NavItem key={m.to} {...m} />)}
+          <NavItem to="/sedes" icon="🏢" label="Sedes" />
+          <NavItem to="/departamentos" icon="🏛️" label="Departamentos" />
+          <SectionTitle title="INVENTARIO" />
+          <NavItem to="/activos" icon="💻" label="Activos" />
+          <NavItem to="/empleados" icon="👥" label="Empleados" />
+          <NavItem to="/asignaciones" icon="🔄" label="Asignaciones" />
           <SectionTitle title="ANÁLISIS" />
-          {menu.slice(6).map(m => <NavItem key={m.to} {...m} />)}
+          <NavItem to="/reportes" icon="📈" label="Reportes" />
           {isAdmin && (
             <div>
               <SectionTitle title="ADMINISTRACIÓN" />
