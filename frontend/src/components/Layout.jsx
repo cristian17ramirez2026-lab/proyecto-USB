@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import DB from '../services/db';
 
@@ -21,6 +21,72 @@ const NavItem = ({ to, icon, label }) => (
 const SectionTitle = ({ title }) => (
   <div style={{ padding: '10px 20px 4px', fontSize: '.58rem', textTransform: 'uppercase', letterSpacing: 1.5, color: 'rgba(255,255,255,.25)', fontWeight: 700 }}>{title}</div>
 );
+
+// Mapeo de rutas a información de la miga de pan
+const routeMap = {
+  '/dashboard': { icon: '📊', label: 'Dashboard', section: 'Principal' },
+  '/sedes': { icon: '🏢', label: 'Sedes', section: 'Organización' },
+  '/departamentos': { icon: '🏛️', label: 'Departamentos', section: 'Organización' },
+  '/activos': { icon: '💻', label: 'Activos', section: 'Inventario' },
+  '/empleados': { icon: '👥', label: 'Empleados', section: 'Inventario' },
+  '/asignaciones': { icon: '🔄', label: 'Asignaciones', section: 'Inventario' },
+  '/reportes': { icon: '📈', label: 'Reportes', section: 'Análisis' },
+  '/usuarios': { icon: '👤', label: 'Usuarios', section: 'Administración' },
+  '/actividad': { icon: '📋', label: 'Actividad', section: 'Administración' },
+};
+
+const Breadcrumbs = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const currentPath = location.pathname;
+  const currentRoute = routeMap[currentPath];
+
+  if (!currentRoute) return null;
+
+  return (
+    <nav aria-label="breadcrumb" className="px-4 py-2" style={{ background: '#F8F9FA', borderBottom: '1px solid #E9ECEF' }}>
+      <ol className="breadcrumb mb-0" style={{ fontSize: '0.8rem' }}>
+        <li className="breadcrumb-item">
+          <button
+            onClick={() => navigate('/dashboard')}
+            className="btn btn-link p-0 text-decoration-none"
+            style={{ color: '#6C757D', fontSize: '0.8rem', lineHeight: 1 }}
+          >
+            🏠 Inicio
+          </button>
+        </li>
+        {currentRoute.section !== 'Principal' && (
+          <li className="breadcrumb-item" style={{ color: '#6C757D' }}>
+            {currentRoute.section}
+          </li>
+        )}
+        <li className="breadcrumb-item active" aria-current="page" style={{ color: '#003087', fontWeight: 600 }}>
+          <span className="me-1">{currentRoute.icon}</span>
+          {currentRoute.label}
+        </li>
+      </ol>
+    </nav>
+  );
+};
+
+const PageTitle = () => {
+  const location = useLocation();
+  const currentRoute = routeMap[location.pathname];
+
+  if (!currentRoute) return null;
+
+  return (
+    <div className="px-4 pt-3 pb-2" style={{ background: '#FFFFFF' }}>
+      <div className="d-flex align-items-center gap-2">
+        <span style={{ fontSize: '1.5rem' }}>{currentRoute.icon}</span>
+        <div>
+          <h4 className="mb-0 fw-bold" style={{ color: '#003087' }}>{currentRoute.label}</h4>
+          <small className="text-muted">{currentRoute.section}</small>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function Layout({ children }) {
   const { user, isAdmin, logout } = useAuth();
@@ -81,6 +147,7 @@ export default function Layout({ children }) {
 
       {/* MAIN */}
       <main className="flex-grow-1" style={{ marginLeft: 250, background: '#FFFFFF', minHeight: '100vh' }}>
+        {/* Header superior */}
         <div className="px-4 py-2 d-flex justify-content-between align-items-center" style={{ position: 'sticky', top: 0, zIndex: 10, background: '#FFFFFF', borderBottom: '2px solid #003087' }}>
           <div className="d-flex align-items-center gap-2">
             <Logo />
@@ -94,6 +161,11 @@ export default function Layout({ children }) {
             <span className="badge" style={{ background: user?.rol === 'ADMIN' ? '#FF0000' : '#003087' }}>{user?.rol}</span>
           </div>
         </div>
+
+        {/* Miga de pan (breadcrumbs) */}
+        <Breadcrumbs />
+
+        {/* Contenido */}
         <div className="p-4">{children}</div>
       </main>
     </div>
